@@ -1,0 +1,186 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import FAQ from '../../components/FAQ.astro';
+import { getBreadcrumbSchema, getFAQPageSchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Flooring Types', url: '/flooring/' },
+  { label: 'Engineered Hardwood', url: '/flooring/engineered-hardwood/' },
+];
+
+const faqs = [
+  {
+    question: 'What is engineered hardwood flooring?',
+    answer: 'Engineered hardwood consists of a real hardwood veneer layer on top of multiple layers of plywood or high-density fiberboard. This construction provides stability and allows installation in areas where solid hardwood may not be suitable.',
+  },
+  {
+    question: 'Where is engineered hardwood best suited?',
+    answer: 'Engineered hardwood is ideal for offices, retail spaces, hospitality environments, and can be installed above or below grade (with proper moisture mitigation). It\'s more stable than solid hardwood in varying humidity conditions.',
+  },
+  {
+    question: 'How long does engineered hardwood installation take?',
+    answer: 'Installation timelines vary by project size. Small projects (under 5,000 sq ft) typically take 4-6 days. Larger projects may take 1-2 weeks. Acclimation time is typically shorter than solid hardwood.',
+  },
+  {
+    question: 'What maintenance does engineered hardwood require?',
+    answer: 'Engineered hardwood requires regular sweeping or dust mopping, occasional damp mopping with appropriate cleaners, and periodic refinishing (depending on veneer thickness). Avoid excessive moisture and use protective pads under furniture.',
+  },
+  {
+    question: 'Can engineered hardwood be installed below grade?',
+    answer: 'Yes, engineered hardwood can be installed below grade with proper moisture mitigation. It\'s more stable than solid hardwood and better suited for areas with varying humidity levels. We test and address moisture issues during installation.',
+  },
+  {
+    question: 'What is the typical lifespan of engineered hardwood?',
+    answer: 'With proper installation and maintenance, engineered hardwood typically lasts 20-30 years or more. The lifespan depends on the thickness of the wear layer and can be extended with refinishing (if the veneer is thick enough).',
+  },
+];
+
+const schema = [
+  getBreadcrumbSchema(breadcrumbs),
+  getFAQPageSchema(faqs),
+];
+---
+
+<BaseLayout
+  title="Engineered Hardwood Commercial Flooring | Stable Hardwood Installation"
+  description="Professional engineered hardwood flooring installation for commercial spaces. Stable, versatile hardwood with real wood veneer for elegant commercial environments."
+  schema={schema}
+>
+  
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Engineered Hardwood for Commercial Spaces</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Engineered hardwood flooring offering the beauty of real wood with enhanced stability and versatility for commercial applications.
+        </p>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <div class="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img 
+              src="/images/eng-hardwood1.jpeg" 
+              alt="Modern office with engineered hardwood flooring" 
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img 
+              src="/images/eng-hardwood3.jpg" 
+              alt="Retail space with elegant engineered hardwood installation" 
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-3xl font-heading font-bold mb-6">Where Engineered Hardwood Fits</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Engineered hardwood is an excellent choice for offices, retail spaces, hospitality environments, and other commercial settings where the beauty of real wood is desired with enhanced stability. Unlike solid hardwood, engineered hardwood can be installed above or below grade (with proper moisture mitigation), making it more versatile for various building configurations. It provides the same elegant appearance as solid hardwood with better resistance to humidity fluctuations.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Pros & Cons</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Advantages</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Real wood appearance and feel</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">More stable than solid hardwood</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Can be installed above or below grade</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Better resistance to humidity changes</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Can be refinished (depending on veneer thickness)</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Wide variety of wood species and finishes</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Considerations</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Limited refinishing compared to solid hardwood</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Acclimation period required before installation</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Moisture mitigation needed for below-grade installations</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Requires level subfloor</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Can be susceptible to moisture damage if not properly maintained</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Professional installation critical for warranty</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Installation Notes & Downtime</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Engineered hardwood installation requires careful planning and preparation. The wood must be acclimated to the installation environment, though typically for a shorter period than solid hardwood. We assess subfloor conditions, moisture levels, and environmental factors during our site walk. Installation can involve nailing or stapling to a wood subfloor, gluing to concrete, or floating installation depending on the product and subfloor type. Most installations can be completed with minimal downtime, and we can work in phases for occupied buildings. Small projects (under 5,000 sq ft) typically take 4-6 days including acclimation, while larger projects may take 1-2 weeks.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Maintenance Basics</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Engineered hardwood maintenance includes regular sweeping or dust mopping to remove dirt and debris, occasional damp mopping with manufacturer-approved cleaners, and periodic refinishing (if the veneer is thick enough). Avoid excessive moisture, harsh chemicals, or abrasive cleaning tools. Use protective pads under furniture legs and area rugs in high-traffic areas. We provide detailed maintenance guidelines with every installation to help preserve the beauty and longevity of your engineered hardwood floors.
+          </p>
+          
+          <div class="mt-12">
+            <h2 class="text-3xl font-heading font-bold mb-6">Frequently Asked Questions</h2>
+            <FAQ items={faqs} />
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6">Interested in Engineered Hardwood?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Contact us for a free site walk and detailed proposal for your engineered hardwood installation.
+        </p>
+        <CTA />
+        <p class="mt-6 text-gray-600">
+          <a href="/services/commercial-flooring-installation/" class="text-charcoal font-semibold no-underline hover:underline">
+            View Installation Services →
+          </a>
+        </p>
+      </div>
+    </section>
+  </main>
+  
+</BaseLayout>

@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import { getBreadcrumbSchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Industries', url: '/industries/' },
+  { label: 'Education', url: '/industries/education/' },
+];
+
+const schema = [getBreadcrumbSchema(breadcrumbs)];
+---
+
+<BaseLayout
+  title="Commercial Flooring for Education | School & University Flooring"
+  description="Commercial flooring for schools and universities. Durable, easy-to-maintain flooring solutions for educational facilities."
+  schema={schema}
+>
+  
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Commercial Flooring for Education</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Durable, easy-to-maintain flooring solutions for schools and universities. We work around class schedules to minimize disruption.
+        </p>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <div class="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <img 
+            src="/images/school1.webp" 
+            alt="School hallway with durable commercial flooring" 
+            class="w-full h-64 object-cover rounded"
+            loading="lazy"
+          />
+          <img 
+            src="/images/school2.jpg" 
+            alt="Classroom or campus interior with commercial flooring" 
+            class="w-full h-64 object-cover rounded"
+            loading="lazy"
+          />
+        </div>
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-3xl font-heading font-bold mb-6">Pain Points We Solve</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Educational facilities require flooring that can handle high traffic from students and staff, is easy to maintain, and can be installed during breaks or after hours to avoid disrupting classes.
+          </p>
+          
+          <ul class="list-none space-y-4 mb-8">
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <div>
+                <strong class="text-charcoal">Minimal Class Disruption:</strong>
+                <span class="text-gray-600"> We schedule work during breaks, summers, or after hours to avoid disrupting classes.</span>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <div>
+                <strong class="text-charcoal">Durability:</strong>
+                <span class="text-gray-600"> Flooring that withstands high foot traffic from students and staff.</span>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <div>
+                <strong class="text-charcoal">Easy Maintenance:</strong>
+                <span class="text-gray-600"> Flooring that's easy to clean and maintain, reducing custodial costs.</span>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <div>
+                <strong class="text-charcoal">Cost-Effective:</strong>
+                <span class="text-gray-600"> Durable flooring options that provide long-term value for educational budgets.</span>
+              </div>
+            </li>
+          </ul>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Recommended Flooring Options</h2>
+          <ul class="list-none space-y-3 mb-8">
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">
+                <a href="/flooring/vct/" class="text-charcoal font-semibold no-underline hover:underline">VCT</a> - Cost-effective, durable, easy to maintain
+              </span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">
+                <a href="/flooring/lvt-lvp/" class="text-charcoal font-semibold no-underline hover:underline">LVT/LVP</a> - Durable, modern appearance
+              </span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">
+                <a href="/flooring/rubber/" class="text-charcoal font-semibold no-underline hover:underline">Rubber</a> - Comfortable, slip-resistant for gyms and common areas
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6">Ready to Update Your Educational Facility Flooring?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Contact us for a free site walk and detailed proposal for your education facility project.
+        </p>
+        <CTA />
+      </div>
+    </section>
+  </main>
+  
+</BaseLayout>

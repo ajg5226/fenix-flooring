@@ -1,0 +1,165 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import FAQ from '../../components/FAQ.astro';
+import { getBreadcrumbSchema, getFAQPageSchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Flooring Types', url: '/flooring/' },
+  { label: 'Sheet Vinyl', url: '/flooring/sheet-vinyl/' },
+];
+
+const faqs = [
+  {
+    question: 'What is sheet vinyl flooring?',
+    answer: 'Sheet vinyl is a seamless, resilient flooring material available in rolls. It provides a hygienic, easy-to-clean surface ideal for commercial environments requiring seamless installation.',
+  },
+  {
+    question: 'Where is sheet vinyl best suited?',
+    answer: 'Sheet vinyl is ideal for healthcare facilities, laboratories, food service areas, and other environments requiring seamless, hygienic flooring. It\'s also used in offices and retail spaces.',
+  },
+  {
+    question: 'How long does sheet vinyl installation take?',
+    answer: 'Installation timelines vary by project size. Small projects (under 5,000 sq ft) typically take 3-5 days. Larger projects may take 1-2 weeks. Seam welding adds time to the process.',
+  },
+  {
+    question: 'What maintenance does sheet vinyl require?',
+    answer: 'Sheet vinyl requires regular sweeping or vacuuming, damp mopping with manufacturer-approved cleaners, and periodic deep cleaning. Avoid harsh chemicals and excessive water.',
+  },
+  {
+    question: 'Is sheet vinyl suitable for moisture-prone areas?',
+    answer: 'Sheet vinyl is moisture-resistant but requires proper subfloor preparation and moisture mitigation if slab moisture levels are elevated. We test and address moisture issues during installation.',
+  },
+];
+
+const schema = [
+  getBreadcrumbSchema(breadcrumbs),
+  getFAQPageSchema(faqs),
+];
+---
+
+<BaseLayout
+  title="Sheet Vinyl Commercial Flooring | Seamless Vinyl Installation"
+  description="Professional sheet vinyl installation for commercial spaces. Seamless, hygienic flooring ideal for healthcare, food service, and commercial environments."
+  schema={schema}
+>
+  
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Sheet Vinyl for Commercial Spaces</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Seamless sheet vinyl flooring providing hygienic, easy-to-clean surfaces for commercial environments.
+        </p>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <div class="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img
+              src="/images/vinyl2.webp"
+              alt="Sheet vinyl flooring in a commercial space"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img
+              src="/images/vinyl3.webp"
+              alt="Seamless sheet vinyl installation"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-3xl font-heading font-bold mb-6">Where Sheet Vinyl Fits</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Sheet vinyl is an excellent choice for healthcare facilities, laboratories, food service areas, and other environments requiring seamless, hygienic flooring. The seamless installation eliminates grout lines and seams where bacteria and moisture can accumulate. It's also used in offices, retail spaces, and educational facilities where easy maintenance and durability are priorities.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Pros & Cons</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Advantages</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Seamless installation eliminates grout lines</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Hygienic and easy to clean</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Moisture-resistant when properly installed</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Durable and long-lasting</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Wide variety of designs and colors</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Considerations</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Requires level subfloor</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Professional seam welding required</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Moisture mitigation may be needed</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Can show wear patterns in very high-traffic areas</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Installation Notes & Downtime</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Sheet vinyl installation requires a level, clean subfloor. We assess subfloor conditions during our site walk and include any necessary preparation in our proposal. Installation involves adhesive application and professional seam welding to create seamless joints. Most installations can be completed with minimal downtime, and we can work in phases for occupied buildings. Small projects (under 5,000 sq ft) typically take 3-5 days, while larger projects may take 1-2 weeks.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Maintenance Basics</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Sheet vinyl maintenance is straightforward. Regular sweeping or vacuuming removes dirt and debris. Damp mopping with manufacturer-approved cleaners keeps the surface clean. Avoid harsh chemicals, excessive water, or abrasive cleaning tools. Periodic deep cleaning may be recommended. We provide maintenance guidelines with every installation.
+          </p>
+          
+          <div class="mt-12">
+            <h2 class="text-3xl font-heading font-bold mb-6">Frequently Asked Questions</h2>
+            <FAQ items={faqs} />
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6">Interested in Sheet Vinyl?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Contact us for a free site walk and detailed proposal for your sheet vinyl installation.
+        </p>
+        <CTA />
+      </div>
+    </section>
+  </main>
+  
+</BaseLayout>

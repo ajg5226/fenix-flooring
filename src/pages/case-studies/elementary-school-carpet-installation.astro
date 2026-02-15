@@ -1,0 +1,210 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+import { getBreadcrumbSchema, getCaseStudySchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Case Studies', url: '/case-studies/' },
+  { label: 'Elementary School Carpet Installation', url: '/case-studies/elementary-school-carpet-installation/' },
+];
+
+const projectDetails = {
+  client: 'Public Elementary School',
+  industry: 'Education',
+  scope: 'Full building carpet installation',
+  schedule: 'Summer break (8-week window)',
+  products: ['Commercial Carpet Tile', 'Broadloom Carpet'],
+  services: ['Flooring Removal', 'Subfloor Preparation', 'Carpet Installation'],
+};
+
+const schema = [
+  getBreadcrumbSchema(breadcrumbs),
+  getCaseStudySchema({
+    title: 'Elementary School Full Carpet Installation',
+    description: 'How Fenix Flooring completed a full carpet installation for an elementary school during summer break.',
+    url: '/case-studies/elementary-school-carpet-installation/',
+    industry: 'Education',
+    image: '/images/carpet-tile2.webp',
+  }),
+];
+---
+
+<BaseLayout
+  title="Elementary School Full Carpet Installation | Case Study"
+  description="How Fenix Flooring completed a full carpet installation for an elementary school during summer break."
+  schema={schema}
+>
+  <main id="main-content" class="pt-24">
+    <!-- Hero Section -->
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <div class="flex flex-wrap gap-3 mb-6">
+          <span class="bg-white text-charcoal text-sm font-semibold px-4 py-1 uppercase tracking-wide">Education</span>
+          <span class="border border-gray-200 text-gray-300 text-sm font-semibold px-4 py-1 uppercase tracking-wide">Summer Break</span>
+        </div>
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Elementary School Full Carpet Installation</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Complete carpet installation across classrooms, corridors, and common areas during the summer break window so the school was ready for the first day.
+        </p>
+      </div>
+    </section>
+
+    <!-- Project Image -->
+    <section class="bg-gray-100">
+      <div class="max-w-7xl mx-auto">
+        <div class="aspect-[21/9] overflow-hidden">
+          <img 
+            src="/images/carpet-tile2.webp" 
+            alt="Elementary school carpet installation project" 
+            class="w-full h-full object-cover"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Details -->
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-7xl mx-auto" data-reveal>
+        <div class="grid lg:grid-cols-3 gap-12">
+          <!-- Main Content -->
+          <div class="lg:col-span-2">
+            <h2 class="text-3xl font-heading font-bold mb-6">The Challenge</h2>
+            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+              A public elementary school needed a full carpet replacement across the building. The existing carpet was worn, stained, and no longer meeting acoustical or safety standards. With hundreds of students and staff returning in the fall, the facility manager had one non-negotiable constraint: the entire project had to be completed within the summer break window.
+            </p>
+            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+              The scope included classrooms, hallways, the library, and administrative areas—roughly 45,000 square feet. Any delay would mean unfinished floors on the first day of school. The district needed a contractor who could plan precisely, mobilize quickly, and deliver on time.
+            </p>
+            
+            <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Our Approach</h2>
+            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+              We treated the summer break as a fixed deadline and built the schedule backward from the first day of school. A dedicated project manager coordinated daily with the facility team. We sequenced work by wing so that removal, prep, and installation could move in phases without overlap, maximizing crew efficiency.
+            </p>
+            
+            <div class="bg-gray-100 p-8 mb-8">
+              <h3 class="text-xl font-heading font-bold mb-6">Key Strategies</h3>
+              <ul class="space-y-4">
+                <li class="flex items-start gap-4">
+                  <svg class="w-6 h-6 text-charcoal shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-gray-600"><strong>Backward scheduling:</strong> Locked in completion date and phased each wing so all areas were finished with buffer before opening</span>
+                </li>
+                <li class="flex items-start gap-4">
+                  <svg class="w-6 h-6 text-charcoal shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-gray-600"><strong>Dedicated crews:</strong> Assigned teams to the project for the full summer to avoid ramp-up delays and ensure consistency</span>
+                </li>
+                <li class="flex items-start gap-4">
+                  <svg class="w-6 h-6 text-charcoal shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-gray-600"><strong>Early material staging:</strong> All carpet and adhesives ordered and delivered before break to prevent supply delays</span>
+                </li>
+                <li class="flex items-start gap-4">
+                  <svg class="w-6 h-6 text-charcoal shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-gray-600"><strong>Daily progress reviews:</strong> Short daily check-ins with the facility manager so any issues were addressed immediately</span>
+                </li>
+              </ul>
+            </div>
+
+            <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Product Selection</h2>
+            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+              We worked with the district to select carpet that would stand up to daily student traffic, meet fire and indoor air quality requirements, and stay within budget. The solution combined carpet tile in high-traffic areas with broadloom where larger, seamless runs were preferred:
+            </p>
+            <ul class="space-y-2 text-lg text-gray-600 mb-8">
+              <li><strong>Classrooms:</strong> Commercial carpet tile with high durability and stain resistance for easy spot replacement if needed</li>
+              <li><strong>Hallways:</strong> Same carpet tile system for consistency and heavy traffic performance</li>
+              <li><strong>Library and common areas:</strong> Broadloom in coordinating colors for a cohesive look</li>
+              <li><strong>Administrative areas:</strong> Carpet tile in neutral tones to match the rest of the building</li>
+            </ul>
+
+            <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Results</h2>
+            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+              The full carpet installation was completed with one week to spare before the first day of school. The facility manager had time for a final walk-through and punch list. Students and staff returned to a refreshed, quiet, and easy-to-maintain environment, and the district had a single point of contact and a clear record of the project for future planning.
+            </p>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="lg:col-span-1">
+            <div class="bg-gray-100 p-8 sticky top-24">
+              <h3 class="text-xl font-heading font-bold mb-6">Project Details</h3>
+              <dl class="space-y-4">
+                <div>
+                  <dt class="text-sm text-gray-600 uppercase tracking-wide">Industry</dt>
+                  <dd class="text-charcoal font-semibold mt-1">{projectDetails.industry}</dd>
+                </div>
+                <div>
+                  <dt class="text-sm text-gray-600 uppercase tracking-wide">Project Scope</dt>
+                  <dd class="text-charcoal font-semibold mt-1">{projectDetails.scope}</dd>
+                </div>
+                <div>
+                  <dt class="text-sm text-gray-600 uppercase tracking-wide">Schedule</dt>
+                  <dd class="text-charcoal font-semibold mt-1">{projectDetails.schedule}</dd>
+                </div>
+                <div>
+                  <dt class="text-sm text-gray-600 uppercase tracking-wide">Products Used</dt>
+                  <dd class="flex flex-wrap gap-2 mt-2">
+                    {projectDetails.products.map((product) => (
+                      <span class="bg-white text-charcoal text-sm px-3 py-1 border border-gray-200">{product}</span>
+                    ))}
+                  </dd>
+                </div>
+                <div>
+                  <dt class="text-sm text-gray-600 uppercase tracking-wide">Services</dt>
+                  <dd class="flex flex-wrap gap-2 mt-2">
+                    {projectDetails.services.map((service) => (
+                      <span class="bg-white text-charcoal text-sm px-3 py-1 border border-gray-200">{service}</span>
+                    ))}
+                  </dd>
+                </div>
+              </dl>
+              <hr class="my-8 border-gray-200" />
+              <a href="/contact/#quote-form" class="block w-full text-center bg-charcoal text-white font-semibold py-4 uppercase tracking-wide hover:bg-gray-dark transition-colors">
+                Discuss Your Project
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Case Studies -->
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-heading font-bold mb-8">More Case Studies</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <a href="/case-studies/office-building-replacement/" class="block p-8 bg-white border border-gray-200 hover:border-ochre transition-colors no-underline text-charcoal">
+            <div class="text-sm text-gray-600 mb-2 uppercase tracking-wide">Office Buildings</div>
+            <h3 class="text-2xl font-heading font-bold mb-4">Office Building Flooring Replacement</h3>
+            <p class="text-gray-600">LVT installation in an occupied office building with after-hours scheduling.</p>
+          </a>
+          <a href="/case-studies/healthcare-lvt-installation/" class="block p-8 bg-white border border-gray-200 hover:border-ochre transition-colors no-underline text-charcoal">
+            <div class="text-sm text-gray-600 mb-2 uppercase tracking-wide">Healthcare</div>
+            <h3 class="text-2xl font-heading font-bold mb-4">Healthcare Facility LVT Installation</h3>
+            <p class="text-gray-600">LVT installation in an active healthcare facility with phased scheduling.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="px-4 md:px-15 py-20 bg-charcoal text-white">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6 text-center">Have a Similar Project?</h2>
+        <p class="text-xl text-gray-300 mb-12 text-center">
+          Let's discuss how we can help your school or educational facility achieve the same results.
+        </p>
+        <QuoteForm />
+      </div>
+    </section>
+  </main>
+</BaseLayout>

@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import { getBreadcrumbSchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Industries', url: '/industries/' },
+  { label: 'Office Buildings', url: '/industries/office-buildings/' },
+];
+
+const schema = [getBreadcrumbSchema(breadcrumbs)];
+---
+
+<BaseLayout
+  title="Commercial Flooring for Office Buildings | After-Hours Installation"
+  description="Commercial flooring for office buildings. After-hours installations, tenant coordination, and professional flooring solutions for occupied offices."
+  schema={schema}
+>
+  
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Commercial Flooring for Office Buildings</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          After-hours installations and phased work for occupied office buildings. We minimize disruption to your operations.
+        </p>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <div class="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <img 
+            src="/images/pc1.jpg" 
+            alt="Modern office building with polished concrete flooring" 
+            class="w-full h-64 object-cover rounded"
+            loading="lazy"
+          />
+          <img 
+            src="/images/lvp1.jpg" 
+            alt="Office workspace with luxury vinyl plank flooring" 
+            class="w-full h-64 object-cover rounded"
+            loading="lazy"
+          />
+        </div>
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-3xl font-heading font-bold mb-6">Pain Points We Solve</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Office buildings require flooring that can handle high traffic, look professional, and be installed with minimal disruption to daily operations. We specialize in after-hours and phased installations that keep your building operational.
+          </p>
+          
+          <ul class="list-none space-y-4 mb-8">
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <div>
+                <strong class="text-charcoal">Minimal Disruption:</strong>
+                <span class="text-gray-600"> After-hours and phased installations allow normal business operations to continue.</span>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <div>
+                <strong class="text-charcoal">Professional Appearance:</strong>
+                <span class="text-gray-600"> We install flooring that maintains a professional, modern appearance for your office spaces.</span>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <div>
+                <strong class="text-charcoal">Durability:</strong>
+                <span class="text-gray-600"> Commercial-grade flooring that withstands high foot traffic and daily wear.</span>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <div>
+                <strong class="text-charcoal">Easy Maintenance:</strong>
+                <span class="text-gray-600"> Flooring that's easy to clean and maintain, reducing long-term costs.</span>
+              </div>
+            </li>
+          </ul>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Recommended Flooring Options</h2>
+          <ul class="list-none space-y-3 mb-8">
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">
+                <a href="/flooring/lvt-lvp/" class="text-charcoal font-semibold no-underline hover:underline">LVT/LVP</a> - Modern appearance, durable, easy to maintain
+              </span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">
+                <a href="/flooring/sheet-vinyl/" class="text-charcoal font-semibold no-underline hover:underline">Sheet Vinyl</a> - Seamless, professional appearance
+              </span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">
+                <a href="/flooring/carpet-tile/" class="text-charcoal font-semibold no-underline hover:underline">Carpet Tile</a> - Acoustic comfort, modular replacement, office-friendly
+              </span>
+            </li>
+          </ul>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Common Scopes</h2>
+          <ul class="list-none space-y-3 mb-8">
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Office suite renovations</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Common area updates</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">After-hours installations in occupied buildings</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6">Ready to Update Your Office Flooring?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Contact us for a free site walk and detailed proposal for your office building project.
+        </p>
+        <CTA />
+      </div>
+    </section>
+  </main>
+  
+</BaseLayout>

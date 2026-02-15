@@ -1,0 +1,217 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   SCROLL REVEAL ANIMATION SYSTEM
+   ============================================ */
+
+/* --- Single element reveal --- */
+html.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+html.js [data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Staggered children reveal --- */
+html.js [data-reveal-children] > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-delay: calc(var(--reveal-index, 0) * 80ms);
+}
+
+html.js [data-reveal-children].revealed > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Hero load animation (CSS-only, no JS needed) --- */
+@keyframes heroReveal {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+html.js .hero-content {
+  animation: heroReveal 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+html.js .hero-cta {
+  opacity: 0;
+  animation: heroReveal 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+}
+
+/* --- FAQ accordion animation --- */
+.faq-content {
+  transition: height 0.3s ease-out, opacity 0.25s ease-out;
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.faq-chevron {
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #85754E;
+  border-bottom: 2px solid #85754E;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease-out;
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+
+.faq-item[open] .faq-chevron {
+  transform: rotate(-135deg);
+}
+
+/* --- Mobile menu slide --- */
+.mobile-nav-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease-out;
+}
+
+/* --- Reduced motion: disable everything --- */
+@media (prefers-reduced-motion: reduce) {
+  html.js [data-reveal],
+  html.js [data-reveal-children] > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  html.js .hero-content,
+  html.js .hero-cta {
+    animation: none;
+    opacity: 1;
+  }
+
+  .faq-content {
+    transition: none;
+  }
+
+  .faq-chevron {
+    transition: none;
+  }
+
+  .mobile-nav-menu {
+    transition: none;
+  }
+}
+
+/* Blog post body: override preflight so prose (lists, headings, spacing) always renders */
+.blog-prose ul {
+  list-style-type: disc;
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  padding-left: 1.625em;
+}
+.blog-prose ol {
+  list-style-type: decimal;
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  padding-left: 1.625em;
+}
+.blog-prose li {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-left: 0.375em;
+}
+.blog-prose li::marker {
+  color: #85754E;
+}
+.blog-prose p {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  color: #666058;
+  line-height: 1.75;
+  font-size: 1.125rem;
+}
+.blog-prose p:first-child {
+  margin-top: 0;
+}
+.blog-prose h2 {
+  font-family: Onest, system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.5em;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #E8E6E1;
+  color: #222121;
+  line-height: 1.35;
+}
+.blog-prose h2:first-child {
+  margin-top: 0;
+}
+.blog-prose h3 {
+  font-family: Onest, system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.25em;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: #222121;
+  line-height: 1.5;
+}
+.blog-prose strong {
+  color: #222121;
+  font-weight: 600;
+}
+.blog-prose a {
+  color: #85754E;
+  text-decoration: none;
+}
+.blog-prose a:hover {
+  text-decoration: underline;
+}
+.blog-prose blockquote {
+  border-left: 4px solid #85754E;
+  background-color: #FAFAF9;
+  padding: 0.5rem 0 0.5rem 1rem;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  font-style: normal;
+  color: #333028;
+}
+.blog-prose table {
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.blog-prose thead {
+  border-bottom: 2px solid #D0C7B3;
+}
+.blog-prose th {
+  text-align: left;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  background-color: #F5F4F2;
+  border: 1px solid #E8E6E1;
+  color: #222121;
+}
+.blog-prose td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #E8E6E1;
+  color: #666058;
+}
+.blog-prose tbody tr {
+  border-bottom: 1px solid #E8E6E1;
+}
+.blog-prose hr {
+  border: none;
+  border-top: 1px solid #E8E6E1;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}

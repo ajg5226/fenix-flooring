@@ -1,0 +1,163 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import FAQ from '../../components/FAQ.astro';
+import { getBreadcrumbSchema, getServiceSchema, getFAQPageSchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Services', url: '/services/' },
+  { label: 'Concrete Prep & Leveling', url: '/services/concrete-prep-leveling/' },
+];
+
+const faqs = [
+  {
+    question: 'Why is concrete preparation important?',
+    answer: 'Proper concrete preparation ensures your new flooring adheres correctly, performs as expected, and lasts for its intended lifespan. Poor preparation can lead to flooring failures, moisture issues, and premature wear.',
+  },
+  {
+    question: 'What does concrete leveling involve?',
+    answer: 'Concrete leveling includes filling low spots, grinding high spots, patching cracks and holes, and creating a smooth, level surface suitable for your chosen flooring material.',
+  },
+  {
+    question: 'How long does concrete prep take?',
+    answer: 'Prep timelines vary by condition and square footage. Most prep work takes 1-3 days. We assess conditions during our site walk and provide detailed timelines in our proposals.',
+  },
+  {
+    question: 'Do you test for moisture?',
+    answer: 'Yes. We perform moisture testing as part of our prep process. If moisture levels are elevated, we recommend and install appropriate mitigation systems.',
+  },
+  {
+    question: 'Can you work on occupied buildings?',
+    answer: 'Yes. We can perform concrete prep work during off-hours or in phases to minimize disruption to your operations.',
+  },
+];
+
+const serviceSchema = getServiceSchema(
+  'Concrete Prep & Leveling',
+  'Professional concrete preparation and leveling services for commercial flooring installations. Patching, leveling, and surface preparation.',
+  '/services/concrete-prep-leveling/'
+);
+
+const schema = [
+  getBreadcrumbSchema(breadcrumbs),
+  serviceSchema,
+  getFAQPageSchema(faqs),
+];
+---
+
+<BaseLayout
+  title="Concrete Prep & Leveling | Commercial Flooring Subfloor Preparation"
+  description="Professional concrete preparation and leveling for commercial flooring. Patching, leveling, and surface preparation services."
+  schema={schema}
+>
+  
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Concrete Prep & Leveling</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Professional concrete preparation and leveling services. We ensure your subfloor is properly prepared for new flooring installation.
+        </p>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <div class="mb-12">
+          <img 
+            src="/images/pc4.webp" 
+            alt="Concrete preparation and leveling work" 
+            class="w-full h-64 md:h-96 object-cover rounded"
+            loading="lazy"
+          />
+        </div>
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-3xl font-heading font-bold mb-6">Who This Service Is For</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Property managers, building owners, and contractors who need concrete subfloor preparation before installing new flooring. Whether your concrete has cracks, low spots, high spots, or surface imperfections, proper preparation is essential for successful flooring installation.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">What's Included</h2>
+          <ul class="list-none space-y-3 mb-8">
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Concrete surface assessment and moisture testing</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Grinding high spots and surface imperfections</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Filling low spots and depressions</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Patching cracks, holes, and damaged areas</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Surface cleaning and preparation</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Leveling compound application when needed</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Final surface preparation for flooring installation</span>
+            </li>
+          </ul>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Our Prep Process</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            We start with a thorough assessment of your concrete subfloor, including moisture testing. Our proposal details all necessary prep work, timeline, and pricing. Once approved, we coordinate scheduling. During prep, we address all surface imperfections, level the floor, and prepare it for your chosen flooring material. We ensure the surface meets manufacturer specifications and industry standards. After prep is complete, the subfloor is ready for flooring installation.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Common Use Cases</h2>
+          <ul class="list-none space-y-3 mb-8">
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Preparing new construction concrete slabs</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Repairing damaged or uneven existing concrete</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Preparing concrete after flooring removal</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Leveling floors for sensitive flooring materials like LVT</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Preparing concrete for moisture-sensitive flooring</span>
+            </li>
+          </ul>
+          
+          <div class="mt-12">
+            <h2 class="text-3xl font-heading font-bold mb-6">Frequently Asked Questions</h2>
+            <FAQ items={faqs} />
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6">Need Concrete Preparation?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Contact us for a free site walk and detailed proposal for your concrete prep project.
+        </p>
+        <CTA />
+      </div>
+    </section>
+  </main>
+  
+</BaseLayout>

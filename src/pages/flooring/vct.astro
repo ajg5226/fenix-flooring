@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import FAQ from '../../components/FAQ.astro';
+import { getBreadcrumbSchema, getFAQPageSchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Flooring Types', url: '/flooring/' },
+  { label: 'VCT', url: '/flooring/vct/' },
+];
+
+const faqs = [
+  {
+    question: 'What is VCT flooring?',
+    answer: 'VCT (Vinyl Composition Tile) is a cost-effective, durable commercial flooring option made from vinyl, limestone, and other materials. It\'s available in a wide variety of colors and patterns.',
+  },
+  {
+    question: 'Where is VCT best suited?',
+    answer: 'VCT is ideal for schools, retail spaces, offices, and other high-traffic commercial areas where cost-effectiveness and durability are priorities.',
+  },
+  {
+    question: 'How long does VCT installation take?',
+    answer: 'Installation timelines vary by project size. Small projects (under 5,000 sq ft) typically take 2-4 days. Larger projects may take 1-2 weeks.',
+  },
+  {
+    question: 'What maintenance does VCT require?',
+    answer: 'VCT requires regular sweeping or vacuuming, damp mopping, and periodic stripping and refinishing to maintain appearance and protect the surface.',
+  },
+];
+
+const schema = [
+  getBreadcrumbSchema(breadcrumbs),
+  getFAQPageSchema(faqs),
+];
+---
+
+<BaseLayout
+  title="VCT Commercial Flooring | Vinyl Composition Tile Installation"
+  description="Professional VCT installation for commercial spaces. Cost-effective, durable vinyl composition tile for high-traffic areas."
+  schema={schema}
+>
+  
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">VCT for Commercial Spaces</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Cost-effective, durable vinyl composition tile for high-traffic commercial environments.
+        </p>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <div class="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img
+              src="/images/vct1.jpg"
+              alt="VCT flooring in a commercial corridor"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img
+              src="/images/vct2.webp"
+              alt="Vinyl composition tile installation in a high-traffic area"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-3xl font-heading font-bold mb-6">Where VCT Fits</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            VCT is an excellent choice for schools, retail spaces, offices, and other high-traffic commercial areas where cost-effectiveness and durability are priorities. It offers a wide variety of colors and patterns, making it suitable for both functional and decorative applications.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Pros & Cons</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Advantages</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Cost-effective commercial flooring option</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Durable and long-lasting</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Wide variety of colors and patterns</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Easy to maintain with proper care</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Considerations</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Requires periodic stripping and refinishing</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Can show wear in very high-traffic areas</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Requires level subfloor</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Installation Notes & Downtime</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            VCT installation requires a level, clean subfloor. We assess subfloor conditions during our site walk and include any necessary preparation in our proposal. Installation involves adhesive application and proper tile placement. Most installations can be completed with minimal downtime. Small projects (under 5,000 sq ft) typically take 2-4 days, while larger projects may take 1-2 weeks.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Maintenance Basics</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            VCT maintenance includes regular sweeping or vacuuming, damp mopping with appropriate cleaners, and periodic stripping and refinishing to maintain appearance and protect the surface. We provide maintenance guidelines with every installation.
+          </p>
+          
+          <div class="mt-12">
+            <h2 class="text-3xl font-heading font-bold mb-6">Frequently Asked Questions</h2>
+            <FAQ items={faqs} />
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6">Interested in VCT?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Contact us for a free site walk and detailed proposal for your VCT installation.
+        </p>
+        <CTA />
+      </div>
+    </section>
+  </main>
+  
+</BaseLayout>

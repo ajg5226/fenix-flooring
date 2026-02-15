@@ -1,0 +1,159 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import FAQ from '../../components/FAQ.astro';
+import { getBreadcrumbSchema, getServiceSchema, getFAQPageSchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Services', url: '/services/' },
+  { label: 'Moisture Mitigation', url: '/services/moisture-mitigation/' },
+];
+
+const faqs = [
+  {
+    question: 'Why is moisture mitigation important?',
+    answer: 'Excessive moisture in concrete slabs can cause flooring failures, adhesive breakdown, mold growth, and warranty issues. Proper mitigation protects your flooring investment.',
+  },
+  {
+    question: 'How do you test for moisture?',
+    answer: 'We use ASTM-compliant moisture testing methods including relative humidity probes and calcium chloride testing to accurately assess moisture levels in your concrete slab.',
+  },
+  {
+    question: 'What moisture mitigation systems do you install?',
+    answer: 'We install various mitigation systems including moisture barriers, epoxy moisture control systems, and other manufacturer-approved solutions based on your specific conditions and flooring type.',
+  },
+  {
+    question: 'When is moisture mitigation needed?',
+    answer: 'Mitigation is needed when moisture levels exceed manufacturer specifications for your chosen flooring material. We test during our site walk and recommend mitigation if needed.',
+  },
+  {
+    question: 'How long does mitigation installation take?',
+    answer: 'Most mitigation systems can be installed in 1-2 days, depending on square footage and system type. We provide detailed timelines in our proposals.',
+  },
+];
+
+const serviceSchema = getServiceSchema(
+  'Moisture Mitigation',
+  'Professional moisture testing and mitigation systems for commercial concrete slabs. Protect your flooring investment from moisture-related failures.',
+  '/services/moisture-mitigation/'
+);
+
+const schema = [
+  getBreadcrumbSchema(breadcrumbs),
+  serviceSchema,
+  getFAQPageSchema(faqs),
+];
+---
+
+<BaseLayout
+  title="Moisture Mitigation | Commercial Flooring Moisture Control"
+  description="Professional moisture testing and mitigation systems for commercial concrete slabs. Protect flooring from moisture-related failures."
+  schema={schema}
+>
+  
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Moisture Mitigation</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Professional moisture testing and mitigation systems for commercial concrete slabs. Protect your flooring investment from moisture-related failures.
+        </p>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <div class="mb-12">
+          <img
+            src="/images/moisture-mitigation.jpg"
+            alt="Moisture mitigation system applied to a concrete slab"
+            class="w-full h-64 md:h-96 object-cover rounded"
+            loading="lazy"
+          />
+        </div>
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-3xl font-heading font-bold mb-6">Who This Service Is For</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Property managers, building owners, and contractors installing moisture-sensitive flooring materials like LVT, sheet vinyl, or certain adhesives. If your concrete slab has elevated moisture levels, proper mitigation is essential to prevent flooring failures and protect your investment.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">What's Included</h2>
+          <ul class="list-none space-y-3 mb-8">
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">ASTM-compliant moisture testing and assessment</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Recommendation of appropriate mitigation system</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Surface preparation for mitigation system</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Installation of moisture barrier or mitigation system</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Verification testing after installation</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Documentation for warranty purposes</span>
+            </li>
+          </ul>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Our Mitigation Process</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            We begin with comprehensive moisture testing using ASTM-compliant methods. If elevated moisture is detected, we recommend an appropriate mitigation system based on your conditions and flooring type. Our proposal includes detailed scope, system specifications, timeline, and pricing. Once approved, we prepare the concrete surface and install the mitigation system according to manufacturer specifications. We verify the system's effectiveness and provide documentation for your records.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Common Use Cases</h2>
+          <ul class="list-none space-y-3 mb-8">
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Installing moisture-sensitive flooring like LVT or sheet vinyl</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">New construction with elevated slab moisture</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Ground-level or below-grade installations</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Preventing warranty issues with flooring manufacturers</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Protecting flooring investment from moisture damage</span>
+            </li>
+          </ul>
+          
+          <div class="mt-12">
+            <h2 class="text-3xl font-heading font-bold mb-6">Frequently Asked Questions</h2>
+            <FAQ items={faqs} />
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6">Need Moisture Testing?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Contact us for moisture testing and mitigation recommendations for your project.
+        </p>
+        <CTA />
+      </div>
+    </section>
+  </main>
+  
+</BaseLayout>

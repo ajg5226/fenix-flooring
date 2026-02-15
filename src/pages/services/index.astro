@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import { getBreadcrumbSchema } from '../../utils/schema';
+import { services } from '../../config/services';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Services', url: '/services/' },
+];
+
+const schema = [getBreadcrumbSchema(breadcrumbs)];
+---
+
+<BaseLayout
+  title="Commercial Flooring Services | Installation, Replacement & Prep"
+  description="Professional commercial flooring services: installation, replacement, removal, concrete prep, moisture mitigation, and after-hours installations. Serving offices, healthcare, education, and more."
+  schema={schema}
+>
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Commercial Flooring Services</h1>
+        <p class="text-xl text-gray-mid max-w-3xl">
+          Turnkey commercial flooring: installation, replacement, removal and demolition, concrete prep and leveling, moisture mitigation, and after-hours work for occupied buildings. We handle every step from site walk to final walkthrough.
+        </p>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-reveal-children>
+          {services.map((service) => (
+            <a
+              href={`/services/${service.slug}/`}
+              class="block border border-gray-200 hover:border-ochre transition-colors no-underline text-charcoal overflow-hidden"
+            >
+              <div class="aspect-[4/3] overflow-hidden">
+                <img src={service.image} alt={service.title} class="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div class="p-6">
+                <h2 class="text-2xl font-heading font-bold mb-3">{service.title}</h2>
+                <p class="text-gray-600 mb-4">{service.description}</p>
+                <span class="text-sm font-semibold uppercase tracking-wide">Learn More →</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20 bg-gray-light">
+      <div class="max-w-4xl mx-auto text-center" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6">Ready to Get Started?</h2>
+        <p class="text-xl text-gray-dark mb-8">
+          Contact us for a free site walk and detailed proposal for your commercial flooring project.
+        </p>
+        <CTA />
+      </div>
+    </section>
+  </main>
+</BaseLayout>

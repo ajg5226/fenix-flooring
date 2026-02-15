@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import FAQ from '../../components/FAQ.astro';
+import { getBreadcrumbSchema, getFAQPageSchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Flooring Types', url: '/flooring/' },
+  { label: 'Carpet', url: '/flooring/carpet/' },
+];
+
+const faqs = [
+  {
+    question: 'What is commercial carpet?',
+    answer: 'Commercial carpet is broadloom or modular carpet designed for high-traffic commercial spaces. It offers acoustics, comfort underfoot, and a wide range of styles and durability levels for offices, hospitality, healthcare, and education.',
+  },
+  {
+    question: 'Where is carpet best suited?',
+    answer: 'Carpet is ideal for offices, hospitality spaces, healthcare corridors, education facilities, and multi-family common areas where acoustics, comfort, and design flexibility are priorities.',
+  },
+  {
+    question: 'How long does carpet installation take?',
+    answer: 'Installation timelines vary by project size. Small projects (under 5,000 sq ft) typically take 2-4 days. Larger projects may take 1-2 weeks. We provide detailed timelines in our proposals.',
+  },
+  {
+    question: 'What maintenance does carpet require?',
+    answer: 'Commercial carpet requires regular vacuuming, periodic deep cleaning, and prompt attention to spills. We can recommend maintenance programs to extend the life of your carpet.',
+  },
+  {
+    question: 'Do you install carpet in occupied buildings?',
+    answer: 'Yes. We specialize in after-hours and phased carpet installations for occupied commercial buildings. We coordinate with tenants and property managers to minimize disruption.',
+  },
+];
+
+const schema = [
+  getBreadcrumbSchema(breadcrumbs),
+  getFAQPageSchema(faqs),
+];
+---
+
+<BaseLayout
+  title="Commercial Carpet | Broadloom & Modular Carpet Installation"
+  description="Professional commercial carpet installation for offices, hospitality, healthcare, and education. Broadloom and modular carpet. Turnkey service."
+  schema={schema}
+>
+  
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Carpet for Commercial Spaces</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Broadloom and modular commercial carpet for offices, hospitality, healthcare, and education. Acoustics, comfort, and durability.
+        </p>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <div class="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img
+              src="/images/carpet1.jpg"
+              alt="Commercial office with carpet flooring"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img
+              src="/images/carpet3.jpg"
+              alt="Hotel corridor with commercial carpet"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-3xl font-heading font-bold mb-6">Where Carpet Fits</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Commercial carpet is a key part of our business. We install broadloom and modular carpet in offices, hospitality spaces, healthcare facilities, educational buildings, and multi-family common areas. Carpet provides acoustical benefits, comfort underfoot, and a wide range of design options. We handle removal of existing carpet, subfloor preparation, and professional installation.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Pros & Cons</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Advantages</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Acoustical absorption reduces noise</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Comfort underfoot</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Wide range of styles and durability levels</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Modular options allow easy replacement of worn tiles</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Considerations</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Requires regular vacuuming and periodic cleaning</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Not suitable for wet or high-moisture areas</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Durability varies by fiber and construction</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Installation Notes & Downtime</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Carpet installation requires a clean, dry subfloor. We assess subfloor conditions during our site walk and include any necessary preparation in our proposal. We remove existing carpet when needed, prepare the subfloor, and install broadloom or modular carpet using industry-standard methods. Most installations can be completed with minimal downtime, and we offer after-hours and phased work for occupied buildings.
+          </p>
+          
+          <div class="mt-12">
+            <h2 class="text-3xl font-heading font-bold mb-6">Frequently Asked Questions</h2>
+            <FAQ items={faqs} />
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6">Interested in Commercial Carpet?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Contact us for a free site walk and detailed proposal for your carpet installation.
+        </p>
+        <CTA />
+      </div>
+    </section>
+  </main>
+  
+</BaseLayout>

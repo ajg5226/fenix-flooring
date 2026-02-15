@@ -1,0 +1,23 @@
+---
+interface Props {
+  primary?: boolean;
+  href?: string;
+  text?: string;
+  class?: string;
+}
+
+const {
+  primary = true,
+  href = '/contact/#quote-form',
+  text = 'Request a Quote',
+  class: className = '',
+} = Astro.props;
+
+const baseClasses = primary
+  ? 'inline-block px-6 md:px-8 py-3 md:py-4 bg-terracotta text-white no-underline font-heading font-semibold text-sm tracking-wide uppercase transition-all hover:bg-charcoal hover:scale-105 min-h-[44px] flex items-center justify-center'
+  : 'inline-block px-6 md:px-8 py-3 md:py-4 border-2 border-charcoal text-charcoal no-underline font-heading font-semibold text-sm tracking-wide uppercase transition-all hover:bg-charcoal hover:text-white min-h-[44px] flex items-center justify-center';
+---
+
+<a href={href} class={`${baseClasses} ${className}`}>
+  {text}
+</a>

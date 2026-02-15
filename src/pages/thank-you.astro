@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTA from '../components/CTA.astro';
+import { getBreadcrumbSchema } from '../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Thank You', url: '/thank-you/' },
+];
+
+const schema = [getBreadcrumbSchema(breadcrumbs)];
+---
+
+<BaseLayout
+  title="Thank You | Fenix Flooring"
+  description="Thank you for contacting Fenix Flooring. We'll be in touch soon."
+  noindex={true}
+  schema={schema}
+>
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Thank You</h1>
+        <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+          Thank you for contacting Fenix Flooring. We've received your message and will get back to you within 24 hours.
+        </p>
+        <p class="text-lg text-gray-600 mb-12 leading-relaxed">
+          In the meantime, feel free to explore our services and resources, or contact us directly if you have urgent questions.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <CTA href="/services/" text="View Services" />
+          <CTA href="/contact/" text="Contact Us" primary={false} />
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

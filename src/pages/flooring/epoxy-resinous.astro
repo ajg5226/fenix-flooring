@@ -1,0 +1,158 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import FAQ from '../../components/FAQ.astro';
+import { getBreadcrumbSchema, getFAQPageSchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Flooring Types', url: '/flooring/' },
+  { label: 'Epoxy/Resinous', url: '/flooring/epoxy-resinous/' },
+];
+
+const faqs = [
+  {
+    question: 'What is epoxy/resinous flooring?',
+    answer: 'Epoxy and resinous flooring systems are seamless, durable coatings applied to concrete substrates. They provide chemical resistance, durability, and easy maintenance for industrial and commercial applications.',
+  },
+  {
+    question: 'Where is epoxy/resinous flooring best suited?',
+    answer: 'Epoxy/resinous flooring is ideal for industrial facilities, warehouses, manufacturing plants, food processing areas, garages, and other environments requiring chemical resistance and durability.',
+  },
+  {
+    question: 'How long does epoxy/resinous installation take?',
+    answer: 'Installation timelines vary by project size and system type. Most projects take 3-7 days, including surface preparation, application, and cure time.',
+  },
+  {
+    question: 'What maintenance does epoxy/resinous flooring require?',
+    answer: 'Epoxy/resinous flooring requires regular sweeping, mopping with appropriate cleaners, and periodic deep cleaning. Avoid harsh chemicals that could damage the surface.',
+  },
+];
+
+const schema = [
+  getBreadcrumbSchema(breadcrumbs),
+  getFAQPageSchema(faqs),
+];
+---
+
+<BaseLayout
+  title="Epoxy/Resinous Commercial Flooring | Durable Seamless Systems"
+  description="Professional epoxy and resinous flooring installation for commercial and industrial spaces. Chemical-resistant, durable seamless systems."
+  noindex={true}
+  schema={schema}
+>
+  
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Epoxy/Resinous for Commercial Spaces</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Durable, seamless epoxy and resinous flooring systems for industrial and commercial environments requiring chemical resistance and durability.
+        </p>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <div class="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img 
+              src="/images/pc3.jpeg" 
+              alt="Industrial warehouse with polished concrete flooring" 
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img 
+              src="/images/pc4.webp" 
+              alt="Commercial facility with polished concrete flooring" 
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-3xl font-heading font-bold mb-6">Where Epoxy/Resinous Fits</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Epoxy and resinous flooring systems are ideal for industrial facilities, warehouses, manufacturing plants, food processing areas, garages, and other environments requiring chemical resistance, durability, and seamless installation. They provide a hard-wearing surface that can withstand heavy traffic, chemical spills, and harsh conditions.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Pros & Cons</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Advantages</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Extremely durable and long-lasting</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Chemical-resistant</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Seamless installation</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Easy to clean and maintain</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Can be customized with colors and patterns</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Considerations</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Requires proper surface preparation</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Cure time required after installation</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Can be slippery when wet (anti-slip options available)</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Installation Notes & Downtime</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Epoxy/resinous installation requires thorough surface preparation including cleaning, grinding, and repair of the concrete substrate. We assess conditions during our site walk and include all necessary preparation in our proposal. Application involves multiple coats with proper cure time between coats. Most projects take 3-7 days including preparation, application, and initial cure time. Full cure may take additional time depending on system type.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Maintenance Basics</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Epoxy/resinous flooring maintenance includes regular sweeping, mopping with appropriate cleaners, and periodic deep cleaning. Avoid harsh chemicals that could damage the surface. We provide maintenance guidelines with every installation.
+          </p>
+          
+          <div class="mt-12">
+            <h2 class="text-3xl font-heading font-bold mb-6">Frequently Asked Questions</h2>
+            <FAQ items={faqs} />
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6">Interested in Epoxy/Resinous Flooring?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Contact us for a free site walk and detailed proposal for your epoxy/resinous flooring project.
+        </p>
+        <CTA />
+      </div>
+    </section>
+  </main>
+  
+</BaseLayout>

@@ -1,0 +1,458 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTA from '../components/CTA.astro';
+import FAQ from '../components/FAQ.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import ImageGallery from '../components/ImageGallery.astro';
+import { siteConfig } from '../config/site';
+import { services } from '../config/services';
+import { flooringTypes } from '../config/flooring';
+import { getOrganizationSchema, getLocalBusinessSchema, getWebSiteSchema, getFAQPageSchema } from '../utils/schema';
+
+const faqs = [
+  {
+    question: 'What types of commercial flooring do you install?',
+    answer: 'We install LVT/LVP, sheet vinyl, VCT, hardwood, engineered hardwood, rubber, tile (ceramic and porcelain), carpet, and carpet tile.',
+  },
+  {
+    question: 'Do you handle occupied buildings?',
+    answer: 'Yes. We specialize in after-hours and phased installations for occupied commercial buildings. We coordinate with tenants and property managers to minimize disruption to daily operations.',
+  },
+  {
+    question: 'What is included in your turnkey service?',
+    answer: 'Our turnkey service includes complete removal of existing flooring, concrete preparation and leveling, moisture mitigation when needed, and professional installation of your chosen flooring material. We handle everything from start to finish.',
+  },
+  {
+    question: 'How long does a typical commercial flooring project take?',
+    answer: 'Project timelines vary based on square footage, building occupancy, and scope. Installation-only work on small projects can often be completed in about 3-5 days. Full replacement (demo, prep, and installation) for small projects typically takes 1-2 weeks, while larger projects can take several weeks. We provide detailed timelines in our proposals.',
+  },
+  {
+    question: 'Are you licensed and insured?',
+    answer: 'Yes. We are fully licensed and insured. We can provide certificates of insurance (COI) upon request for property managers and building owners.',
+  },
+  {
+    question: 'Do you provide free estimates?',
+    answer: 'Yes. We offer free site walks and detailed proposals for all commercial flooring projects. Contact us to schedule a site walk at your convenience.',
+  },
+  {
+    question: 'What areas do you serve?',
+    answer: `We provide commercial flooring services throughout ${siteConfig.serviceArea}. Contact us to confirm service availability for your location.`,
+  },
+];
+
+// Testimonials: add optional reviewUrl (e.g. Google Review link) and photo (path or URL) when you have them
+const testimonials = [
+  {
+    name: 'Mark R.',
+    company: 'Facilities Manager',
+    rating: 5,
+    text: 'Had them replace the flooring in two of our buildings over the past year. They work nights and weekends so we don\'t have to shut down operations. Crews are professional and clean up after themselves. Will definitely use again.',
+    projectType: '12,000 sq ft LVT Installation',
+  },
+  {
+    name: 'Lisa T.',
+    company: 'Property Manager',
+    rating: 5,
+    text: 'Finally found a flooring contractor who actually shows up when they say they will. The quote was accurate, no surprise charges at the end. They handled everything including ripping out the old carpet and prepping the concrete.',
+    projectType: 'Office Building Renovation',
+  },
+  {
+    name: 'James K.',
+    company: 'Building Owner',
+    rating: 5,
+    text: 'Used Fenix for a tenant buildout that had a tight deadline. They brought in extra crew to get it done on time. Good communication throughout - they kept me updated without me having to chase them down.',
+    projectType: 'Commercial Tenant Buildout',
+  },
+  {
+    name: 'Patricia M.',
+    company: 'Operations Director',
+    rating: 5,
+    text: 'We needed flooring replaced in our medical office without disrupting patients. They worked after hours over two weekends and the space was ready Monday morning each time. Clean work, fair price.',
+    projectType: 'Medical Office LVT',
+  },
+  {
+    name: 'Tony S.',
+    company: 'General Contractor',
+    rating: 5,
+    text: 'I sub out all my commercial flooring to these guys now. They handle the moisture testing, concrete prep, everything. Makes my job easier and I know it\'ll be done right the first time.',
+    projectType: 'Multiple Commercial Projects',
+  },
+];
+
+const industries = [
+  {
+    title: 'Property Management',
+    slug: 'property-management',
+    description: 'Turnkey flooring solutions for property managers.',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80',
+  },
+  {
+    title: 'Office Buildings',
+    slug: 'office-buildings',
+    description: 'After-hours installations for occupied offices.',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
+  },
+  {
+    title: 'Healthcare',
+    slug: 'healthcare',
+    description: 'Hygienic, durable flooring for medical facilities.',
+    image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80',
+  },
+  {
+    title: 'Education',
+    slug: 'education',
+    description: 'School and university flooring projects.',
+    image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80',
+  },
+  {
+    title: 'Hospitality',
+    slug: 'hospitality',
+    description: 'Hotels, restaurants, and hospitality spaces.',
+    image: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80',
+  },
+  {
+    title: 'Retail',
+    slug: 'retail',
+    description: 'Durable flooring for retail environments.',
+    image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80',
+  },
+  {
+    title: 'Gyms & Fitness',
+    slug: 'gyms-fitness',
+    description: 'Specialized flooring for fitness facilities.',
+    image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80',
+  },
+  {
+    title: 'Residential',
+    slug: 'residential',
+    description: 'High-quality flooring for homes and multi-family units.',
+    image: '/images/hardwood4.jpg',
+    href: '/residential/',
+  },
+  {
+    title: 'Golf Courses & Banquet Halls',
+    slug: 'golf-courses-banquet-halls',
+    description: 'Elegant, durable flooring for clubhouses and event spaces.',
+    image: '/images/tile-images-hospitality.jpeg',
+  },
+];
+
+const schema = [
+  getOrganizationSchema(),
+  getLocalBusinessSchema(),
+  getWebSiteSchema(),
+  getFAQPageSchema(faqs),
+];
+---
+
+<BaseLayout
+  title="Professional Flooring Contractor | Turnkey Demo, Prep & Installation"
+  description="Professional commercial flooring contractor specializing in turnkey services: demo, concrete prep, moisture mitigation, and installation. Serving offices, healthcare, education, hospitality, and more. After-hours available for occupied buildings."
+  schema={schema}
+>
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="mt-16 md:mt-24 bg-charcoal text-white py-16 md:py-32 px-4 md:px-15 relative overflow-hidden">
+      <div class="absolute inset-0 z-0">
+      <img
+        src="/images/pc1.jpg"
+        alt="Commercial flooring installation"
+        class="w-full h-full object-cover opacity-30"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      />
+        <div class="absolute inset-0 bg-charcoal/60"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-charcoal/20 via-transparent to-charcoal/50" aria-hidden="true"></div>
+      </div>
+      <div class="max-w-7xl mx-auto relative z-10">
+        <h1 class="hero-content text-5xl md:text-7xl lg:text-8xl font-heading font-extrabold mb-6 leading-tight">
+          Professional Flooring Contractor
+        </h1>
+        <p class="hero-content text-xl md:text-2xl text-gray-300 max-w-3xl mb-8 leading-relaxed">
+          Turnkey commercial flooring services: demo, prep, and installation. We handle everything from removal to final walkthrough, including after-hours installations for occupied buildings.
+        </p>
+        <div class="hero-cta flex flex-col sm:flex-row gap-4">
+          <a
+            href="/contact/#quote-form"
+            class="inline-block px-10 md:px-12 py-4 md:py-5 bg-terracotta text-white no-underline font-heading font-bold text-base md:text-lg tracking-wide uppercase transition-all hover:bg-ochre hover:scale-105 min-h-[56px] flex items-center justify-center"
+          >
+            Request a Quote
+          </a>
+          <a
+            href="/contact/#site-walk"
+            class="inline-block px-10 md:px-12 py-4 md:py-5 border-2 border-white text-white no-underline font-heading font-bold text-base md:text-lg tracking-wide uppercase transition-all hover:bg-white hover:text-charcoal hover:scale-105 min-h-[56px] flex items-center justify-center"
+          >
+            Schedule a Site Walk
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Value Props -->
+    <section class="py-20 px-4 md:px-15 bg-gray-100">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" data-reveal-children>
+          <div>
+            <h3 class="text-xl font-heading font-bold mb-3">Turnkey Service</h3>
+            <p class="text-gray-600">Complete demo, prep, and installation handled by one team. No coordination headaches.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-heading font-bold mb-3">After-Hours Available</h3>
+            <p class="text-gray-600">Phased installations and after-hours work for occupied buildings. Minimal disruption.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-heading font-bold mb-3">Concrete Expertise</h3>
+            <p class="text-gray-600">Full concrete prep, leveling, and moisture mitigation capabilities in-house.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-heading font-bold mb-3">Fast Proposals</h3>
+            <p class="text-gray-600">Detailed proposals within 48 hours of site walk. Clear pricing, no surprises.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Services Grid -->
+    <section class="py-20 px-4 md:px-15">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-heading font-bold mb-12" data-reveal>What We Do</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-reveal-children>
+          {services.map((service) => (
+            <a href={`/services/${service.slug}/`} class="block border border-gray-200 hover:border-ochre transition-colors no-underline text-charcoal overflow-hidden">
+              <div class="aspect-[4/3] overflow-hidden">
+                <img src={service.image} alt={service.title} class="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div class="p-6">
+                <h3 class="text-2xl font-heading font-bold mb-3">{service.shortTitle}</h3>
+                <p class="text-gray-600">{service.description}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Flooring Types Grid -->
+    <section class="py-20 px-4 md:px-15 bg-gray-100">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-heading font-bold mb-12" data-reveal>Flooring Types</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-reveal-children>
+          {flooringTypes.map((flooring) => (
+            <a
+              href={`/flooring/${flooring.slug}/`}
+              class="block relative p-8 border border-gray-200 hover:border-ochre transition-all no-underline text-white bg-white overflow-hidden group min-h-[240px] md:min-h-[280px]"
+            >
+              <div
+                class="absolute inset-0 bg-cover bg-center transition-transform group-hover:scale-105"
+                style={`background-image: url('${flooring.image}');`}
+              ></div>
+              <div class="absolute inset-0 bg-charcoal/60 group-hover:bg-charcoal/70 transition-colors"></div>
+              <div class="relative z-10 h-full flex flex-col justify-end">
+                <div>
+                  <h3 class="text-2xl font-heading font-bold mb-2">{flooring.title}</h3>
+                  <p class="text-sm text-gray-200">{flooring.description}</p>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Industries Grid -->
+    <section class="py-20 px-4 md:px-15">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-heading font-bold mb-12" data-reveal>Industries We Serve</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-reveal-children>
+          {industries.map((industry) => (
+            <a
+              href={(industry as any).href || `/industries/${industry.slug}/`}
+              class="block relative p-8 border border-gray-200 hover:border-ochre transition-all no-underline text-white bg-white overflow-hidden group min-h-[280px]"
+            >
+              <div
+                class="absolute inset-0 bg-cover bg-center transition-transform group-hover:scale-105"
+                style={`background-image: url('${industry.image}');`}
+              ></div>
+              <div class="absolute inset-0 bg-charcoal/60 group-hover:bg-charcoal/70 transition-colors"></div>
+              <div class="relative z-10 h-full flex flex-col justify-between">
+                <div>
+                  <h3 class="text-2xl font-heading font-bold mb-3">{industry.title}</h3>
+                  <p class="text-gray-200">{industry.description}</p>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Project Gallery Section -->
+    <section class="py-20 px-4 md:px-15 bg-gray-100">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-heading font-bold mb-6 text-center" data-reveal>Our Work</h2>
+        <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto" data-reveal>
+          Professional commercial flooring installations across various industries and project types.
+        </p>
+        <ImageGallery images={[
+          { src: '/images/pc1.jpg', alt: 'Modern office building lobby flooring', title: 'Office Building Lobby' },
+          { src: '/images/flooring-commercial-flooring-inner-image-1.jpg', alt: 'Healthcare facility with clean commercial flooring', title: 'Healthcare Facility' },
+          { src: '/images/lvp1.jpg', alt: 'Retail space with luxury vinyl flooring', title: 'Retail Space - LVT' },
+          { src: '/images/pc2.jpg', alt: 'Commercial warehouse flooring', title: 'Warehouse Flooring' },
+          { src: '/images/rubber1.jpg', alt: 'Modern gym with rubber flooring', title: 'Fitness Facility - Rubber Flooring' },
+          { src: '/images/tile-images-hospitality.jpeg', alt: 'Hotel lobby with elegant tile flooring', title: 'Hospitality - Tile Flooring' },
+          { src: '/images/pc3.jpeg', alt: 'Modern commercial lobby flooring', title: 'Commercial Lobby' },
+          { src: '/images/vct1.jpg', alt: 'Educational facility hallway flooring', title: 'Education - VCT Flooring' },
+          { src: '/images/tile1.jpg', alt: 'Commercial space with tile flooring', title: 'Commercial - Tile Flooring' },
+        ]} />
+      </div>
+    </section>
+    
+    <!-- Process Section -->
+    <section class="py-20 px-4 md:px-15">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-heading font-bold mb-12 text-center" data-reveal>Our Process</h2>
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-8" data-reveal-children>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-ochre text-white rounded-full flex items-center justify-center text-2xl font-heading font-bold mx-auto mb-4">1</div>
+            <h3 class="text-xl font-heading font-bold mb-2">Site Walk</h3>
+            <p class="text-gray-600 text-sm">We visit your property to assess conditions and discuss requirements.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-ochre text-white rounded-full flex items-center justify-center text-2xl font-heading font-bold mx-auto mb-4">2</div>
+            <h3 class="text-xl font-heading font-bold mb-2">Proposal</h3>
+            <p class="text-gray-600 text-sm">Detailed proposal with timeline and pricing within 48 hours.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-ochre text-white rounded-full flex items-center justify-center text-2xl font-heading font-bold mx-auto mb-4">3</div>
+            <h3 class="text-xl font-heading font-bold mb-2">Schedule</h3>
+            <p class="text-gray-600 text-sm">We coordinate timing to minimize disruption to your operations.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-ochre text-white rounded-full flex items-center justify-center text-2xl font-heading font-bold mx-auto mb-4">4</div>
+            <h3 class="text-xl font-heading font-bold mb-2">Install</h3>
+            <p class="text-gray-600 text-sm">Professional installation by experienced commercial crews.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-ochre text-white rounded-full flex items-center justify-center text-2xl font-heading font-bold mx-auto mb-4">5</div>
+            <h3 class="text-xl font-heading font-bold mb-2">Punch List</h3>
+            <p class="text-gray-600 text-sm">Final walkthrough and warranty documentation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Proof Section -->
+    <section class="py-20 px-4 md:px-15">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center" data-reveal-children>
+          <div>
+            <div class="w-16 h-16 bg-charcoal rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-heading font-bold mb-2">Licensed & Insured</h3>
+            <p class="text-gray-600 text-sm">Fully licensed and insured for commercial work.</p>
+          </div>
+          <div>
+            <div class="w-16 h-16 bg-charcoal rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-heading font-bold mb-2">COI Available</h3>
+            <p class="text-gray-600 text-sm">Certificates of insurance provided on request.</p>
+          </div>
+          <div>
+            <div class="w-16 h-16 bg-charcoal rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-heading font-bold mb-2">Safety First</h3>
+            <p class="text-gray-600 text-sm">OSHA-compliant crews and safety protocols.</p>
+          </div>
+          <div>
+            <div class="w-16 h-16 bg-charcoal rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-heading font-bold mb-2">Commercial Focus</h3>
+            <p class="text-gray-600 text-sm">Experienced commercial flooring crews only.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="py-20 px-4 md:px-15 bg-gray-100">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12" data-reveal>
+          <h2 class="text-4xl md:text-5xl font-heading font-bold mb-4">Client Testimonials</h2>
+          <p class="text-gray-600">
+            A few examples of the feedback we aim to earn on every project.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-reveal-children>
+          {testimonials.slice(0, 3).map((testimonial) => (
+            <div class="bg-white border border-gray-200 p-6 md:p-8">
+              {(testimonial as { photo?: string }).photo && (
+                <img
+                  src={(testimonial as { photo?: string }).photo}
+                  alt=""
+                  class="w-12 h-12 rounded-full object-cover mb-4"
+                  width="48"
+                  height="48"
+                  loading="lazy"
+                />
+              )}
+              <p class="text-gray-600 mb-4 leading-relaxed text-lg">"{testimonial.text}"</p>
+              <div>
+                <div class="flex flex-wrap items-center gap-2">
+                  <p class="font-heading font-semibold text-charcoal">{testimonial.name}</p>
+                  {(testimonial as { reviewUrl?: string }).reviewUrl && (
+                    <a
+                      href={(testimonial as { reviewUrl?: string }).reviewUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-sm text-ochre font-medium no-underline hover:underline"
+                    >
+                      Verified on Google
+                    </a>
+                  )}
+                </div>
+                {testimonial.company && (
+                  <p class="text-sm text-gray-600">{testimonial.company}</p>
+                )}
+                {testimonial.projectType && (
+                  <p class="text-sm text-gray-600 mt-1">{testimonial.projectType}</p>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- FAQs -->
+    <section class="py-20 px-4 md:px-15">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-heading font-bold mb-12" data-reveal>Frequently Asked Questions</h2>
+        <FAQ items={faqs} />
+      </div>
+    </section>
+
+    <!-- Final CTA with Form -->
+    <section id="quote-form" class="py-20 px-4 md:px-15 scroll-mt-24">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <h2 class="text-4xl md:text-5xl font-heading font-bold mb-6 text-center">Request a Quote</h2>
+        <p class="text-xl text-gray-600 mb-12 text-center">
+          Fill out the form below and we'll get back to you within 24 hours to discuss your project and schedule a site walk. After the site walk, you'll receive a detailed proposal within 48 hours.
+        </p>
+        <QuoteForm />
+      </div>
+    </section>
+  </main>
+</BaseLayout>

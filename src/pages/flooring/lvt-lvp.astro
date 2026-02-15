@@ -1,0 +1,182 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import FAQ from '../../components/FAQ.astro';
+import { getBreadcrumbSchema, getFAQPageSchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Flooring Types', url: '/flooring/' },
+  { label: 'LVT/LVP', url: '/flooring/lvt-lvp/' },
+];
+
+const faqs = [
+  {
+    question: 'What is LVT/LVP?',
+    answer: 'LVT (Luxury Vinyl Tile) and LVP (Luxury Vinyl Plank) are resilient flooring products that mimic the look of wood or stone while offering superior durability and moisture resistance for commercial applications.',
+  },
+  {
+    question: 'Where is LVT/LVP best suited?',
+    answer: 'LVT/LVP works well in offices, healthcare facilities, retail spaces, and educational environments. It\'s ideal for areas requiring durability, easy maintenance, and moisture resistance.',
+  },
+  {
+    question: 'How long does LVT/LVP installation take?',
+    answer: 'Installation timelines vary by project size. Small projects (under 5,000 sq ft) typically take 3-5 days. Larger projects may take 1-2 weeks. We provide detailed timelines in our proposals.',
+  },
+  {
+    question: 'What maintenance does LVT/LVP require?',
+    answer: 'LVT/LVP requires minimal maintenance: regular sweeping or vacuuming, damp mopping with manufacturer-approved cleaners, and periodic deep cleaning. Avoid harsh chemicals and excessive water.',
+  },
+  {
+    question: 'Is LVT/LVP suitable for moisture-prone areas?',
+    answer: 'LVT/LVP is moisture-resistant but requires proper subfloor preparation and moisture mitigation if slab moisture levels are elevated. We test and address moisture issues during installation.',
+  },
+  {
+    question: 'What is the typical lifespan of LVT/LVP?',
+    answer: 'Commercial LVT/LVP typically lasts 10-20 years with proper installation and maintenance, depending on traffic levels and product quality.',
+  },
+];
+
+const schema = [
+  getBreadcrumbSchema(breadcrumbs),
+  getFAQPageSchema(faqs),
+];
+---
+
+<BaseLayout
+  title="LVT/LVP Commercial Flooring | Luxury Vinyl Tile & Plank Installation"
+  description="Professional LVT/LVP installation for commercial spaces. Luxury vinyl tile and plank flooring with superior durability and moisture resistance."
+  schema={schema}
+>
+  
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">LVT/LVP for Commercial Spaces</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Luxury vinyl tile and plank flooring offering the look of wood or stone with superior durability and moisture resistance for commercial applications.
+        </p>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <div class="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img 
+              src="/images/lvp1.jpg" 
+              alt="Modern office with luxury vinyl plank flooring" 
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img 
+              src="/images/lvp2.jpg" 
+              alt="Retail space with LVT flooring installation" 
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-3xl font-heading font-bold mb-6">Where LVT/LVP Fits</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            LVT/LVP is an excellent choice for offices, healthcare facilities, retail spaces, educational institutions, and hospitality environments. It provides the aesthetic appeal of natural materials with the performance characteristics needed for high-traffic commercial spaces. The moisture resistance makes it suitable for ground-level installations when proper moisture mitigation is in place.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Pros & Cons</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Advantages</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Durable and scratch-resistant</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Moisture-resistant when properly installed</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Easy to maintain and clean</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Wide variety of designs and colors</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Comfortable underfoot</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Cost-effective compared to natural materials</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Considerations</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Requires level subfloor (tolerance varies by product)</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Moisture mitigation may be needed for ground-level slabs</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Seam welding applies to sheet vinyl, not LVT/LVP</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Can show wear patterns in very high-traffic areas over time</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Professional installation critical for warranty</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Installation Notes & Downtime</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            LVT/LVP installation requires a level, clean subfloor. We assess subfloor conditions during our site walk and include any necessary preparation in our proposal. Installation typically involves adhesive application (for glue-down products) or floating installation (for click-lock systems). Seam welding is used for sheet vinyl, not LVT/LVP. Most installations can be completed with minimal downtime, and we can work in phases for occupied buildings. Small projects (under 5,000 sq ft) typically take 3-5 days, while larger projects may take 1-2 weeks.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Maintenance Basics</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            LVT/LVP maintenance is straightforward. Regular sweeping or vacuuming removes dirt and debris. Damp mopping with manufacturer-approved cleaners keeps the surface clean. Avoid harsh chemicals, excessive water, or abrasive cleaning tools that could damage the surface. Periodic deep cleaning and periodic application of appropriate floor finishes (for certain products) may be recommended by the manufacturer. We provide maintenance guidelines with every installation.
+          </p>
+          
+          <div class="mt-12">
+            <h2 class="text-3xl font-heading font-bold mb-6">Frequently Asked Questions</h2>
+            <FAQ items={faqs} />
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6">Interested in LVT/LVP?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Contact us for a free site walk and detailed proposal for your LVT/LVP installation.
+        </p>
+        <CTA />
+        <p class="mt-6 text-gray-600">
+          <a href="/services/commercial-flooring-installation/" class="text-charcoal font-semibold no-underline hover:underline">
+            View Installation Services →
+          </a>
+        </p>
+      </div>
+    </section>
+  </main>
+  
+</BaseLayout>

@@ -1,0 +1,224 @@
+---
+import { siteConfig } from '../config/site';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface ArticleMeta {
+  publishedTime: string; // ISO date
+  modifiedTime?: string;
+  author?: string;
+  section?: string;
+  tags?: string[];
+}
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  ogImageAlt?: string;
+  noindex?: boolean;
+  schema?: object | object[];
+  includeHeader?: boolean;
+  includeFooter?: boolean;
+  /** When set, outputs og:type=article and article-specific meta */
+  article?: ArticleMeta;
+}
+
+const {
+  title = siteConfig.defaultTitle,
+  description = siteConfig.defaultDescription,
+  canonical,
+  ogImage,
+  ogImageAlt,
+  noindex = false,
+  schema,
+  includeHeader = true,
+  includeFooter = true,
+  article,
+} = Astro.props;
+
+const resolvedOgImage = ogImage
+  ? (ogImage.startsWith('http') ? ogImage : `${siteConfig.url}${ogImage}`)
+  : `${siteConfig.url}${siteConfig.defaultOgImage}`;
+
+const canonicalBase = Astro.site ?? siteConfig.url;
+const canonicalUrl = canonical
+  ? (canonical.startsWith('http') ? canonical : new URL(canonical, canonicalBase).href)
+  : new URL(Astro.url.pathname, canonicalBase).href;
+const fullTitle = title.includes(siteConfig.businessName) ? title : `${title} | ${siteConfig.businessName}`;
+
+// Handle schema as single object or array
+const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Preconnect to external domains -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+    
+    {noindex ? (
+      <meta name="robots" content="noindex, nofollow" />
+    ) : (
+      <>
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href={canonicalUrl} />
+      </>
+    )}
+    
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content={article ? 'article' : 'website'} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={resolvedOgImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={ogImageAlt ?? description} />
+    <meta property="og:site_name" content={siteConfig.businessName} />
+    <meta property="og:locale" content="en_US" />
+    {article && (
+      <>
+        <meta property="article:published_time" content={article.publishedTime} />
+        {article.modifiedTime && <meta property="article:modified_time" content={article.modifiedTime} />}
+        {article.author && <meta property="article:author" content={article.author} />}
+        {article.section && <meta property="article:section" content={article.section} />}
+        {article.tags?.map((tag) => <meta property="article:tag" content={tag} />)}
+      </>
+    )}
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={resolvedOgImage} />
+    <meta name="twitter:image:alt" content={ogImageAlt ?? description} />
+    
+    <!-- Favicon (absolute URLs for crawlers and tools) -->
+    <link rel="icon" type="image/svg+xml" href={`${siteConfig.url}${siteConfig.faviconPath}`} />
+    <link rel="apple-touch-icon" sizes="180x180" href={`${siteConfig.url}${siteConfig.appleTouchIconPath}`} />
+    
+    <!-- Fonts - display=swap is already in URL for optimal loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    
+    <!-- JSON-LD Schema -->
+    {schemas.map((s) => (
+      <script type="application/ld+json" set:html={JSON.stringify(s)} />
+    ))}
+  </head>
+  <body class="min-h-screen flex flex-col font-sans text-charcoal bg-white antialiased">
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    {includeHeader && <Header />}
+    
+    <slot />
+    
+    {includeFooter && <Footer />}
+  </body>
+</html>
+
+<style is:global>
+  /* Base styles */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Focus styles for accessibility */
+  :focus-visible {
+    outline: 2px solid #85754E;
+    outline-offset: 2px;
+  }
+
+  /* Skip link for accessibility */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #222121;
+    color: white;
+    padding: 8px 16px;
+    z-index: 100;
+    transition: top 0.3s;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .skip-link:focus {
+    top: 0;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // If user prefers reduced motion, reveal everything instantly
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('[data-reveal], [data-reveal-children]').forEach(el => {
+        // Instantly reveal, then strip animation attributes so
+        // Tailwind hover transitions work without specificity conflicts.
+        el.removeAttribute('data-reveal');
+        el.removeAttribute('data-reveal-children');
+      });
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          const el = entry.target;
+
+          // If this is a staggered container, set --reveal-index on children
+          if (el.hasAttribute('data-reveal-children')) {
+            Array.from(el.children).forEach((child, i) => {
+              child.style.setProperty('--reveal-index', String(i));
+            });
+          }
+
+          el.classList.add('revealed');
+          observer.unobserve(el); // Animate once only
+
+          // After the reveal animation fully settles, remove data attributes
+          // so that our high-specificity transition rules stop matching and
+          // Tailwind's native hover transitions (transition-colors, etc.) take over.
+          const childCount = el.hasAttribute('data-reveal-children') ? el.children.length : 0;
+          const staggerMs = childCount > 0 ? (childCount - 1) * 80 : 0;
+          const settleMs = staggerMs + 600; // 500ms transition + 100ms buffer
+          setTimeout(() => {
+            el.removeAttribute('data-reveal');
+            el.removeAttribute('data-reveal-children');
+            el.classList.remove('revealed');
+            // Clean up --reveal-index inline styles on children
+            Array.from(el.children).forEach(child => {
+              child.style.removeProperty('--reveal-index');
+            });
+          }, settleMs);
+        });
+      },
+      {
+        threshold: 0.15,
+        rootMargin: '0px 0px -40px 0px',
+      }
+    );
+
+    document.querySelectorAll('[data-reveal], [data-reveal-children]').forEach(el => {
+      observer.observe(el);
+    });
+  });
+</script>

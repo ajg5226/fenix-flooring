@@ -1,0 +1,178 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import FAQ from '../../components/FAQ.astro';
+import { getBreadcrumbSchema, getFAQPageSchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Residential', url: '/residential/' },
+  { label: 'Carpet', url: '/residential/carpet/' },
+];
+
+const faqs = [
+  {
+    question: 'What type of carpet is best for bedrooms?',
+    answer: 'Plush or frieze carpet in nylon or polyester is ideal for bedrooms. These styles offer comfort underfoot, warmth, and noise reduction. We can help you choose the right fiber, weight, and pad for your bedroom based on traffic and preferences.',
+  },
+  {
+    question: 'Is carpet a good choice if I have pets?',
+    answer: 'Yes, with the right product. Solution-dyed nylon and polyester carpets resist staining and are easy to clean. Look for low-loop or cut-pile styles that will not snag on pet claws. We can recommend pet-friendly products during your consultation.',
+  },
+  {
+    question: 'How often does carpet need to be replaced?',
+    answer: 'Residential carpet typically lasts 8-15 years depending on quality, traffic, and maintenance. Bedrooms and low-traffic areas last longer. Regular vacuuming and periodic professional cleaning extend carpet life significantly.',
+  },
+  {
+    question: 'Do you remove old carpet?',
+    answer: 'Yes. We handle complete removal of your existing carpet and padding, including disposal. If the subfloor needs any preparation after removal, we take care of that too — everything is included in our proposal.',
+  },
+  {
+    question: 'Can carpet help with noise?',
+    answer: 'Absolutely. Carpet is one of the best flooring options for sound absorption. It reduces footstep noise, echo, and sound transfer between floors — making it ideal for bedrooms, family rooms, and upper-story rooms.',
+  },
+  {
+    question: 'How long does carpet installation take?',
+    answer: 'Most single-room carpet installations are completed in one day. Whole-home carpet projects typically take 2-4 days depending on the number of rooms and any subfloor preparation needed.',
+  },
+];
+
+const schema = [
+  getBreadcrumbSchema(breadcrumbs),
+  getFAQPageSchema(faqs),
+];
+---
+
+<BaseLayout
+  title="Carpet for Homes | Residential Carpet Installation"
+  description="Professional residential carpet installation for bedrooms, living areas, and stairs. Soft, warm, and quiet. Expert installation with old carpet removal included."
+  schema={schema}
+>
+
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Carpet for Your Home</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Soft, warm, and quiet underfoot — carpet is the ideal choice for bedrooms, living areas, stairs, and anywhere comfort matters most.
+        </p>
+      </div>
+    </section>
+
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto">
+        <div class="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img
+              src="/images/resi_carpet1.jpg"
+              alt="Bedroom with plush carpet flooring"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img
+              src="/images/resi_carpet2.webp"
+              alt="Living room with residential carpet"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-3xl font-heading font-bold mb-6">Where Carpet Fits in Your Home</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Carpet remains one of the most popular flooring choices for residential bedrooms, family rooms, playrooms, home offices, and stairs. It provides warmth, comfort, noise reduction, and a cozy feel that hard-surface floors cannot match. Modern residential carpets come in a wide range of fibers, styles, and colors, making it easy to find the perfect option for any room and lifestyle.
+          </p>
+
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Pros & Cons</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Advantages</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Warm, soft, and comfortable underfoot</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Excellent noise and sound absorption</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Slip-resistant — safer for kids and elderly</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Wide range of colors, patterns, and textures</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Budget-friendly compared to many hard surfaces</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Adds insulation and reduces heating costs</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Considerations</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Not suitable for wet areas (kitchens, bathrooms)</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Requires regular vacuuming and periodic deep cleaning</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Can stain if spills are not addressed quickly</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Shorter lifespan than hard-surface flooring in high-traffic areas</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Installation Notes</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Carpet installation begins with removing your existing flooring (if needed) and preparing the subfloor. We install tack strips, lay quality padding, and stretch the carpet for a smooth, wrinkle-free finish. Seams are carefully placed and edges are tucked for a clean look. Stairs require individual fitting and wrapping for a tight, professional finish. Most rooms are completed in a single day, and furniture is moved back into place as we go.
+          </p>
+
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Maintenance Basics</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Vacuum your carpet at least twice a week in high-traffic areas and once a week in lower-traffic rooms. Treat spills immediately by blotting (not rubbing) with a clean cloth. Schedule professional deep cleaning every 12-18 months to remove embedded dirt and extend carpet life. Use doormats at entrances to reduce tracked-in dirt. We provide specific care recommendations based on your carpet's fiber type.
+          </p>
+
+          <div class="mt-12">
+            <h2 class="text-3xl font-heading font-bold mb-6">Frequently Asked Questions</h2>
+            <FAQ items={faqs} />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl font-heading font-bold mb-6">Ready for New Carpet?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Contact us for a free consultation and detailed proposal for your home.
+        </p>
+        <CTA href="/residential/#quote-form" />
+        <p class="mt-6 text-gray-600">
+          <a href="/residential/" class="text-charcoal font-semibold no-underline hover:underline">
+            ← Back to Residential Flooring
+          </a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+</BaseLayout>

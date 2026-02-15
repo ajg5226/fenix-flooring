@@ -1,0 +1,168 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import FAQ from '../../components/FAQ.astro';
+import { getBreadcrumbSchema, getServiceSchema, getFAQPageSchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Services', url: '/services/' },
+  { label: 'Commercial Flooring Installation', url: '/services/commercial-flooring-installation/' },
+];
+
+const faqs = [
+  {
+    question: 'What flooring types do you install?',
+    answer: 'We install LVT/LVP, sheet vinyl, VCT, hardwood, engineered hardwood, rubber, tile (ceramic and porcelain), carpet, and carpet tile.',
+  },
+  {
+    question: 'How long does installation take?',
+    answer: 'Installation timelines vary by project size and flooring type. Small projects (under 5,000 sq ft) typically take 3-5 days. Larger projects may take 1-3 weeks. We provide detailed timelines in our proposals.',
+  },
+  {
+    question: 'Do you work in occupied buildings?',
+    answer: 'Yes. We specialize in after-hours and phased installations for occupied commercial buildings. We coordinate with tenants and property managers to minimize disruption.',
+  },
+  {
+    question: 'What preparation is needed before installation?',
+    answer: 'We handle all preparation including existing flooring removal, concrete leveling and patching, and moisture mitigation when needed. Our turnkey service includes everything.',
+  },
+  {
+    question: 'Do you provide warranties?',
+    answer: 'Yes. All installations include warranty documentation. Specific warranty terms depend on the flooring manufacturer and installation type.',
+  },
+];
+
+const serviceSchema = getServiceSchema(
+  'Commercial Flooring Installation',
+  'Professional installation of all commercial flooring types including LVT/LVP, sheet vinyl, VCT, hardwood, engineered hardwood, rubber, tile, carpet, and carpet tile. Turnkey service with minimal disruption.',
+  '/services/commercial-flooring-installation/'
+);
+
+const schema = [
+  getBreadcrumbSchema(breadcrumbs),
+  serviceSchema,
+  getFAQPageSchema(faqs),
+];
+---
+
+<BaseLayout
+  title="Commercial Flooring Installation | Professional Installation Services"
+  description="Professional commercial flooring installation for all flooring types including carpet and carpet tile. Turnkey service with minimal disruption. After-hours available for occupied buildings."
+  schema={schema}
+>
+  
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Commercial Flooring Installation</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Professional installation of all commercial flooring types, including carpet and carpet tile. We ensure proper installation techniques, minimal downtime, and predictable schedules for your project.
+        </p>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <div class="mb-12">
+          <img 
+            src="/images/flooring-commercial-flooring-inner-image-1.jpg" 
+            alt="Professional commercial flooring installation in progress" 
+            class="w-full h-64 md:h-96 object-cover rounded"
+            loading="lazy"
+          />
+        </div>
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-3xl font-heading font-bold mb-6">Who This Service Is For</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Our commercial flooring installation service is ideal for property managers, building owners, facility managers, and contractors who need professional installation of new flooring. Whether you're renovating an office building, updating a healthcare facility, or replacing flooring in an educational institution, we provide expert installation with minimal disruption to your operations.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">What's Included</h2>
+          <ul class="list-none space-y-3 mb-8">
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Site preparation and material layout planning</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Professional installation using manufacturer-recommended methods</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Seam welding and finishing for sheet vinyl</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Grouting and sealing for tile installations</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Transition strips and base molding installation</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Cleanup and debris removal</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Final walkthrough and warranty documentation</span>
+            </li>
+          </ul>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Our Installation Process</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            We begin with a thorough site walk to assess conditions and discuss your requirements. Our team then prepares a detailed proposal with timeline and pricing. Once approved, we coordinate scheduling to minimize disruption. During installation, our experienced crews follow manufacturer specifications and industry best practices. We maintain clean work areas and communicate regularly with property managers. After completion, we conduct a final walkthrough to ensure everything meets your expectations.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Common Use Cases</h2>
+          <ul class="list-none space-y-3 mb-8">
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">New construction flooring installation</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Renovation projects requiring new flooring</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">After-hours installations in occupied buildings</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Phased installations to maintain building operations</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Emergency flooring replacement projects</span>
+            </li>
+          </ul>
+          
+          <div class="mt-12">
+            <h2 class="text-3xl font-heading font-bold mb-6">Frequently Asked Questions</h2>
+            <FAQ items={faqs} />
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6">Ready to Start Your Project?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Contact us for a free site walk and detailed proposal for your commercial flooring installation.
+        </p>
+        <CTA />
+        <p class="mt-6 text-gray-600">
+          <a href="/flooring/" class="text-charcoal font-semibold no-underline hover:underline">
+            View Flooring Types →
+          </a>
+        </p>
+      </div>
+    </section>
+  </main>
+  
+</BaseLayout>

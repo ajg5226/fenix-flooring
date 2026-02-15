@@ -1,0 +1,169 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import FAQ from '../../components/FAQ.astro';
+import { getBreadcrumbSchema, getFAQPageSchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Flooring Types', url: '/flooring/' },
+  { label: 'Tile', url: '/flooring/tile-ceramic-porcelain/' },
+];
+
+const faqs = [
+  {
+    question: 'What is ceramic and porcelain tile?',
+    answer: 'Ceramic and porcelain tile are durable, hard-surface flooring materials made from clay and other natural materials. Porcelain is denser and more durable than ceramic tile.',
+  },
+  {
+    question: 'Where is tile best suited?',
+    answer: 'Tile is ideal for high-traffic commercial areas, restrooms, food service areas, lobbies, and other environments requiring durability, easy maintenance, and water resistance.',
+  },
+  {
+    question: 'How long does tile installation take?',
+    answer: 'Installation timelines vary by project size and complexity. Small projects (under 5,000 sq ft) typically take 5-7 days. Larger projects may take 2-3 weeks.',
+  },
+  {
+    question: 'What maintenance does tile require?',
+    answer: 'Tile requires regular sweeping or vacuuming, mopping with appropriate cleaners, and periodic grout cleaning and sealing to maintain appearance and prevent staining.',
+  },
+];
+
+const schema = [
+  getBreadcrumbSchema(breadcrumbs),
+  getFAQPageSchema(faqs),
+];
+---
+
+<BaseLayout
+  title="Tile Commercial Flooring | Ceramic & Porcelain Tile Installation"
+  description="Professional ceramic and porcelain tile installation for commercial spaces. Durable, water-resistant tile for high-traffic areas."
+  schema={schema}
+>
+  
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Tile for Commercial Spaces</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Durable ceramic and porcelain tile for high-traffic commercial environments requiring water resistance and easy maintenance.
+        </p>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <div class="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img 
+              src="/images/tile1.jpg" 
+              alt="Commercial tile flooring installation" 
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img 
+              src="/images/tile2.jpeg" 
+              alt="Modern commercial space with tile flooring" 
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img 
+              src="/images/tile-images-hospitality.jpeg" 
+              alt="Hospitality space with elegant tile flooring" 
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img 
+              src="/images/Tile-Flooring-Guide-in-Commercial-Design-Projects.jpg" 
+              alt="Commercial tile flooring design project" 
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-3xl font-heading font-bold mb-6">Where Tile Fits</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Ceramic and porcelain tile are excellent choices for high-traffic commercial areas, restrooms, food service areas, lobbies, and other environments requiring durability, water resistance, and easy maintenance. Tile provides a hard-wearing surface that can withstand heavy traffic and frequent cleaning.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Pros & Cons</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Advantages</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Extremely durable and long-lasting</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Water-resistant and easy to clean</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Wide variety of colors, patterns, and sizes</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Suitable for high-traffic areas</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Considerations</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Requires proper subfloor preparation</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Grout requires periodic cleaning and sealing</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Can be cold and hard underfoot</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Installation Notes & Downtime</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Tile installation requires a level, stable subfloor. We assess subfloor conditions during our site walk and include any necessary preparation in our proposal. Installation involves proper adhesive application, tile placement, grouting, and sealing. Most installations can be completed with minimal downtime, though grout cure time may require limited access. Small projects (under 5,000 sq ft) typically take 5-7 days, while larger projects may take 2-3 weeks.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Maintenance Basics</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Tile maintenance includes regular sweeping or vacuuming, mopping with appropriate cleaners, and periodic grout cleaning and sealing to maintain appearance and prevent staining. We provide maintenance guidelines with every installation.
+          </p>
+          
+          <div class="mt-12">
+            <h2 class="text-3xl font-heading font-bold mb-6">Frequently Asked Questions</h2>
+            <FAQ items={faqs} />
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6">Interested in Tile?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Contact us for a free site walk and detailed proposal for your tile installation.
+        </p>
+        <CTA />
+      </div>
+    </section>
+  </main>
+  
+</BaseLayout>

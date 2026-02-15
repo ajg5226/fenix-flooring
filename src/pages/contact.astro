@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import { siteConfig } from '../config/site';
+import { getBreadcrumbSchema } from '../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Contact', url: '/contact/' },
+];
+
+const schema = [getBreadcrumbSchema(breadcrumbs)];
+const linkedInContactUrl = 'https://www.fenixflooring.com/go/linkedin/?utm_source=website&utm_medium=owned&utm_campaign=social_profile_click&utm_content=contact_page';
+---
+
+<BaseLayout
+  title="Contact Fenix Flooring | Request a Quote or Schedule a Site Walk"
+  description="Contact Fenix Flooring for commercial flooring services. Request a quote, schedule a site walk, or call us directly. Free estimates available."
+  schema={schema}
+>
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Contact Us</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Get in touch for a free site walk and detailed proposal for your commercial flooring project.
+        </p>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12" data-reveal>
+          <div>
+            <h2 class="text-3xl font-heading font-bold mb-6">Get In Touch</h2>
+            <div class="space-y-6 mb-8">
+              <div>
+                <h3 class="text-xl font-heading font-bold mb-2">Phone</h3>
+                <p class="text-gray-600">
+                  <a href={`tel:${siteConfig.phone.replace(/\D/g, '')}`} class="text-charcoal font-semibold no-underline hover:underline">
+                    {siteConfig.phone}
+                  </a>
+                </p>
+              </div>
+              <div>
+                <h3 class="text-xl font-heading font-bold mb-2">Email</h3>
+                <p class="text-gray-600">
+                  <a href={`mailto:${siteConfig.email}`} class="text-charcoal font-semibold no-underline hover:underline">
+                    {siteConfig.email}
+                  </a>
+                </p>
+              </div>
+              <div>
+                <h3 class="text-xl font-heading font-bold mb-2">Social Media</h3>
+                <p class="text-gray-600">
+                  <a href={siteConfig.social.instagram} target="_blank" rel="noopener noreferrer" class="text-charcoal font-semibold no-underline hover:underline">
+                    Fenix Flooring on Instagram
+                  </a>
+                </p>
+                <p class="text-gray-600 mt-1">
+                  <a href={linkedInContactUrl} target="_blank" rel="noopener noreferrer" class="text-charcoal font-semibold no-underline hover:underline">
+                    Fenix Flooring on LinkedIn
+                  </a>
+                </p>
+              </div>
+              <div>
+                <h3 class="text-xl font-heading font-bold mb-2">Address</h3>
+                <p class="text-gray-600">
+                  {siteConfig.address.street}<br />
+                  {siteConfig.address.city}, {siteConfig.address.state} {siteConfig.address.zip}
+                </p>
+              </div>
+              <div>
+                <h3 class="text-xl font-heading font-bold mb-2">Service Area</h3>
+                <p class="text-gray-600">{siteConfig.serviceArea}</p>
+              </div>
+            </div>
+
+            <!-- Google Maps Embed -->
+            <div class="mb-8">
+              <div class="border border-gray-200 overflow-hidden">
+                <iframe
+                  src="https://www.google.com/maps?q=1200+E+High+St+Suite+202,+Pottstown,+PA+19464&output=embed"
+                  width="100%"
+                  height="280"
+                  style="border:0;"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  title="Fenix Flooring office location - 1200 E High St Suite 202, Pottstown, PA 19464"
+                ></iframe>
+              </div>
+            </div>
+            
+            <div id="site-walk" class="mt-12 scroll-mt-24">
+              <h2 class="text-3xl font-heading font-bold mb-6">Schedule a Site Walk</h2>
+              <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                A site walk allows us to assess your existing conditions, discuss your requirements, and provide an accurate proposal. Site walks are free and typically take 30-60 minutes. Contact us to schedule at your convenience.
+              </p>
+            </div>
+          </div>
+          
+          <div>
+            <h2 id="quote-form" class="text-3xl font-heading font-bold mb-6 scroll-mt-24">Request a Quote</h2>
+            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+              Fill out the form below and we'll get back to you within 24 hours to discuss your project and schedule a site walk. After the site walk, you'll receive a detailed proposal within 48 hours.
+            </p>
+            <QuoteForm />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

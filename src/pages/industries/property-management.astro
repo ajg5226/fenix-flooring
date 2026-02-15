@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import { getBreadcrumbSchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Industries', url: '/industries/' },
+  { label: 'Property Management', url: '/industries/property-management/' },
+];
+
+const schema = [getBreadcrumbSchema(breadcrumbs)];
+---
+
+<BaseLayout
+  title="Commercial Flooring for Property Management | Turnkey Solutions"
+  description="Turnkey commercial flooring solutions for property managers. After-hours installations, tenant coordination, and complete project management."
+  schema={schema}
+>
+  
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Commercial Flooring for Property Management</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Turnkey flooring solutions designed for property managers. We handle tenant coordination, after-hours work, and complete project management.
+        </p>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <div class="mb-12">
+          <img
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80"
+            alt="Commercial property exterior for property management flooring projects"
+            class="w-full h-64 md:h-96 object-cover rounded"
+            loading="lazy"
+          />
+        </div>
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-3xl font-heading font-bold mb-6">Pain Points We Solve</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Property managers face unique challenges: coordinating with tenants, minimizing disruption, managing multiple properties, and ensuring quality work that stands up to commercial use. We understand these challenges and provide solutions that make your job easier.
+          </p>
+          
+          <ul class="list-none space-y-4 mb-8">
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <div>
+                <strong class="text-charcoal">Tenant Coordination:</strong>
+                <span class="text-gray-600"> We coordinate directly with tenants, handle access scheduling, and communicate clearly to minimize disruption to your operations.</span>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <div>
+                <strong class="text-charcoal">After-Hours Work:</strong>
+                <span class="text-gray-600"> We offer after-hours and phased installations so tenants can continue operating normally during flooring projects.</span>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <div>
+                <strong class="text-charcoal">Durability & Longevity:</strong>
+                <span class="text-gray-600"> We install commercial-grade flooring that withstands heavy traffic and reduces the frequency of replacements.</span>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <div>
+                <strong class="text-charcoal">Easy Maintenance:</strong>
+                <span class="text-gray-600"> We recommend and install flooring that's easy to maintain, reducing long-term costs and tenant complaints.</span>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <div>
+                <strong class="text-charcoal">Complete Project Management:</strong>
+                <span class="text-gray-600"> Our turnkey service means you don't need to coordinate multiple contractors. We handle everything from demo to final walkthrough.</span>
+              </div>
+            </li>
+          </ul>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Recommended Flooring Options</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            For property management applications, we typically recommend:
+          </p>
+          
+          <ul class="list-none space-y-3 mb-8">
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">
+                <a href="/flooring/lvt-lvp/" class="text-charcoal font-semibold no-underline hover:underline">LVT/LVP</a> - Durable, easy to maintain, wide variety of styles
+              </span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">
+                <a href="/flooring/sheet-vinyl/" class="text-charcoal font-semibold no-underline hover:underline">Sheet Vinyl</a> - Seamless, hygienic, low maintenance
+              </span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">
+                <a href="/flooring/vct/" class="text-charcoal font-semibold no-underline hover:underline">VCT</a> - Cost-effective, durable, easy to maintain
+              </span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">
+                <a href="/flooring/tile-ceramic-porcelain/" class="text-charcoal font-semibold no-underline hover:underline">Tile</a> - Durable, water-resistant, long-lasting
+              </span>
+            </li>
+          </ul>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Common Scopes</h2>
+          <ul class="list-none space-y-3 mb-8">
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Tenant improvement flooring projects</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Common area flooring updates</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Building-wide flooring replacement projects</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Emergency flooring repairs and replacements</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">After-hours installations in occupied buildings</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6">Ready to Work Together?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Contact us for a free site walk and detailed proposal for your property management flooring project.
+        </p>
+        <CTA />
+      </div>
+    </section>
+  </main>
+  
+</BaseLayout>

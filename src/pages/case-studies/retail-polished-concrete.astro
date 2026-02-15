@@ -1,0 +1,232 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+import { getBreadcrumbSchema, getCaseStudySchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Case Studies', url: '/case-studies/' },
+  { label: 'Retail Polished Concrete', url: '/case-studies/retail-polished-concrete/' },
+];
+
+const projectDetails = {
+  client: 'National Fashion Retailer',
+  industry: 'Retail',
+  scope: 'Occupied flagship retail renovation',
+  schedule: 'After-hours, phased schedule',
+  products: ['Polished Concrete', 'Concrete Densifier'],
+  services: ['Concrete Polishing', 'Joint Filling', 'Surface Repair', 'Concrete Prep'],
+};
+
+const schema = [
+  getBreadcrumbSchema(breadcrumbs),
+  getCaseStudySchema({
+    title: 'Retail Space Polished Concrete',
+    description: 'How Fenix Flooring completed a polished concrete installation for a national retailer without impacting store operations.',
+    url: '/case-studies/retail-polished-concrete/',
+    industry: 'Retail',
+    image: '/images/pc1.jpg',
+  }),
+];
+---
+
+<BaseLayout
+  title="Retail Space Polished Concrete | Case Study"
+  description="How Fenix Flooring completed a polished concrete installation for a national retailer without impacting store operations."
+  noindex={true}
+  schema={schema}
+>
+  <main id="main-content" class="pt-24">
+    <!-- Hero Section -->
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <div class="flex flex-wrap gap-3 mb-6">
+          <span class="bg-white text-charcoal text-sm font-semibold px-4 py-1 uppercase tracking-wide">Retail</span>
+          <span class="border border-gray-200 text-gray-300 text-sm font-semibold px-4 py-1 uppercase tracking-wide">Occupied Store</span>
+        </div>
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Retail Space Polished Concrete</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Complete flooring transformation for a national fashion retailer—polished concrete installed over 10 nights with zero impact to daytime operations.
+        </p>
+      </div>
+    </section>
+
+    <!-- Project Image -->
+    <section class="bg-gray-100">
+      <div class="max-w-7xl mx-auto">
+        <div class="aspect-[21/9] overflow-hidden">
+          <img 
+            src="/images/pc1.jpg" 
+            alt="Retail space polished concrete installation" 
+            class="w-full h-full object-cover"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Details -->
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-7xl mx-auto" data-reveal>
+        <div class="grid lg:grid-cols-3 gap-12">
+          <!-- Main Content -->
+          <div class="lg:col-span-2">
+            <h2 class="text-3xl font-heading font-bold mb-6">Project Background</h2>
+            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+              A national fashion retailer needed to renovate the flooring in their flagship location—a high-traffic, multi-level store in a major shopping district. The existing ceramic tile had become dated and no longer aligned with their updated brand aesthetic. More critically, cracked tiles were creating trip hazards and constant maintenance headaches.
+            </p>
+            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+              The challenge: complete a full flooring replacement during peak retail season without closing the store. Every sales day was critical. The client needed a contractor who could work discreetly—transforming the space while keeping the store fully operational for customers.
+            </p>
+            
+            <h2 class="text-3xl font-heading font-bold mb-6 mt-12">The Challenge</h2>
+            <div class="bg-gray-100 p-8 mb-8">
+              <ul class="space-y-4">
+                <li class="flex items-start gap-4">
+                  <svg class="w-6 h-6 text-charcoal shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                  </svg>
+                  <span class="text-gray-600"><strong>No daytime closures:</strong> Store generates significant daily revenue during peak season</span>
+                </li>
+                <li class="flex items-start gap-4">
+                  <svg class="w-6 h-6 text-charcoal shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                  </svg>
+                  <span class="text-gray-600"><strong>Aggressive timeline:</strong> Tight window before seasonal merchandise reset</span>
+                </li>
+                <li class="flex items-start gap-4">
+                  <svg class="w-6 h-6 text-charcoal shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                  </svg>
+                  <span class="text-gray-600"><strong>Fixed fixtures:</strong> Sales floor fixtures couldn't be moved—installation had to work around them</span>
+                </li>
+                <li class="flex items-start gap-4">
+                  <svg class="w-6 h-6 text-charcoal shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                  </svg>
+                  <span class="text-gray-600"><strong>Ceramic removal:</strong> Existing tile required careful demolition to avoid subfloor damage</span>
+                </li>
+              </ul>
+            </div>
+
+            <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Our Solution</h2>
+            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+              We developed a comprehensive after-hours installation plan that would complete the project in a tight window. Our team worked overnight, with all work areas cleared and ready for customers by store opening each morning.
+            </p>
+            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+              We divided the sales floor into zones, completing one section per night and using temporary barriers and transition strips to maintain safe pedestrian flow during the day. Dust containment systems ensured no debris reached merchandise, and all tools and materials were staged off-site and brought in after closing.
+            </p>
+
+            <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Technical Approach</h2>
+            <div class="space-y-6 mb-8">
+              <div class="bg-gray-100 p-6">
+                <h3 class="font-bold text-lg mb-2">Phase 1: Ceramic Tile Removal</h3>
+                <p class="text-gray-600">Low-vibration removal equipment protected the structural slab. Debris was hauled out nightly, leaving no trace by morning.</p>
+              </div>
+              <div class="bg-gray-100 p-6">
+                <h3 class="font-bold text-lg mb-2">Phase 2: Concrete Preparation</h3>
+                <p class="text-gray-600">Diamond grinding removed adhesive residue and exposed aggregate. Shot blasting created a consistent profile across the floor.</p>
+              </div>
+              <div class="bg-gray-100 p-6">
+                <h3 class="font-bold text-lg mb-2">Phase 3: Polishing</h3>
+                <p class="text-gray-600">Progressive grinding from coarse to fine. A densifier was applied between stages for hardness and sheen.</p>
+              </div>
+              <div class="bg-gray-100 p-6">
+                <h3 class="font-bold text-lg mb-2">Phase 4: Final Detailing</h3>
+                <p class="text-gray-600">Joint filling, edge work around fixtures, and final burnishing. Protective treatment applied for stain resistance.</p>
+              </div>
+            </div>
+
+            <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Results</h2>
+            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+              The project finished on schedule, giving the client time for seasonal merchandise setup. The store remained open throughout the project, protecting peak-season sales.
+            </p>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="lg:col-span-1">
+            <div class="bg-gray-100 p-8 sticky top-24">
+              <h3 class="text-xl font-heading font-bold mb-6">Project Details</h3>
+              <dl class="space-y-4">
+                <div>
+                  <dt class="text-sm text-gray-600 uppercase tracking-wide">Industry</dt>
+                  <dd class="text-charcoal font-semibold mt-1">{projectDetails.industry}</dd>
+                </div>
+                <div>
+                  <dt class="text-sm text-gray-600 uppercase tracking-wide">Project Scope</dt>
+                  <dd class="text-charcoal font-semibold mt-1">{projectDetails.scope}</dd>
+                </div>
+                <div>
+                  <dt class="text-sm text-gray-600 uppercase tracking-wide">Schedule</dt>
+                  <dd class="text-charcoal font-semibold mt-1">{projectDetails.schedule}</dd>
+                </div>
+                <div>
+                  <dt class="text-sm text-gray-600 uppercase tracking-wide">Products Used</dt>
+                  <dd class="flex flex-wrap gap-2 mt-2">
+                    {projectDetails.products.map((product) => (
+                      <span class="bg-white text-charcoal text-sm px-3 py-1 border border-gray-200">{product}</span>
+                    ))}
+                  </dd>
+                </div>
+                <div>
+                  <dt class="text-sm text-gray-600 uppercase tracking-wide">Services</dt>
+                  <dd class="flex flex-wrap gap-2 mt-2">
+                    {projectDetails.services.map((service) => (
+                      <span class="bg-white text-charcoal text-sm px-3 py-1 border border-gray-200">{service}</span>
+                    ))}
+                  </dd>
+                </div>
+              </dl>
+              <hr class="my-8 border-gray-200" />
+              <a href="/contact/#quote-form" class="block w-full text-center bg-charcoal text-white font-semibold py-4 uppercase tracking-wide hover:bg-gray-dark transition-colors">
+                Discuss Your Project
+              </a>
+            </div>
+
+            <div class="bg-charcoal text-white p-8 mt-8">
+              <h3 class="text-lg font-heading font-bold mb-4">Related Services</h3>
+              <ul class="space-y-2">
+                <li><a href="/services/after-hours-occupied-installation/" class="text-gray-300 hover:text-white transition-colors">After-Hours Installation →</a></li>
+                <li><a href="/services/flooring-removal-demolition/" class="text-gray-300 hover:text-white transition-colors">Flooring Removal →</a></li>
+                <li><a href="/industries/retail/" class="text-gray-300 hover:text-white transition-colors">Retail Flooring →</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Case Studies -->
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-heading font-bold mb-8">More Case Studies</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <a href="/case-studies/office-building-replacement/" class="block p-8 bg-white border border-gray-200 hover:border-ochre transition-colors no-underline text-charcoal">
+            <div class="text-sm text-gray-600 mb-2 uppercase tracking-wide">Office Buildings</div>
+            <h3 class="text-2xl font-heading font-bold mb-4">Office Building Flooring Replacement</h3>
+            <p class="text-gray-600">LVT installation in an occupied office building with after-hours scheduling.</p>
+          </a>
+          <a href="/case-studies/healthcare-lvt-installation/" class="block p-8 bg-white border border-gray-200 hover:border-ochre transition-colors no-underline text-charcoal">
+            <div class="text-sm text-gray-600 mb-2 uppercase tracking-wide">Healthcare</div>
+            <h3 class="text-2xl font-heading font-bold mb-4">Healthcare Facility LVT Installation</h3>
+            <p class="text-gray-600">LVT installation in an active healthcare facility with phased scheduling.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="px-4 md:px-15 py-20 bg-charcoal text-white">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6 text-center">Have a Similar Project?</h2>
+        <p class="text-xl text-gray-300 mb-12 text-center">
+          Let's discuss how we can help your retail space achieve the same results.
+        </p>
+        <QuoteForm />
+      </div>
+    </section>
+  </main>
+</BaseLayout>

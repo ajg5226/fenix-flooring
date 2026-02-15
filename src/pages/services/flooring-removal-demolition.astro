@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import FAQ from '../../components/FAQ.astro';
+import { getBreadcrumbSchema, getServiceSchema, getFAQPageSchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Services', url: '/services/' },
+  { label: 'Flooring Removal & Demolition', url: '/services/flooring-removal-demolition/' },
+];
+
+const faqs = [
+  {
+    question: 'What types of flooring can you remove?',
+    answer: 'We remove all types of commercial flooring including carpet, carpet tile, tile, vinyl, VCT, LVT, sheet vinyl, rubber, epoxy, and more.',
+  },
+  {
+    question: 'Do you handle disposal?',
+    answer: 'Yes. We handle complete removal and proper disposal of all materials, including recycling when possible. Disposal costs are included in our proposal.',
+  },
+  {
+    question: 'How long does removal take?',
+    answer: 'Removal timelines vary by material type and square footage. Most removal projects take 1-3 days. We provide detailed timelines in our proposals.',
+  },
+  {
+    question: 'Will removal damage the subfloor?',
+    answer: 'Our experienced crews use proper techniques to minimize subfloor damage. We assess conditions before removal and take appropriate precautions.',
+  },
+  {
+    question: 'Can you work after hours?',
+    answer: 'Yes. We offer after-hours removal services for occupied buildings to minimize disruption to your operations.',
+  },
+];
+
+const serviceSchema = getServiceSchema(
+  'Flooring Removal & Demolition',
+  'Safe, efficient removal of existing commercial flooring materials. Proper disposal and subfloor preparation included.',
+  '/services/flooring-removal-demolition/'
+);
+
+const schema = [
+  getBreadcrumbSchema(breadcrumbs),
+  serviceSchema,
+  getFAQPageSchema(faqs),
+];
+---
+
+<BaseLayout
+  title="Flooring Removal & Demolition | Safe Commercial Flooring Removal"
+  description="Professional commercial flooring removal and demolition services. Safe removal with proper disposal. After-hours available for occupied buildings."
+  schema={schema}
+>
+  
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Flooring Removal & Demolition</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Safe, efficient removal of existing commercial flooring materials. We handle proper disposal and prepare your subfloor for new installation.
+        </p>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-3xl font-heading font-bold mb-6">Who This Service Is For</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Property managers, building owners, and contractors who need existing flooring removed before new installation. Whether you're replacing flooring, renovating spaces, or preparing for new construction, our removal service ensures safe, efficient removal with minimal subfloor damage.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">What's Included</h2>
+          <ul class="list-none space-y-3 mb-8">
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Safe removal of all existing flooring materials</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Adhesive and residue removal from subfloor</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Proper disposal and recycling when possible</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Subfloor assessment and preparation</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Cleanup and debris removal</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Protection of adjacent areas and finishes</span>
+            </li>
+          </ul>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Our Removal Process</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            We begin with a site walk to assess existing materials and conditions. Our proposal includes detailed scope, timeline, and disposal costs. Once approved, we coordinate scheduling. During removal, our crews use appropriate tools and techniques to minimize subfloor damage. We remove all materials, clean adhesives and residues, and prepare the subfloor for new installation. We maintain clean work areas and protect adjacent spaces throughout the process.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Common Use Cases</h2>
+          <ul class="list-none space-y-3 mb-8">
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Preparing for new flooring installation</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Removing damaged or water-damaged flooring</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Renovation and tenant improvement projects</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Removing outdated flooring materials</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Preparing spaces for concrete polishing or other treatments</span>
+            </li>
+          </ul>
+          
+          <div class="mt-12">
+            <h2 class="text-3xl font-heading font-bold mb-6">Frequently Asked Questions</h2>
+            <FAQ items={faqs} />
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6">Need Flooring Removed?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Contact us for a free site walk and detailed proposal for your removal project.
+        </p>
+        <CTA />
+      </div>
+    </section>
+  </main>
+  
+</BaseLayout>

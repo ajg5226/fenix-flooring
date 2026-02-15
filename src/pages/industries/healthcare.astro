@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import { getBreadcrumbSchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Industries', url: '/industries/' },
+  { label: 'Healthcare', url: '/industries/healthcare/' },
+];
+
+const schema = [getBreadcrumbSchema(breadcrumbs)];
+---
+
+<BaseLayout
+  title="Commercial Flooring for Healthcare | Hygienic Flooring Solutions"
+  description="Commercial flooring for healthcare facilities. Hygienic, durable flooring solutions for medical facilities, hospitals, and clinics."
+  schema={schema}
+>
+  
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Commercial Flooring for Healthcare</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Hygienic, durable flooring solutions for healthcare facilities. We understand the unique requirements of medical environments.
+        </p>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <div class="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <img 
+            src="/images/healthcare1.jpg" 
+            alt="Healthcare facility corridor with hygienic commercial flooring" 
+            class="w-full h-64 object-cover rounded"
+            loading="lazy"
+          />
+          <img 
+            src="/images/healthcare2.webp" 
+            alt="Clean medical space with durable healthcare flooring" 
+            class="w-full h-64 object-cover rounded"
+            loading="lazy"
+          />
+        </div>
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-3xl font-heading font-bold mb-6">Pain Points We Solve</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Healthcare facilities require flooring that meets strict hygiene standards, withstands frequent cleaning, and maintains a professional appearance. We install flooring that meets these critical requirements.
+          </p>
+          
+          <ul class="list-none space-y-4 mb-8">
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <div>
+                <strong class="text-charcoal">Hygiene & Cleanability:</strong>
+                <span class="text-gray-600"> Seamless, easy-to-clean flooring that meets healthcare hygiene standards.</span>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <div>
+                <strong class="text-charcoal">Minimal Patient Disruption:</strong>
+                <span class="text-gray-600"> Phased installations that allow patient care to continue normally.</span>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <div>
+                <strong class="text-charcoal">Durability:</strong>
+                <span class="text-gray-600"> Flooring that withstands heavy traffic, medical equipment, and frequent cleaning.</span>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <div>
+                <strong class="text-charcoal">Compliance:</strong>
+                <span class="text-gray-600"> Flooring that meets healthcare facility requirements and standards.</span>
+              </div>
+            </li>
+          </ul>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Recommended Flooring Options</h2>
+          <ul class="list-none space-y-3 mb-8">
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">
+                <a href="/flooring/sheet-vinyl/" class="text-charcoal font-semibold no-underline hover:underline">Sheet Vinyl</a> - Seamless, hygienic, easy to clean
+              </span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">
+                <a href="/flooring/lvt-lvp/" class="text-charcoal font-semibold no-underline hover:underline">LVT/LVP</a> - Durable, moisture-resistant, easy maintenance
+              </span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">
+                <a href="/flooring/rubber/" class="text-charcoal font-semibold no-underline hover:underline">Rubber</a> - Comfortable, slip-resistant, durable
+              </span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">
+                <a href="/flooring/tile-ceramic-porcelain/" class="text-charcoal font-semibold no-underline hover:underline">Tile</a> - Durable, water-resistant, hygienic
+              </span>
+            </li>
+          </ul>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Common Scopes</h2>
+          <ul class="list-none space-y-3 mb-8">
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Patient room flooring</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Operating room and procedure area flooring</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Common area and corridor updates</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Phased installations in occupied facilities</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6">Ready to Update Your Healthcare Flooring?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Contact us for a free site walk and detailed proposal for your healthcare facility project.
+        </p>
+        <CTA />
+      </div>
+    </section>
+  </main>
+  
+</BaseLayout>

@@ -1,0 +1,178 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import FAQ from '../../components/FAQ.astro';
+import { getBreadcrumbSchema, getFAQPageSchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Residential', url: '/residential/' },
+  { label: 'LVT/LVP', url: '/residential/lvt-lvp/' },
+];
+
+const faqs = [
+  {
+    question: 'Is LVT/LVP waterproof?',
+    answer: 'Yes. LVT and LVP are waterproof at the surface level, making them an excellent choice for kitchens, bathrooms, laundry rooms, and basements. Proper installation with sealed edges provides the best moisture protection.',
+  },
+  {
+    question: 'Can LVT/LVP be installed over existing flooring?',
+    answer: 'In many cases, yes. LVT/LVP can often be installed over existing hard surfaces like tile or vinyl if they are flat and in good condition. We assess your existing floor during the consultation and recommend the best approach.',
+  },
+  {
+    question: 'How durable is LVT/LVP with pets?',
+    answer: 'Very durable. LVT/LVP has a wear layer that resists scratches from pet nails and is easy to clean when accidents happen. It is one of the most pet-friendly flooring options available.',
+  },
+  {
+    question: 'Does LVT/LVP look like real wood or stone?',
+    answer: 'Modern LVT/LVP uses advanced printing and embossing technology to closely replicate the look and texture of real wood and stone. Many homeowners and visitors cannot tell the difference.',
+  },
+  {
+    question: 'How long does LVT/LVP last in a home?',
+    answer: 'With proper installation and normal residential use, LVT/LVP typically lasts 15-25 years. Higher-end products with thicker wear layers tend to last longer.',
+  },
+  {
+    question: 'How long does installation take?',
+    answer: 'Most single-room LVT/LVP installations take 1-2 days. A full home installation typically takes 3-5 days depending on square footage and subfloor preparation needs.',
+  },
+];
+
+const schema = [
+  getBreadcrumbSchema(breadcrumbs),
+  getFAQPageSchema(faqs),
+];
+---
+
+<BaseLayout
+  title="LVT/LVP for Homes | Luxury Vinyl Tile & Plank Residential Installation"
+  description="Professional LVT/LVP installation for homes. Waterproof, scratch-resistant luxury vinyl flooring for kitchens, bathrooms, living rooms, and basements."
+  schema={schema}
+>
+
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">LVT/LVP for Your Home</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Waterproof, scratch-resistant luxury vinyl flooring that looks like real wood or stone — perfect for every room in your home.
+        </p>
+      </div>
+    </section>
+
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto">
+        <div class="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img
+              src="/images/resi_lvp1.webp"
+              alt="Living room with luxury vinyl plank flooring"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img
+              src="/images/resi_lvp2.webp"
+              alt="Kitchen with LVT flooring"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-3xl font-heading font-bold mb-6">Where LVT/LVP Fits in Your Home</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            LVT/LVP is one of the most versatile flooring options for residential spaces. It works beautifully in kitchens, bathrooms, laundry rooms, basements, living rooms, and entryways. Its waterproof construction makes it ideal for moisture-prone areas, while its realistic wood and stone looks bring warmth and style to any room. Many homeowners use it throughout the entire home for a seamless, cohesive look.
+          </p>
+
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Pros & Cons</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Advantages</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">100% waterproof — great for kitchens, baths, and basements</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Scratch-resistant and pet-friendly</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Realistic wood and stone looks at a lower cost</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Comfortable and warm underfoot</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Easy to clean and maintain</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Wide range of styles, colors, and plank sizes</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Considerations</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Requires a level subfloor for best results</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Heavy furniture can dent lower-quality products</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Not real wood — may not add the same resale value as hardwood</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Quality varies widely — professional guidance helps</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Installation Notes</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            We install LVT/LVP using both glue-down and click-lock methods depending on the product and your home's conditions. Installation starts with assessing your subfloor — we handle any leveling or moisture mitigation needed. Furniture is moved room by room, and we work efficiently to get each space back in use quickly. Most rooms are completed in a single day. We protect finished areas and clean up at the end of each workday.
+          </p>
+
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Maintenance Basics</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            LVT/LVP is one of the easiest flooring types to maintain. Regular sweeping or vacuuming keeps dirt from scratching the surface. Damp mopping with a manufacturer-approved cleaner handles deeper cleaning. Avoid harsh chemicals, steam mops, and excessive standing water. Use felt pads under furniture legs to prevent indentations. We provide care guidelines with every installation.
+          </p>
+
+          <div class="mt-12">
+            <h2 class="text-3xl font-heading font-bold mb-6">Frequently Asked Questions</h2>
+            <FAQ items={faqs} />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl font-heading font-bold mb-6">Ready for New LVT/LVP Floors?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Contact us for a free consultation and detailed proposal for your home.
+        </p>
+        <CTA href="/residential/#quote-form" />
+        <p class="mt-6 text-gray-600">
+          <a href="/residential/" class="text-charcoal font-semibold no-underline hover:underline">
+            ← Back to Residential Flooring
+          </a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+</BaseLayout>

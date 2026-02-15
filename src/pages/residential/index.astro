@@ -1,0 +1,204 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FAQ from '../../components/FAQ.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+import { siteConfig } from '../../config/site';
+import { residentialFlooringTypes } from '../../config/residential';
+import { getBreadcrumbSchema, getFAQPageSchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Residential', url: '/residential/' },
+];
+
+const faqs = [
+  {
+    question: 'Do you install flooring in occupied homes?',
+    answer: 'Yes. We work room by room so you can continue living in your home during the installation. We protect finished areas with coverings and clean up at the end of each workday.',
+  },
+  {
+    question: 'How long does a typical residential flooring project take?',
+    answer: 'Most single-room installations take 1-2 days. Whole-home projects typically take 3-7 days depending on square footage, subfloor conditions, and flooring type. We provide a detailed timeline in every proposal.',
+  },
+  {
+    question: 'Do you move furniture?',
+    answer: 'We can move standard furniture as part of the installation. Heavy items like pianos, safes, or large entertainment centers should be moved by a specialty mover beforehand. We will let you know during the site walk if anything needs to be moved in advance.',
+  },
+  {
+    question: 'What about pets and kids during installation?',
+    answer: 'We recommend keeping pets and small children away from the work area for safety. Dust and adhesive fumes are minimal with modern products, but good ventilation is always recommended. We keep work zones contained and clean.',
+  },
+  {
+    question: 'Do you handle subfloor preparation?',
+    answer: 'Yes. We assess your subfloor during the site walk and include any necessary preparation — leveling, moisture mitigation, or old flooring removal — in our proposal. Everything is handled by one team.',
+  },
+  {
+    question: 'How much does residential flooring cost?',
+    answer: 'Costs vary based on flooring type, square footage, subfloor condition, and project complexity. We provide free, detailed proposals after a site walk so you know exactly what to expect — no hidden fees.',
+  },
+  {
+    question: 'What areas do you serve?',
+    answer: `We serve homeowners throughout ${siteConfig.serviceArea}. Contact us to confirm service availability for your location.`,
+  },
+];
+
+const schema = [
+  getBreadcrumbSchema(breadcrumbs),
+  getFAQPageSchema(faqs),
+];
+---
+
+<BaseLayout
+  title="Residential Flooring Installation | Durable, Beautiful Finishes for Your Home"
+  description="Professional residential flooring installation for homes, condos, and multi-family units. LVT/LVP, engineered hardwood, carpet, and tile. Clean installs, fast turnarounds, and durable finishes."
+  schema={schema}
+>
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="mt-16 md:mt-24 bg-charcoal text-white py-16 md:py-32 px-4 md:px-15 relative overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img
+          src="/images/wood-floor-residential.webp"
+          alt="Beautiful residential flooring installation"
+          class="w-full h-full object-cover opacity-30"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+        <div class="absolute inset-0 bg-charcoal/60"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-charcoal/20 via-transparent to-charcoal/50" aria-hidden="true"></div>
+      </div>
+      <div class="max-w-7xl mx-auto relative z-10">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-heading font-extrabold mb-6 leading-tight">
+          Residential Flooring Installation
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mb-8 leading-relaxed">
+          Beautiful, durable flooring for your home. From kitchens and bathrooms to bedrooms and living areas — we handle removal, prep, and installation with minimal disruption to your daily life.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a
+            href="#quote-form"
+            class="inline-block px-10 md:px-12 py-4 md:py-5 bg-terracotta text-white no-underline font-heading font-bold text-base md:text-lg tracking-wide uppercase transition-all hover:bg-ochre hover:scale-105 min-h-[56px] flex items-center justify-center"
+          >
+            Request a Quote
+          </a>
+          <a
+            href="/contact/#site-walk"
+            class="inline-block px-10 md:px-12 py-4 md:py-5 border-2 border-white text-white no-underline font-heading font-bold text-base md:text-lg tracking-wide uppercase transition-all hover:bg-white hover:text-charcoal hover:scale-105 min-h-[56px] flex items-center justify-center"
+          >
+            Schedule a Consultation
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Value Props -->
+    <section class="py-20 px-4 md:px-15 bg-gray-100">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-xl font-heading font-bold mb-3">Minimal Disruption</h3>
+            <p class="text-gray-600">Room-by-room phasing so you can keep living in your home during the project.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-heading font-bold mb-3">Clean Job Sites</h3>
+            <p class="text-gray-600">We protect finished areas, contain dust, and clean up every day before we leave.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-heading font-bold mb-3">Fast Turnarounds</h3>
+            <p class="text-gray-600">Efficient scheduling for move-ins, remodels, and renovations. Most rooms done in 1-2 days.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-heading font-bold mb-3">Durable Finishes</h3>
+            <p class="text-gray-600">Scratch-resistant, easy-to-clean flooring that holds up to kids, pets, and daily life.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Flooring Types Grid -->
+    <section class="py-20 px-4 md:px-15">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-heading font-bold mb-4">Residential Flooring Options</h2>
+        <p class="text-lg text-gray-600 mb-12 max-w-3xl">
+          We install the most popular residential flooring types — each chosen for durability, beauty, and suitability for everyday home life.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {residentialFlooringTypes.map((flooring) => (
+            <a
+              href={`/residential/${flooring.slug}/`}
+              class="block relative p-8 border border-gray-200 hover:border-ochre transition-all no-underline text-white bg-white overflow-hidden group min-h-[240px] md:min-h-[320px]"
+            >
+              <div
+                class="absolute inset-0 bg-cover bg-center transition-transform group-hover:scale-105"
+                style={`background-image: url('${flooring.image}');`}
+              ></div>
+              <div class="absolute inset-0 bg-charcoal/60 group-hover:bg-charcoal/70 transition-colors"></div>
+              <div class="relative z-10 h-full flex flex-col justify-end">
+                <div>
+                  <h3 class="text-2xl md:text-3xl font-heading font-bold mb-2">{flooring.title}</h3>
+                  <p class="text-base text-gray-200">{flooring.description}</p>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Process -->
+    <section class="py-20 px-4 md:px-15 bg-gray-100">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-heading font-bold mb-12 text-center">Our Process</h2>
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-ochre text-white rounded-full flex items-center justify-center text-2xl font-heading font-bold mx-auto mb-4">1</div>
+            <h3 class="text-xl font-heading font-bold mb-2">Consultation</h3>
+            <p class="text-gray-600 text-sm">We visit your home to assess conditions, take measurements, and discuss your goals.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-ochre text-white rounded-full flex items-center justify-center text-2xl font-heading font-bold mx-auto mb-4">2</div>
+            <h3 class="text-xl font-heading font-bold mb-2">Proposal</h3>
+            <p class="text-gray-600 text-sm">Detailed proposal with material options, timeline, and clear pricing — no surprises.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-ochre text-white rounded-full flex items-center justify-center text-2xl font-heading font-bold mx-auto mb-4">3</div>
+            <h3 class="text-xl font-heading font-bold mb-2">Schedule</h3>
+            <p class="text-gray-600 text-sm">We work around your schedule to minimize disruption to your household.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-ochre text-white rounded-full flex items-center justify-center text-2xl font-heading font-bold mx-auto mb-4">4</div>
+            <h3 class="text-xl font-heading font-bold mb-2">Install</h3>
+            <p class="text-gray-600 text-sm">Professional installation by experienced crews — room by room, clean and efficient.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-ochre text-white rounded-full flex items-center justify-center text-2xl font-heading font-bold mx-auto mb-4">5</div>
+            <h3 class="text-xl font-heading font-bold mb-2">Walkthrough</h3>
+            <p class="text-gray-600 text-sm">Final walkthrough to make sure everything looks perfect before we wrap up.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQs -->
+    <section class="py-20 px-4 md:px-15">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-heading font-bold mb-12">Frequently Asked Questions</h2>
+        <FAQ items={faqs} />
+      </div>
+    </section>
+
+    <!-- Quote Form -->
+    <section id="quote-form" class="py-20 px-4 md:px-15 bg-gray-100 scroll-mt-24">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-heading font-bold mb-6 text-center">Request a Quote</h2>
+        <p class="text-xl text-gray-600 mb-12 text-center">
+          Fill out the form below and we'll get back to you within 24 hours to discuss your project and schedule a consultation at your home.
+        </p>
+        <QuoteForm />
+      </div>
+    </section>
+  </main>
+</BaseLayout>

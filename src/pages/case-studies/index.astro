@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import { getBreadcrumbSchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Case Studies', url: '/case-studies/' },
+];
+
+const schema = [getBreadcrumbSchema(breadcrumbs)];
+
+const caseStudies = [
+  {
+    title: 'Office Building Flooring Replacement',
+    slug: 'office-building-replacement',
+    description: 'Complete flooring replacement in occupied office building with after-hours installation.',
+    industry: 'Office Buildings',
+  },
+  {
+    title: 'Healthcare Facility LVT Installation',
+    slug: 'healthcare-lvt-installation',
+    description: 'LVT installation in active healthcare facility with phased scheduling to maintain patient care.',
+    industry: 'Healthcare',
+  },
+  {
+    title: 'Elementary School Full Carpet Installation',
+    slug: 'elementary-school-carpet-installation',
+    description: 'Full carpet installation across classrooms and common areas completed during summer break.',
+    industry: 'Education',
+  },
+];
+---
+
+<BaseLayout
+  title="Case Studies | Commercial Flooring Projects"
+  description="Case studies of commercial flooring projects: office buildings, healthcare facilities, retail spaces, and more."
+  schema={schema}
+>
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Case Studies</h1>
+        <p class="text-xl text-gray-mid max-w-3xl">
+          Examples of commercial flooring projects we've completed for property managers, building owners, and facility managers.
+        </p>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-reveal-children>
+          {caseStudies.map((study) => (
+            <a
+              href={`/case-studies/${study.slug}/`}
+              class="block p-8 border border-gray-mid hover:border-black transition-colors no-underline text-black bg-white"
+            >
+              <div class="text-sm text-gray-dark mb-2 uppercase tracking-wide">{study.industry}</div>
+              <h2 class="text-2xl font-bold mb-4">{study.title}</h2>
+              <p class="text-gray-dark mb-4">{study.description}</p>
+              <span class="text-sm font-semibold uppercase tracking-wide">Read Case Study →</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20 bg-gray-light">
+      <div class="max-w-4xl mx-auto text-center" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6">Ready to Start Your Project?</h2>
+        <p class="text-xl text-gray-dark mb-8">
+          Contact us for a free site walk and detailed proposal for your commercial flooring project.
+        </p>
+        <CTA />
+      </div>
+    </section>
+  </main>
+</BaseLayout>

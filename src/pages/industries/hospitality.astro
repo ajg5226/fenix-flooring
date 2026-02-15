@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import { getBreadcrumbSchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Industries', url: '/industries/' },
+  { label: 'Hospitality', url: '/industries/hospitality/' },
+];
+
+const schema = [getBreadcrumbSchema(breadcrumbs)];
+---
+
+<BaseLayout
+  title="Commercial Flooring for Hospitality | Hotels & Restaurants"
+  description="Commercial flooring for hospitality: hotels, restaurants, and hospitality spaces. Durable, attractive flooring solutions."
+  schema={schema}
+>
+  
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Commercial Flooring for Hospitality</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Durable, attractive flooring solutions for hotels, restaurants, and hospitality spaces. We work around your operations to minimize disruption.
+        </p>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <div class="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <img 
+            src="/images/tile-images-hospitality.jpeg" 
+            alt="Elegant hotel lobby with tile flooring" 
+            class="w-full h-64 object-cover rounded"
+            loading="lazy"
+          />
+          <img 
+            src="/images/carpet4.jpeg" 
+            alt="Hotel guest room with carpet flooring" 
+            class="w-full h-64 object-cover rounded"
+            loading="lazy"
+          />
+        </div>
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-3xl font-heading font-bold mb-6">Pain Points We Solve</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Hospitality facilities require flooring that looks great, withstands high traffic, is easy to clean, and can be installed with minimal disruption to guests and operations.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Recommended Flooring Options</h2>
+          <ul class="list-none space-y-3 mb-8">
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">
+                <a href="/flooring/lvt-lvp/" class="text-charcoal font-semibold no-underline hover:underline">LVT/LVP</a> - Attractive, durable, easy to maintain
+              </span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">
+                <a href="/flooring/tile-ceramic-porcelain/" class="text-charcoal font-semibold no-underline hover:underline">Tile</a> - Durable, water-resistant, attractive
+              </span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">
+                <a href="/flooring/carpet/" class="text-charcoal font-semibold no-underline hover:underline">Carpet</a> - Soft underfoot, welcoming, helps with acoustics
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6">Ready to Update Your Hospitality Flooring?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Contact us for a free site walk and detailed proposal for your hospitality project.
+        </p>
+        <CTA />
+      </div>
+    </section>
+  </main>
+  
+</BaseLayout>

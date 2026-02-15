@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import FAQ from '../../components/FAQ.astro';
+import { getBreadcrumbSchema, getFAQPageSchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Flooring Types', url: '/flooring/' },
+  { label: 'Rubber', url: '/flooring/rubber/' },
+];
+
+const faqs = [
+  {
+    question: 'What is commercial rubber flooring?',
+    answer: 'Commercial rubber flooring is a resilient, durable flooring material made from natural or synthetic rubber. It provides comfort, slip resistance, and durability for commercial applications.',
+  },
+  {
+    question: 'Where is rubber flooring best suited?',
+    answer: 'Rubber flooring is ideal for gyms, fitness facilities, healthcare facilities, educational institutions, and other environments requiring comfort, slip resistance, and durability.',
+  },
+  {
+    question: 'How long does rubber flooring installation take?',
+    answer: 'Installation timelines vary by project size. Small projects (under 5,000 sq ft) typically take 3-5 days. Larger projects may take 1-2 weeks.',
+  },
+  {
+    question: 'What maintenance does rubber flooring require?',
+    answer: 'Rubber flooring requires regular sweeping or vacuuming, damp mopping with manufacturer-approved cleaners, and periodic deep cleaning. Avoid harsh chemicals.',
+  },
+];
+
+const schema = [
+  getBreadcrumbSchema(breadcrumbs),
+  getFAQPageSchema(faqs),
+];
+---
+
+<BaseLayout
+  title="Rubber Commercial Flooring | Durable Resilient Flooring"
+  description="Professional rubber flooring installation for commercial spaces. Comfortable, slip-resistant, and durable for gyms, healthcare, and more."
+  schema={schema}
+>
+  
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Rubber for Commercial Spaces</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Durable, resilient rubber flooring providing comfort, slip resistance, and durability for commercial environments.
+        </p>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <div class="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img 
+              src="/images/rubber1.jpg" 
+              alt="Gym with rubber flooring for fitness equipment" 
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img 
+              src="/images/rubber2.jpeg" 
+              alt="Fitness facility with specialized rubber flooring" 
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-3xl font-heading font-bold mb-6">Where Rubber Fits</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Rubber flooring is an excellent choice for gyms, fitness facilities, healthcare facilities, educational institutions, and other environments requiring comfort, slip resistance, and durability. It provides excellent shock absorption and is available in a variety of colors and patterns.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Pros & Cons</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Advantages</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Excellent shock absorption and comfort</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Slip-resistant surface</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Durable and long-lasting</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Easy to clean and maintain</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Wide variety of colors and patterns</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Considerations</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Requires level subfloor</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Can show wear patterns in very high-traffic areas</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Installation Notes & Downtime</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Rubber flooring installation requires a level, clean subfloor. We assess subfloor conditions during our site walk and include any necessary preparation in our proposal. Installation involves adhesive application and proper placement. Most installations can be completed with minimal downtime. Small projects (under 5,000 sq ft) typically take 3-5 days, while larger projects may take 1-2 weeks.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Maintenance Basics</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Rubber flooring maintenance includes regular sweeping or vacuuming, damp mopping with manufacturer-approved cleaners, and periodic deep cleaning. Avoid harsh chemicals that could damage the surface. We provide maintenance guidelines with every installation.
+          </p>
+          
+          <div class="mt-12">
+            <h2 class="text-3xl font-heading font-bold mb-6">Frequently Asked Questions</h2>
+            <FAQ items={faqs} />
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6">Interested in Rubber Flooring?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Contact us for a free site walk and detailed proposal for your rubber flooring installation.
+        </p>
+        <CTA />
+      </div>
+    </section>
+  </main>
+  
+</BaseLayout>

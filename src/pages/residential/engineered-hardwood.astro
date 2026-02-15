@@ -1,0 +1,232 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import FAQ from '../../components/FAQ.astro';
+import { getBreadcrumbSchema, getFAQPageSchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Residential', url: '/residential/' },
+  { label: 'Hardwood / Engineered Hardwood', url: '/residential/engineered-hardwood/' },
+];
+
+const faqs = [
+  {
+    question: 'What is the difference between solid hardwood and engineered hardwood?',
+    answer: 'Solid hardwood is milled from a single piece of wood and can be refinished many times over its lifetime. Engineered hardwood has a real hardwood veneer on top of a plywood or high-density fiberboard core, giving it better dimensional stability in environments with humidity and temperature changes. Both deliver the authentic look and feel of real wood.',
+  },
+  {
+    question: 'Which is better for my home — solid or engineered?',
+    answer: 'It depends on your home and subfloor. Engineered hardwood is the better choice for installation over concrete slabs, in basements, and in areas with humidity fluctuations. Solid hardwood is ideal for above-grade rooms with plywood subfloors and offers more refinishing potential. We help you decide during the consultation based on your specific conditions.',
+  },
+  {
+    question: 'Can hardwood floors be refinished?',
+    answer: 'Solid hardwood can be refinished many times (5-7+ times) over its lifetime. Engineered hardwood can typically be refinished 1-3 times depending on the thickness of the top veneer layer. Products with thicker veneers (3mm+) offer more refinishing flexibility.',
+  },
+  {
+    question: 'Is hardwood good for kitchens?',
+    answer: 'Hardwood can work in kitchens, but neither solid nor engineered hardwood is waterproof. Spills should be cleaned up promptly. For kitchens with heavy water exposure, LVT/LVP or tile may be a better choice. We can discuss the trade-offs during your consultation.',
+  },
+  {
+    question: 'How long does hardwood flooring last?',
+    answer: 'Solid hardwood can last 50-100+ years with proper care and periodic refinishing. Engineered hardwood typically lasts 20-30+ years. Both are long-term investments that add lasting value to your home.',
+  },
+  {
+    question: 'How long does installation take?',
+    answer: 'Most single-room installations take 1-2 days. Whole-home projects typically take 3-7 days depending on square footage, installation method, and subfloor preparation needs. Solid hardwood may require additional time for acclimation and finish curing if site-finished.',
+  },
+];
+
+const schema = [
+  getBreadcrumbSchema(breadcrumbs),
+  getFAQPageSchema(faqs),
+];
+---
+
+<BaseLayout
+  title="Hardwood & Engineered Hardwood for Homes | Residential Installation"
+  description="Professional hardwood and engineered hardwood installation for homes. Solid and engineered options for living rooms, bedrooms, and whole-home installations. Expert installation with subfloor prep included."
+  schema={schema}
+>
+
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Hardwood & Engineered Hardwood for Your Home</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          The timeless warmth and beauty of real wood — in solid and engineered options to suit every home, subfloor, and budget.
+        </p>
+      </div>
+    </section>
+
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto">
+        <div class="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img
+              src="/images/resi_hardwood1.jpg"
+              alt="Living room with hardwood flooring"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img
+              src="/images/resi_hardwood2.png"
+              alt="Residential hallway with solid hardwood floors"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-3xl font-heading font-bold mb-6">Where Hardwood Fits in Your Home</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Hardwood flooring — whether solid or engineered — is a premium choice for living rooms, bedrooms, dining rooms, hallways, and home offices. Nothing matches the warmth, character, and elegance of real wood underfoot. Solid hardwood is the classic choice for above-grade installations, while engineered hardwood offers better dimensional stability for concrete slabs, basements, and areas with humidity changes. Many homeowners choose hardwood throughout the home for a seamless, cohesive look that adds lasting resale value.
+          </p>
+
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Solid Hardwood vs. Engineered Hardwood</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Solid Hardwood</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">100% real wood — milled from a single piece</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Can be refinished 5-7+ times over its lifetime</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Can last 50-100+ years with proper care</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Best for above-grade rooms with plywood subfloors</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">More susceptible to expansion/contraction with humidity changes</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Engineered Hardwood</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Real hardwood veneer over a stable plywood core</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Can be refinished 1-3 times (depending on veneer thickness)</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Better stability in changing temperature and humidity</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Can be installed over concrete slabs and in basements</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Available in wider planks and premium wood species</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Pros & Cons of Hardwood Flooring</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Advantages</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Authentic real wood look and feel — nothing compares</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Adds significant resale value to your home</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Can be refinished to look brand new</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Wide range of species, stains, and plank widths</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Long lifespan — a true investment in your home</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Considerations</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Not waterproof — not ideal for bathrooms or laundry rooms</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Can scratch with heavy pet traffic</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Higher cost than LVT/LVP or carpet</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Requires acclimation before installation</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Humidity control (35-55%) important for long-term performance</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Installation Notes</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Solid hardwood is typically nail-down installed over plywood subfloors. Engineered hardwood can be nail-down, glue-down, or float-installed depending on the product and subfloor type — including concrete slabs. Both require acclimation in your home for several days before installation. We assess subfloor conditions, handle any leveling or moisture mitigation needed, and install room by room to minimize disruption. Transitions between rooms and to other flooring types are finished with matching trim for a polished look.
+          </p>
+
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Maintenance Basics</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Keep your hardwood floors looking great with regular sweeping or vacuuming using a soft-bristle attachment. Use manufacturer-recommended wood floor cleaners — avoid water, vinegar, and steam mops. Place felt pads under furniture legs, use mats at entryways, and keep pet nails trimmed. Maintaining consistent indoor humidity (35-55%) helps prevent gaps and cupping. When wear shows, both solid and engineered hardwood can be refinished to look brand new. We provide detailed care instructions with every installation.
+          </p>
+
+          <div class="mt-12">
+            <h2 class="text-3xl font-heading font-bold mb-6">Frequently Asked Questions</h2>
+            <FAQ items={faqs} />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl font-heading font-bold mb-6">Ready for Hardwood Floors?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Contact us for a free consultation and detailed proposal for your home.
+        </p>
+        <CTA href="/residential/#quote-form" />
+        <p class="mt-6 text-gray-600">
+          <a href="/residential/" class="text-charcoal font-semibold no-underline hover:underline">
+            ← Back to Residential Flooring
+          </a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+</BaseLayout>

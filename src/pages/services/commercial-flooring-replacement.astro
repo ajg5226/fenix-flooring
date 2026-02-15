@@ -1,0 +1,163 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import FAQ from '../../components/FAQ.astro';
+import { getBreadcrumbSchema, getServiceSchema, getFAQPageSchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Services', url: '/services/' },
+  { label: 'Commercial Flooring Replacement', url: '/services/commercial-flooring-replacement/' },
+];
+
+const faqs = [
+  {
+    question: 'What is included in a flooring replacement project?',
+    answer: 'Our replacement service includes complete removal of existing flooring, concrete preparation and leveling, moisture mitigation if needed, and professional installation of your new flooring material.',
+  },
+  {
+    question: 'How long does a replacement project take?',
+    answer: 'Timelines vary by project size and scope. Small projects (under 5,000 sq ft) typically take 1-2 weeks. Larger projects may take 2-4 weeks. We provide detailed timelines in our proposals.',
+  },
+  {
+    question: 'Can you work in occupied buildings?',
+    answer: 'Yes. We specialize in phased replacements for occupied buildings, working after hours or in sections to minimize disruption to your operations.',
+  },
+  {
+    question: 'Do you handle disposal of old flooring?',
+    answer: 'Yes. We handle complete removal and proper disposal of all existing flooring materials, including recycling when possible.',
+  },
+  {
+    question: 'What if there are issues with the concrete subfloor?',
+    answer: 'We assess the subfloor during our site walk and include any necessary concrete prep, leveling, or moisture mitigation in our proposal. Our turnkey service covers all subfloor preparation.',
+  },
+];
+
+const serviceSchema = getServiceSchema(
+  'Commercial Flooring Replacement',
+  'Complete commercial flooring replacement from removal to installation. Turnkey service with minimal downtime for occupied buildings.',
+  '/services/commercial-flooring-replacement/'
+);
+
+const schema = [
+  getBreadcrumbSchema(breadcrumbs),
+  serviceSchema,
+  getFAQPageSchema(faqs),
+];
+---
+
+<BaseLayout
+  title="Commercial Flooring Replacement | Complete Turnkey Service"
+  description="Complete commercial flooring replacement: removal, prep, and installation. Turnkey service with minimal downtime. After-hours available."
+  schema={schema}
+>
+  
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Commercial Flooring Replacement</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Complete flooring replacement from removal to installation. Our turnkey service minimizes downtime and ensures a smooth transition to your new flooring.
+        </p>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <div class="mb-12">
+          <img 
+            src="/images/flooring-demolition-1.jpeg" 
+            alt="Commercial flooring replacement project in progress" 
+            class="w-full h-64 md:h-96 object-cover rounded"
+            loading="lazy"
+          />
+        </div>
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-3xl font-heading font-bold mb-6">Who This Service Is For</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Property managers, building owners, and facility managers who need to replace worn, damaged, or outdated flooring. Whether your flooring has reached the end of its useful life, needs updating for aesthetic reasons, or requires replacement due to water damage or other issues, we handle the entire process from start to finish.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">What's Included</h2>
+          <ul class="list-none space-y-3 mb-8">
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Complete removal of existing flooring materials</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Proper disposal and recycling when possible</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Concrete subfloor assessment and preparation</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Leveling and patching as needed</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Moisture testing and mitigation if required</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Professional installation of new flooring</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Final cleanup and walkthrough</span>
+            </li>
+          </ul>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Our Replacement Process</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            We start with a comprehensive site walk to assess existing conditions and discuss your goals. Our proposal includes detailed scope, timeline, and pricing. Once approved, we coordinate scheduling to minimize disruption. We remove existing flooring, prepare the subfloor, and install your new flooring using professional techniques. Throughout the process, we maintain clean work areas and communicate regularly. After completion, we conduct a final walkthrough to ensure everything meets your expectations.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Common Use Cases</h2>
+          <ul class="list-none space-y-3 mb-8">
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Worn or damaged flooring replacement</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Aesthetic updates and modernization</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Water damage restoration projects</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Tenant improvement projects</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Building renovation and refresh projects</span>
+            </li>
+          </ul>
+          
+          <div class="mt-12">
+            <h2 class="text-3xl font-heading font-bold mb-6">Frequently Asked Questions</h2>
+            <FAQ items={faqs} />
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6">Ready to Replace Your Flooring?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Contact us for a free site walk and detailed proposal for your replacement project.
+        </p>
+        <CTA />
+      </div>
+    </section>
+  </main>
+  
+</BaseLayout>

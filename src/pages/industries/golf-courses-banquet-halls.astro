@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import { getBreadcrumbSchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Industries', url: '/industries/' },
+  { label: 'Golf Courses & Banquet Halls', url: '/industries/golf-courses-banquet-halls/' },
+];
+
+const schema = [getBreadcrumbSchema(breadcrumbs)];
+---
+
+<BaseLayout
+  title="Golf Course & Banquet Hall Flooring | Elegant, Durable Finishes"
+  description="Flooring for golf courses, clubhouses, and banquet halls. Durable, elegant surfaces built for high-traffic events."
+  schema={schema}
+>
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Flooring for Golf Courses & Banquet Halls</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Flooring that elevates guest experience and stands up to heavy event traffic. We balance aesthetics, durability, and easy maintenance.
+        </p>
+      </div>
+    </section>
+
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <div class="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <img
+            src="/images/country-club2.webp"
+            alt="Country club clubhouse interior with event flooring"
+            class="w-full h-64 object-cover rounded"
+            loading="lazy"
+          />
+          <img
+            src="/images/tile-images-hospitality2.jpg"
+            alt="Banquet hall with durable commercial flooring"
+            class="w-full h-64 object-cover rounded"
+            loading="lazy"
+          />
+        </div>
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-3xl font-heading font-bold mb-6">Pain Points We Solve</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Clubhouses and event venues need flooring that looks refined and performs under constant traffic. We help you choose materials
+            that are elegant, durable, and easy to maintain between events.
+          </p>
+
+          <ul class="list-none space-y-4 mb-8">
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <div>
+                <strong class="text-charcoal">High-Traffic Durability:</strong>
+                <span class="text-gray-600"> Flooring that holds up to back-to-back events and foot traffic.</span>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <div>
+                <strong class="text-charcoal">Stain Resistance:</strong>
+                <span class="text-gray-600"> Easy cleanup in food and beverage areas.</span>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <div>
+                <strong class="text-charcoal">Acoustic Comfort:</strong>
+                <span class="text-gray-600"> Softer finishes help control sound in banquet and ballroom spaces.</span>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <div>
+                <strong class="text-charcoal">Moisture Control:</strong>
+                <span class="text-gray-600"> Durable surfaces for entries, locker rooms, and wet areas.</span>
+              </div>
+            </li>
+          </ul>
+
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Recommended Flooring Options</h2>
+          <ul class="list-none space-y-3 mb-8">
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">
+                <a href="/flooring/carpet-tile/" class="text-charcoal font-semibold no-underline hover:underline">Carpet Tile</a> - Comfortable,
+                acoustic-friendly, and easy to replace in event spaces
+              </span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">
+                <a href="/flooring/lvt-lvp/" class="text-charcoal font-semibold no-underline hover:underline">LVT/LVP</a> - Durable and stylish
+                for clubhouses, corridors, and lounges
+              </span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">
+                <a href="/flooring/tile-ceramic-porcelain/" class="text-charcoal font-semibold no-underline hover:underline">Tile (Ceramic/Porcelain)</a>
+                - Ideal for entries, restrooms, and food service zones
+              </span>
+            </li>
+          </ul>
+
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Common Scopes</h2>
+          <ul class="list-none space-y-3 mb-8">
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Clubhouse renovations</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Banquet halls and ballrooms</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Pro shops, dining, and bar areas</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Corridors and entryways</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6">Ready to Upgrade Your Venue?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Contact us for a free site walk and detailed proposal for your golf course or banquet hall project.
+        </p>
+        <CTA />
+      </div>
+    </section>
+  </main>
+</BaseLayout>

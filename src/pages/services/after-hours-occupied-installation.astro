@@ -1,0 +1,159 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import FAQ from '../../components/FAQ.astro';
+import { getBreadcrumbSchema, getServiceSchema, getFAQPageSchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Services', url: '/services/' },
+  { label: 'After-Hours Occupied Installation', url: '/services/after-hours-occupied-installation/' },
+];
+
+const faqs = [
+  {
+    question: 'What are after-hours installations?',
+    answer: 'After-hours installations are performed outside normal business hours (evenings, nights, or weekends) to minimize disruption to your building operations and tenants.',
+  },
+  {
+    question: 'How do phased installations work?',
+    answer: 'Phased installations break projects into sections, allowing us to complete work in one area while other areas remain operational. We coordinate with you to minimize disruption.',
+  },
+  {
+    question: 'What are the benefits of after-hours work?',
+    answer: 'After-hours work allows you to maintain normal business operations, reduces tenant disruption, and can often accelerate project timelines by working when spaces are unoccupied.',
+  },
+  {
+    question: 'Do you coordinate with tenants?',
+    answer: 'Yes. We work closely with property managers to coordinate access, communicate schedules, and ensure minimal disruption to tenants and building operations.',
+  },
+  {
+    question: 'Are there additional costs for after-hours work?',
+    answer: 'After-hours work may have different pricing due to scheduling and labor considerations. We provide detailed pricing in our proposals so you can make informed decisions.',
+  },
+];
+
+const serviceSchema = getServiceSchema(
+  'After-Hours Occupied Installation',
+  'Phased and after-hours commercial flooring installations for occupied buildings. Minimize disruption to tenants and operations.',
+  '/services/after-hours-occupied-installation/'
+);
+
+const schema = [
+  getBreadcrumbSchema(breadcrumbs),
+  serviceSchema,
+  getFAQPageSchema(faqs),
+];
+---
+
+<BaseLayout
+  title="After-Hours Occupied Installation | Minimize Disruption"
+  description="Phased and after-hours commercial flooring installations for occupied buildings. Coordinate with tenants to minimize disruption."
+  schema={schema}
+>
+  
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">After-Hours Occupied Installation</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Phased and after-hours commercial flooring installations for occupied buildings. We coordinate with tenants to minimize disruption to your operations.
+        </p>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <div class="mb-12">
+          <img
+            src="/images/flooring-commercial-flooring-inner-image-1.jpg"
+            alt="After-hours commercial flooring installation in progress"
+            class="w-full h-64 md:h-96 object-cover rounded"
+            loading="lazy"
+          />
+        </div>
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-3xl font-heading font-bold mb-6">Who This Service Is For</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Property managers, building owners, and facility managers who need flooring work completed in occupied buildings without disrupting daily operations. Whether you're updating office spaces, healthcare facilities, or retail environments, we can work around your schedule to minimize tenant impact.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">What's Included</h2>
+          <ul class="list-none space-y-3 mb-8">
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Coordination with property managers and tenants</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Flexible scheduling for after-hours or weekend work</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Phased installation plans to maintain building operations</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Minimal disruption work practices and clean work areas</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Professional installation during off-hours</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Regular communication and progress updates</span>
+            </li>
+          </ul>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Our Occupied Building Process</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            We start with a site walk to assess conditions and discuss your scheduling requirements. We work with you to develop a phased plan that minimizes disruption. Our proposal includes detailed scheduling, timeline, and pricing. Once approved, we coordinate access and communicate with tenants as needed. We perform work during agreed-upon hours, maintain clean work areas, and keep you informed throughout the process. After completion, we conduct a final walkthrough to ensure everything meets your expectations.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Common Use Cases</h2>
+          <ul class="list-none space-y-3 mb-8">
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Office building renovations with active tenants</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Healthcare facilities requiring minimal patient disruption</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Retail spaces needing work during off-hours</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Educational facilities with active classes</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">Any occupied building where disruption must be minimized</span>
+            </li>
+          </ul>
+          
+          <div class="mt-12">
+            <h2 class="text-3xl font-heading font-bold mb-6">Frequently Asked Questions</h2>
+            <FAQ items={faqs} />
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6">Need After-Hours Installation?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Contact us to discuss scheduling options for your occupied building project.
+        </p>
+        <CTA />
+      </div>
+    </section>
+  </main>
+  
+</BaseLayout>

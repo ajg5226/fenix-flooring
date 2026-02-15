@@ -1,0 +1,210 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+import { getBreadcrumbSchema, getCaseStudySchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Case Studies', url: '/case-studies/' },
+  { label: 'Healthcare LVT Installation', url: '/case-studies/healthcare-lvt-installation/' },
+];
+
+const projectDetails = {
+  client: 'Regional Medical Center',
+  industry: 'Healthcare',
+  scope: 'Active hospital replacement',
+  schedule: 'Phased, around-the-clock coordination',
+  products: ['Sheet Vinyl', 'Rubber Flooring', 'LVT'],
+  services: ['Installation', 'Floor Removal', 'Subfloor Preparation', 'Moisture Mitigation'],
+};
+
+const schema = [
+  getBreadcrumbSchema(breadcrumbs),
+  getCaseStudySchema({
+    title: 'Healthcare Facility LVT Installation',
+    description: 'How Fenix Flooring completed a phased flooring replacement in an active hospital while maintaining patient care.',
+    url: '/case-studies/healthcare-lvt-installation/',
+    industry: 'Healthcare',
+    image: '/images/healthcare1.jpg',
+  }),
+];
+---
+
+<BaseLayout
+  title="Healthcare Facility LVT Installation | Case Study"
+  description="How Fenix Flooring completed a phased flooring replacement in an active hospital while maintaining patient care."
+  schema={schema}
+>
+  <main id="main-content" class="pt-24">
+    <!-- Hero Section -->
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <div class="flex flex-wrap gap-3 mb-6">
+          <span class="bg-white text-charcoal text-sm font-semibold px-4 py-1 uppercase tracking-wide">Healthcare</span>
+          <span class="border border-gray-200 text-gray-300 text-sm font-semibold px-4 py-1 uppercase tracking-wide">Active Hospital</span>
+        </div>
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Healthcare Facility LVT Installation</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Phased flooring replacement across patient rooms, corridors, and treatment areas while maintaining 24/7 hospital operations.
+        </p>
+      </div>
+    </section>
+
+    <!-- Project Image -->
+    <section class="bg-gray-100">
+      <div class="max-w-7xl mx-auto">
+        <div class="aspect-[21/9] overflow-hidden">
+          <img 
+            src="/images/healthcare1.jpg" 
+            alt="Healthcare facility corridor flooring installation" 
+            class="w-full h-full object-cover"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Details -->
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-7xl mx-auto" data-reveal>
+        <div class="grid lg:grid-cols-3 gap-12">
+          <!-- Main Content -->
+          <div class="lg:col-span-2">
+            <h2 class="text-3xl font-heading font-bold mb-6">The Challenge</h2>
+            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+              The Regional Medical Center's original flooring had reached the end of its service life after years of continuous use. The vinyl composition tile in corridors showed significant wear paths, while patient room flooring had developed maintenance issues that made infection control increasingly difficult.
+            </p>
+            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+              The critical constraint: the hospital operates around the clock with no ability to close wings or redirect patients. Any flooring work had to happen around active patient care, with strict infection control protocols and noise limitations.
+            </p>
+            
+            <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Our Approach</h2>
+            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+              We developed a phased installation plan that divided the project into manageable sections, each coordinated with hospital administration and nursing staff. Work in patient areas was scheduled during lower-census periods when possible.
+            </p>
+            
+            <div class="bg-gray-100 p-8 mb-8">
+              <h3 class="text-xl font-heading font-bold mb-6">Key Strategies</h3>
+              <ul class="space-y-4">
+                <li class="flex items-start gap-4">
+                  <svg class="w-6 h-6 text-charcoal shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-gray-600"><strong>Containment protocols:</strong> Full dust barriers and negative air pressure in work zones to maintain infection control standards</span>
+                </li>
+                <li class="flex items-start gap-4">
+                  <svg class="w-6 h-6 text-charcoal shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-gray-600"><strong>Quiet hours compliance:</strong> All noisy work scheduled outside patient rest periods</span>
+                </li>
+                <li class="flex items-start gap-4">
+                  <svg class="w-6 h-6 text-charcoal shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-gray-600"><strong>Room-by-room coordination:</strong> Daily communication with nursing managers on room availability</span>
+                </li>
+                <li class="flex items-start gap-4">
+                  <svg class="w-6 h-6 text-charcoal shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-gray-600"><strong>Rapid cure products:</strong> Selected adhesives and finishes that allowed quick return to service</span>
+                </li>
+              </ul>
+            </div>
+
+            <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Product Selection</h2>
+            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+              Working with the hospital's infection control team, we recommended a multi-product approach tailored to each area's specific demands:
+            </p>
+            <ul class="space-y-2 text-lg text-gray-600 mb-8">
+              <li><strong>Patient rooms:</strong> Homogeneous sheet vinyl with heat-welded seams for seamless, cleanable surfaces</li>
+              <li><strong>Corridors:</strong> Commercial-grade rubber flooring rated for heavy rolling loads and stretcher traffic</li>
+              <li><strong>Nurses' stations:</strong> LVT with acoustic underlayment for staff comfort during long shifts</li>
+              <li><strong>Treatment areas:</strong> Static-dissipative flooring in rooms with sensitive equipment</li>
+            </ul>
+
+            <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Results</h2>
+            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+              The project was completed on schedule with strong infection control performance and minimal disruption to patient care. The new flooring improved cleanability and simplified daily maintenance for staff.
+            </p>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="lg:col-span-1">
+            <div class="bg-gray-100 p-8 sticky top-24">
+              <h3 class="text-xl font-heading font-bold mb-6">Project Details</h3>
+              <dl class="space-y-4">
+                <div>
+                  <dt class="text-sm text-gray-600 uppercase tracking-wide">Industry</dt>
+                  <dd class="text-charcoal font-semibold mt-1">{projectDetails.industry}</dd>
+                </div>
+                <div>
+                  <dt class="text-sm text-gray-600 uppercase tracking-wide">Project Scope</dt>
+                  <dd class="text-charcoal font-semibold mt-1">{projectDetails.scope}</dd>
+                </div>
+                <div>
+                  <dt class="text-sm text-gray-600 uppercase tracking-wide">Schedule</dt>
+                  <dd class="text-charcoal font-semibold mt-1">{projectDetails.schedule}</dd>
+                </div>
+                <div>
+                  <dt class="text-sm text-gray-600 uppercase tracking-wide">Products Used</dt>
+                  <dd class="flex flex-wrap gap-2 mt-2">
+                    {projectDetails.products.map((product) => (
+                      <span class="bg-white text-charcoal text-sm px-3 py-1 border border-gray-200">{product}</span>
+                    ))}
+                  </dd>
+                </div>
+                <div>
+                  <dt class="text-sm text-gray-600 uppercase tracking-wide">Services</dt>
+                  <dd class="flex flex-wrap gap-2 mt-2">
+                    {projectDetails.services.map((service) => (
+                      <span class="bg-white text-charcoal text-sm px-3 py-1 border border-gray-200">{service}</span>
+                    ))}
+                  </dd>
+                </div>
+              </dl>
+              <hr class="my-8 border-gray-200" />
+              <a href="/contact/#quote-form" class="block w-full text-center bg-charcoal text-white font-semibold py-4 uppercase tracking-wide hover:bg-gray-dark transition-colors">
+                Discuss Your Project
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Case Studies -->
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-heading font-bold mb-8">More Case Studies</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <a href="/case-studies/office-building-replacement/" class="block p-8 bg-white border border-gray-200 hover:border-ochre transition-colors no-underline text-charcoal">
+            <div class="text-sm text-gray-600 mb-2 uppercase tracking-wide">Office Buildings</div>
+            <h3 class="text-2xl font-heading font-bold mb-4">Office Building Flooring Replacement</h3>
+            <p class="text-gray-600">LVT installation in an occupied office building with after-hours scheduling.</p>
+          </a>
+          <a href="/case-studies/elementary-school-carpet-installation/" class="block p-8 bg-white border border-gray-200 hover:border-ochre transition-colors no-underline text-charcoal">
+            <div class="text-sm text-gray-600 mb-2 uppercase tracking-wide">Education</div>
+            <h3 class="text-2xl font-heading font-bold mb-4">Elementary School Full Carpet Installation</h3>
+            <p class="text-gray-600">Full carpet installation completed during summer break.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="px-4 md:px-15 py-20 bg-charcoal text-white">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6 text-center">Have a Similar Project?</h2>
+        <p class="text-xl text-gray-300 mb-12 text-center">
+          Let's discuss how we can help your healthcare facility achieve the same results.
+        </p>
+        <QuoteForm />
+      </div>
+    </section>
+  </main>
+</BaseLayout>

@@ -1,0 +1,174 @@
+---
+import { formOptions } from '../config/site';
+---
+
+<form
+  name="quote-request"
+  method="POST"
+  netlify
+  data-netlify="true"
+  data-netlify-honeypot="bot-field"
+  action="/thank-you/"
+  class="space-y-6"
+>
+  <input type="hidden" name="form-name" value="quote-request" />
+  <p class="hidden">
+    <label>
+      Don't fill this out if you're human: <input name="bot-field" />
+    </label>
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <label for="name" class="block text-sm font-medium mb-2">
+        Name <span class="text-gray-600">*</span>
+      </label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        class="w-full px-4 py-3 text-base border border-gray-200 bg-white text-charcoal focus:outline-none focus:border-ochre transition-colors min-h-[44px]"
+        aria-required="true"
+      />
+    </div>
+
+    <div>
+      <label for="company" class="block text-sm font-medium mb-2">
+        Company
+      </label>
+      <input
+        type="text"
+        id="company"
+        name="company"
+        class="w-full px-4 py-3 text-base border border-gray-200 bg-white text-charcoal focus:outline-none focus:border-ochre transition-colors min-h-[44px]"
+      />
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <label for="email" class="block text-sm font-medium mb-2">
+        Email <span class="text-gray-600">*</span>
+      </label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        class="w-full px-4 py-3 text-base border border-gray-200 bg-white text-charcoal focus:outline-none focus:border-ochre transition-colors min-h-[44px]"
+        aria-required="true"
+      />
+    </div>
+
+    <div>
+      <label for="phone" class="block text-sm font-medium mb-2">
+        Phone <span class="text-gray-600">*</span>
+      </label>
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        required
+        class="w-full px-4 py-3 text-base border border-gray-200 bg-white text-charcoal focus:outline-none focus:border-ochre transition-colors min-h-[44px]"
+        aria-required="true"
+      />
+    </div>
+  </div>
+
+  <div>
+    <label for="project-address" class="block text-sm font-medium mb-2">
+      Project Address
+    </label>
+    <input
+      type="text"
+      id="project-address"
+      name="project-address"
+      class="w-full px-4 py-3 border border-gray-200 bg-white text-charcoal focus:outline-none focus:border-ochre transition-colors"
+    />
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <label for="project-type" class="block text-sm font-medium mb-2">
+        Project Type
+      </label>
+      <select
+        id="project-type"
+        name="project-type"
+        class="w-full px-4 py-3 text-base border border-gray-200 bg-white text-charcoal focus:outline-none focus:border-ochre transition-colors min-h-[44px]"
+      >
+        <option value="">Select...</option>
+        {formOptions.projectTypes.map((type) => (
+          <option value={type}>{type}</option>
+        ))}
+      </select>
+    </div>
+
+    <div>
+      <label for="flooring-type" class="block text-sm font-medium mb-2">
+        Flooring Type Needed
+      </label>
+      <select
+        id="flooring-type"
+        name="flooring-type"
+        class="w-full px-4 py-3 text-base border border-gray-200 bg-white text-charcoal focus:outline-none focus:border-ochre transition-colors min-h-[44px]"
+      >
+        <option value="">Select...</option>
+        {formOptions.flooringTypes.map((type) => (
+          <option value={type}>{type}</option>
+        ))}
+      </select>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <label for="sq-ft" class="block text-sm font-medium mb-2">
+        Approx Sq Ft
+      </label>
+      <input
+        type="number"
+        id="sq-ft"
+        name="sq-ft"
+        min="0"
+        class="w-full px-4 py-3 text-base border border-gray-200 bg-white text-charcoal focus:outline-none focus:border-ochre transition-colors min-h-[44px]"
+      />
+    </div>
+
+    <div>
+      <label for="timeline" class="block text-sm font-medium mb-2">
+        Timeline
+      </label>
+      <select
+        id="timeline"
+        name="timeline"
+        class="w-full px-4 py-3 text-base border border-gray-200 bg-white text-charcoal focus:outline-none focus:border-ochre transition-colors min-h-[44px]"
+      >
+        <option value="">Select...</option>
+        {formOptions.timelines.map((timeline) => (
+          <option value={timeline}>{timeline}</option>
+        ))}
+      </select>
+    </div>
+  </div>
+
+  <div>
+    <label for="message" class="block text-sm font-medium mb-2">
+      Message
+    </label>
+    <textarea
+      id="message"
+      name="message"
+      rows="5"
+      class="w-full px-4 py-3 text-base border border-gray-200 bg-white text-charcoal focus:outline-none focus:border-ochre transition-colors resize-y min-h-[120px]"
+    ></textarea>
+  </div>
+
+  <button
+    type="submit"
+    class="w-full md:w-auto px-8 py-4 bg-terracotta text-white font-heading font-semibold text-sm tracking-wide uppercase transition-all hover:bg-charcoal hover:scale-105 focus:outline-none focus:ring-2 focus:ring-ochre focus:ring-offset-2"
+  >
+    Submit Quote Request
+  </button>
+</form>

@@ -1,0 +1,158 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import FAQ from '../../components/FAQ.astro';
+import { getBreadcrumbSchema, getFAQPageSchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Flooring Types', url: '/flooring/' },
+  { label: 'Polished Concrete', url: '/flooring/polished-concrete/' },
+];
+
+const faqs = [
+  {
+    question: 'What is polished concrete?',
+    answer: 'Polished concrete is a decorative finish applied to concrete slabs through grinding and polishing. It creates a durable, low-maintenance surface with a modern aesthetic.',
+  },
+  {
+    question: 'Where is polished concrete best suited?',
+    answer: 'Polished concrete is ideal for retail spaces, offices, warehouses, showrooms, and other modern commercial environments where a durable, low-maintenance surface is desired.',
+  },
+  {
+    question: 'How long does polished concrete installation take?',
+    answer: 'Installation timelines vary by project size and finish level. Most projects take 5-10 days including grinding, polishing, and sealing.',
+  },
+  {
+    question: 'What maintenance does polished concrete require?',
+    answer: 'Polished concrete requires regular sweeping or dust mopping, damp mopping with appropriate cleaners, and periodic resealing to maintain appearance and protection.',
+  },
+];
+
+const schema = [
+  getBreadcrumbSchema(breadcrumbs),
+  getFAQPageSchema(faqs),
+];
+---
+
+<BaseLayout
+  title="Polished Concrete Commercial Flooring | Decorative Concrete Finishes"
+  description="Professional polished concrete installation for commercial spaces. Durable, low-maintenance decorative concrete finishes."
+  noindex={true}
+  schema={schema}
+>
+  
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Polished Concrete for Commercial Spaces</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Decorative polished concrete finishes providing durable, low-maintenance surfaces for modern commercial environments.
+        </p>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <div class="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img 
+              src="/images/pc1.jpg" 
+              alt="Polished concrete floor in commercial warehouse" 
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img 
+              src="/images/pc2.jpg" 
+              alt="Modern office with polished concrete flooring" 
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-3xl font-heading font-bold mb-6">Where Polished Concrete Fits</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Polished concrete is an excellent choice for retail spaces, offices, warehouses, showrooms, and other modern commercial environments where a durable, low-maintenance surface with a contemporary aesthetic is desired. It provides a hard-wearing surface that can be customized with various finishes and colors.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Pros & Cons</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Advantages</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Extremely durable and long-lasting</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Low maintenance requirements</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Modern, contemporary aesthetic</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Can be customized with colors and finishes</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Suitable for high-traffic areas</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Considerations</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Requires existing concrete slab</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Can be cold and hard underfoot</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">May require periodic resealing</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Installation Notes & Downtime</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Polished concrete installation requires an existing concrete slab in good condition. We assess the slab during our site walk and include any necessary repairs in our proposal. Installation involves grinding, polishing, and sealing to achieve the desired finish level. Most projects take 5-10 days including preparation, grinding, polishing, and sealing. Some areas may be accessible during the process, though full cure time may require limited access.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Maintenance Basics</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Polished concrete maintenance includes regular sweeping or dust mopping, damp mopping with appropriate cleaners, and periodic resealing to maintain appearance and protection. We provide maintenance guidelines with every installation.
+          </p>
+          
+          <div class="mt-12">
+            <h2 class="text-3xl font-heading font-bold mb-6">Frequently Asked Questions</h2>
+            <FAQ items={faqs} />
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6">Interested in Polished Concrete?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Contact us for a free site walk and detailed proposal for your polished concrete project.
+        </p>
+        <CTA />
+      </div>
+    </section>
+  </main>
+  
+</BaseLayout>

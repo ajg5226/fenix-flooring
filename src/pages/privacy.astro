@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { getBreadcrumbSchema } from '../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Privacy Policy', url: '/privacy/' },
+];
+
+const schema = [getBreadcrumbSchema(breadcrumbs)];
+const lastUpdated = 'February 4, 2026';
+---
+
+<BaseLayout
+  title="Privacy Policy | Fenix Flooring"
+  description="Privacy policy for Fenix Flooring website."
+  schema={schema}
+>
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Privacy Policy</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Our privacy policy explains how we collect, use, and protect your information.
+        </p>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto">
+        <div class="prose prose-lg max-w-none">
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            <strong>Last Updated:</strong> {lastUpdated}
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Information We Collect</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            We collect information that you provide directly to us, such as when you fill out a contact form, request a quote, or communicate with us. This may include your name, company name, email address, phone number, project address, and other information relevant to your inquiry.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">How We Use Your Information</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            We use the information you provide to respond to your inquiries, provide quotes and proposals, schedule site walks, and communicate about your commercial flooring project. We do not sell or share your information with third parties for marketing purposes.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Data Security</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            We take reasonable measures to protect your information from unauthorized access, use, or disclosure. However, no method of transmission over the internet or electronic storage is completely secure.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Contact Us</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            If you have questions about this privacy policy, please contact us using the information provided on our contact page.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

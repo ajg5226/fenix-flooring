@@ -1,0 +1,30 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# --- Host canonicalization (non-www -> www) ---
+[[redirects]]
+  from = "/*"
+  to = "https://www.fenixflooring.com/:splat"
+  status = 301
+  force = true
+  conditions = { Host = ["fenixflooring.com"] }
+
+# --- Block Netlify subdomain from becoming a crawl source ---
+[[redirects]]
+  from = "https://fenix-flooring.netlify.app/*"
+  to = "https://www.fenixflooring.com/:splat"
+  status = 301
+  force = true
+
+# --- Fix malformed UTM links (missing ? before query params) ---
+[[redirects]]
+  from = "/utm_source=*"
+  to = "/?utm_source=:splat"
+  status = 301
+
+# --- Content redirects ---
+[[redirects]]
+  from = "/resources/commercial-flooring-cost-guide/"
+  to = "/resources/commercial-flooring-cost-guide-in-se-pa-installed-pricing-and-drivers/"
+  status = 301

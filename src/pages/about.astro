@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CTA from '../components/CTA.astro';
+import { getBreadcrumbSchema } from '../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'About', url: '/about/' },
+];
+
+const schema = [getBreadcrumbSchema(breadcrumbs)];
+---
+
+<BaseLayout
+  title="About Fenix Flooring | Professional Flooring Contractor"
+  description="Fenix Flooring is a commercial flooring contractor specializing in turnkey services: demo, prep, and installation. Licensed, insured, and experienced in occupied buildings."
+  schema={schema}
+>
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">About Fenix Flooring</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Commercial flooring contractor specializing in turnkey services for property managers, building owners, and facility managers.
+        </p>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-3xl font-heading font-bold mb-6">Who We Are</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Fenix Flooring is a commercial flooring contractor specializing in turnkey flooring services for commercial buildings. We handle everything from existing flooring removal to final installation, including concrete preparation and moisture mitigation. Our focus is on providing professional, reliable service that minimizes disruption to your operations.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Meet the Team -->
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-heading font-bold mb-4 text-center" data-reveal>Meet the Team</h2>
+        <p class="text-lg text-gray-600 mb-12 text-center max-w-3xl mx-auto" data-reveal>
+          The people behind every Fenix Flooring project — combining decades of field experience with a commitment to doing the job right.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10" data-reveal-children>
+          <!-- Aaron -->
+          <div class="bg-white border border-gray-200 p-8 md:p-10 flex flex-col items-center text-center">
+            <img
+              src="/images/aaron-headshot.png"
+              alt="Aaron, Founder & CEO of Fenix Flooring"
+              class="w-36 h-36 rounded-full object-cover mb-6 border-4 border-ochre"
+              width="144"
+              height="144"
+              loading="lazy"
+            />
+            <h3 class="text-2xl font-heading font-bold text-charcoal mb-1">Aaron</h3>
+            <p class="text-ochre font-heading font-semibold text-sm uppercase tracking-wide mb-4">Founder & CEO</p>
+            <p class="text-gray-600 leading-relaxed">
+              Aaron founded the Fenix group of companies over a decade ago and built his reputation on reliability, craftsmanship, and a client-first approach. Through Fenix Flooring, he leads commercial and high-end residential projects with a hands-on focus on scope clarity, schedule discipline, and exceptional finished quality. His standard is simple: make the process easy and make the result great.
+            </p>
+          </div>
+          <!-- Greg -->
+          <div class="bg-white border border-gray-200 p-8 md:p-10 flex flex-col items-center text-center">
+            <img
+              src="/images/greg-headshot.png"
+              alt="Greg, Director of Installation at Fenix Flooring"
+              class="w-36 h-36 rounded-full object-cover mb-6 border-4 border-ochre"
+              width="144"
+              height="144"
+              loading="lazy"
+            />
+            <h3 class="text-2xl font-heading font-bold text-charcoal mb-1">Greg</h3>
+            <p class="text-ochre font-heading font-semibold text-sm uppercase tracking-wide mb-4">Director of Installation</p>
+            <p class="text-gray-600 leading-relaxed">
+              Greg leads installation supervision for Fenix Flooring and brings over 35 years of experience in the flooring industry. He's an Army veteran with extensive commercial and high-end residential project experience, including work for Siemens, CBS, Simon &amp; Schuster, federal courtrooms in Philadelphia and Wilmington, the Social Security Administration building in Philadelphia, and numerous country clubs and custom residential projects. His background ensures every project is executed with commercial-level standards, proper preparation, and professional oversight.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-3xl font-heading font-bold mb-6">What We Do</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            We provide turnkey commercial flooring services: installation, replacement, flooring removal and demolition, concrete prep and leveling, moisture mitigation when needed, and after-hours installations for occupied buildings. We install LVT/LVP, sheet vinyl, VCT, hardwood, engineered hardwood, rubber, tile (ceramic and porcelain), carpet, and carpet tile.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Our Approach</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            We understand that commercial flooring projects need to be completed efficiently with minimal disruption. Our turnkey approach means you work with one contractor for the entire project, from initial site walk to final walkthrough. We coordinate scheduling, handle tenant communication when needed, and ensure quality work that stands up to commercial use.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Why Choose Us</h2>
+          <ul class="list-none space-y-4 mb-8">
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <div>
+                <strong class="text-charcoal">Turnkey Service:</strong>
+                <span class="text-gray-600"> We handle every step of the process, from demo to installation.</span>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <div>
+                <strong class="text-charcoal">Occupied Building Expertise:</strong>
+                <span class="text-gray-600"> We specialize in after-hours and phased installations for occupied buildings.</span>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <div>
+                <strong class="text-charcoal">Complete Capabilities:</strong>
+                <span class="text-gray-600"> Concrete prep, moisture mitigation, and installation all in-house.</span>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <div>
+                <strong class="text-charcoal">Fast Proposals:</strong>
+                <span class="text-gray-600"> Detailed proposals within 48 hours of site walk.</span>
+              </div>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <div>
+                <strong class="text-charcoal">Licensed & Insured:</strong>
+                <span class="text-gray-600"> Fully licensed and insured with COI available on request.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6">Ready to Work Together?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Contact us for a free site walk and detailed proposal for your commercial flooring project.
+        </p>
+        <CTA />
+      </div>
+    </section>
+  </main>
+</BaseLayout>

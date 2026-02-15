@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { getAllTags, getPostsByTag } from '../../../utils/blog';
+import { getBreadcrumbSchema } from '../../../utils/schema';
+
+export async function getStaticPaths() {
+  const tags = await getAllTags();
+  return tags.map((tag) => ({ params: { tag } }));
+}
+
+const tag = Astro.params.tag;
+if (!tag) {
+  return Astro.redirect('/resources/');
+}
+
+const posts = await getPostsByTag(tag);
+if (posts.length === 0) {
+  return Astro.redirect('/resources/');
+}
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Resources', url: '/resources/' },
+  { label: `Tag: ${tag}`, url: `/resources/tag/${encodeURIComponent(tag)}/` },
+];
+
+const schema = [getBreadcrumbSchema(breadcrumbs)];
+
+const tagLabel = tag
+  .split(/[- ]/)
+  .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+  .join(' ');
+---
+
+<BaseLayout
+  title={`${tagLabel} | Commercial Flooring Blog`}
+  description={`Articles about ${tagLabel} for commercial flooring projects. Guides, tips, and best practices from Fenix Flooring.`}
+  schema={schema}
+>
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Tag: {tagLabel}</h1>
+        <p class="text-xl text-gray-mid max-w-3xl">
+          {posts.length} article{posts.length !== 1 ? 's' : ''} tagged with “{tagLabel}”.
+        </p>
+      </div>
+    </section>
+
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto">
+        <ul class="space-y-8">
+          {posts.map((post) => (
+            <li>
+              <a href={`/resources/${post.slug}/`} class="block no-underline text-charcoal group">
+                <h2 class="text-2xl font-heading font-bold mb-2 group-hover:text-ochre transition-colors">
+                  {post.data.title}
+                </h2>
+                <p class="text-gray-dark mb-2">{post.data.description}</p>
+                <time datetime={post.data.pubDate.toISOString()} class="text-sm text-gray-500">
+                  {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </time>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <p class="mt-12">
+          <a href="/resources/" class="text-charcoal font-semibold no-underline hover:text-ochre hover:underline">
+            ← All blog posts
+          </a>
+        </p>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

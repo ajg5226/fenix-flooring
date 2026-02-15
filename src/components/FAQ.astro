@@ -1,0 +1,97 @@
+---
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: FAQItem[];
+  class?: string;
+}
+
+const { items, class: className = '' } = Astro.props;
+---
+
+<div class={`space-y-4 ${className}`}>
+  {items.map((item) => (
+    <details class="border-b border-gray-200 pb-4 faq-item">
+      <summary class="font-heading font-semibold text-lg cursor-pointer list-none py-2 hover:text-ochre transition-colors">
+        <span>{item.question}</span>
+        <span class="faq-chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="faq-content">
+        <p class="mt-2 text-gray-600 leading-relaxed">{item.answer}</p>
+      </div>
+    </details>
+  ))}
+</div>
+
+<script>
+  document.querySelectorAll('details.faq-item').forEach((details) => {
+    const summary = details.querySelector('summary');
+    const content = details.querySelector('.faq-content');
+    if (!summary || !content) return;
+
+    // Skip animation if user prefers reduced motion
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Track pending cleanup handler to prevent stale listeners from
+    // accumulating when transitions are interrupted by rapid clicks.
+    let pendingHandler = null;
+
+    summary.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      if (prefersReduced) {
+        details.open = !details.open;
+        return;
+      }
+
+      // Remove any stale listener from an interrupted transition
+      if (pendingHandler) {
+        content.removeEventListener('transitionend', pendingHandler);
+        pendingHandler = null;
+      }
+
+      if (details.open) {
+        // --- CLOSING ---
+        const startHeight = content.offsetHeight;
+        content.style.height = startHeight + 'px';
+        content.style.overflow = 'hidden';
+        content.offsetHeight; // force reflow
+        content.style.height = '0px';
+        content.style.opacity = '0';
+
+        const closeHandler = function handler() {
+          details.open = false;
+          content.style.height = '';
+          content.style.overflow = '';
+          content.style.opacity = '';
+          content.removeEventListener('transitionend', handler);
+          pendingHandler = null;
+        };
+        pendingHandler = closeHandler;
+        content.addEventListener('transitionend', closeHandler, { once: true });
+      } else {
+        // --- OPENING ---
+        details.open = true;
+        content.style.height = '0px';
+        content.style.overflow = 'hidden';
+        content.style.opacity = '0';
+        const endHeight = content.scrollHeight;
+        content.offsetHeight; // force reflow
+        content.style.height = endHeight + 'px';
+        content.style.opacity = '1';
+
+        const openHandler = function handler() {
+          content.style.height = '';
+          content.style.overflow = '';
+          content.removeEventListener('transitionend', handler);
+          pendingHandler = null;
+        };
+        pendingHandler = openHandler;
+        content.addEventListener('transitionend', openHandler, { once: true });
+      }
+    });
+  });
+</script>

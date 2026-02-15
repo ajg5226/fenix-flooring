@@ -1,0 +1,186 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import FAQ from '../../components/FAQ.astro';
+import { getBreadcrumbSchema, getFAQPageSchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Flooring Types', url: '/flooring/' },
+  { label: 'Hardwood', url: '/flooring/hardwood/' },
+];
+
+const faqs = [
+  {
+    question: 'What is solid hardwood flooring?',
+    answer: 'Solid hardwood flooring is made from a single piece of wood, typically 3/4 inch thick. It provides a timeless, elegant appearance and can be sanded and refinished multiple times throughout its lifespan.',
+  },
+  {
+    question: 'Where is solid hardwood best suited?',
+    answer: 'Solid hardwood is ideal for offices, retail spaces, hospitality environments, and other commercial settings where elegance and durability are desired. It works best in climate-controlled environments above grade.',
+  },
+  {
+    question: 'How long does hardwood installation take?',
+    answer: 'Installation timelines vary by project size. Small projects (under 5,000 sq ft) typically take 5-7 days. Larger projects may take 2-3 weeks. Acclimation time is required before installation.',
+  },
+  {
+    question: 'What maintenance does hardwood require?',
+    answer: 'Hardwood requires regular sweeping or dust mopping, occasional damp mopping with appropriate cleaners, and periodic refinishing to maintain appearance. Avoid excessive moisture and use protective pads under furniture.',
+  },
+  {
+    question: 'Can hardwood be installed in moisture-prone areas?',
+    answer: 'Solid hardwood is not recommended for below-grade installations or areas with high moisture levels. Proper subfloor preparation and moisture testing are essential. Engineered hardwood may be a better option for these areas.',
+  },
+  {
+    question: 'What is the typical lifespan of hardwood flooring?',
+    answer: 'With proper installation and maintenance, solid hardwood can last 50-100 years or more. It can be sanded and refinished multiple times, making it a long-term investment.',
+  },
+];
+
+const schema = [
+  getBreadcrumbSchema(breadcrumbs),
+  getFAQPageSchema(faqs),
+];
+---
+
+<BaseLayout
+  title="Hardwood Commercial Flooring | Solid Hardwood Installation"
+  description="Professional solid hardwood flooring installation for commercial spaces. Timeless elegance with exceptional durability and the ability to refinish multiple times."
+  schema={schema}
+>
+  
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Hardwood for Commercial Spaces</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Solid hardwood flooring offering timeless elegance, exceptional durability, and the ability to refinish multiple times for long-lasting beauty.
+        </p>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <div class="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img 
+              src="/images/hardwood01.jpg" 
+              alt="Modern office with hardwood flooring" 
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img 
+              src="/images/hardwood4.jpg" 
+              alt="Retail space with elegant hardwood flooring installation" 
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-3xl font-heading font-bold mb-6">Where Hardwood Fits</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Solid hardwood is an excellent choice for offices, retail spaces, hospitality environments, and other commercial settings where elegance and durability are desired. It provides a warm, natural aesthetic that enhances the professional appearance of any space. Hardwood works best in climate-controlled environments above grade, where temperature and humidity can be maintained consistently.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Pros & Cons</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Advantages</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Timeless, elegant appearance</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Can be sanded and refinished multiple times</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Exceptional durability and longevity</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Increases property value</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Wide variety of wood species and finishes</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Natural, warm aesthetic</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Considerations</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Not suitable for below-grade installations</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Requires climate-controlled environment</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Acclimation period required before installation</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Higher initial cost than some alternatives</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Can be susceptible to moisture damage if not properly maintained</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Requires professional installation for warranty</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Installation Notes & Downtime</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Solid hardwood installation requires careful planning and preparation. The wood must be acclimated to the installation environment for several days before installation begins. We assess subfloor conditions, moisture levels, and environmental factors during our site walk. Installation involves nailing or stapling to a wood subfloor, or gluing to a concrete subfloor with proper moisture mitigation. Most installations can be completed with minimal downtime, and we can work in phases for occupied buildings. Small projects (under 5,000 sq ft) typically take 5-7 days including acclimation, while larger projects may take 2-3 weeks.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Maintenance Basics</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Hardwood maintenance includes regular sweeping or dust mopping to remove dirt and debris, occasional damp mopping with manufacturer-approved cleaners, and periodic refinishing to restore the surface. Avoid excessive moisture, harsh chemicals, or abrasive cleaning tools. Use protective pads under furniture legs and area rugs in high-traffic areas. We provide detailed maintenance guidelines with every installation to help preserve the beauty and longevity of your hardwood floors.
+          </p>
+          
+          <div class="mt-12">
+            <h2 class="text-3xl font-heading font-bold mb-6">Frequently Asked Questions</h2>
+            <FAQ items={faqs} />
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6">Interested in Hardwood Flooring?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Contact us for a free site walk and detailed proposal for your hardwood installation.
+        </p>
+        <CTA />
+        <p class="mt-6 text-gray-600">
+          <a href="/services/commercial-flooring-installation/" class="text-charcoal font-semibold no-underline hover:underline">
+            View Installation Services →
+          </a>
+        </p>
+      </div>
+    </section>
+  </main>
+  
+</BaseLayout>

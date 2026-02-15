@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import { getPostBySlug, getRelatedPosts } from '../../utils/blog';
+import { processBlogBody } from '../../utils/blogBody';
+import { getBreadcrumbSchema, getArticleSchema } from '../../utils/schema';
+import { siteConfig } from '../../config/site';
+import { render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const { getAllPosts } = await import('../../utils/blog');
+  const posts = await getAllPosts();
+  return posts.map((post) => ({ params: { slug: post.slug } }));
+}
+
+const slug = Astro.params.slug;
+if (!slug) {
+  return Astro.redirect('/404');
+}
+
+const post = await getPostBySlug(slug);
+if (!post) {
+  return Astro.redirect('/404');
+}
+
+const { faqSchema } = processBlogBody(post.body);
+const { Content } = await render(post);
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Resources', url: '/resources/' },
+  { label: post.data.title, url: `/resources/${post.slug}/` },
+];
+
+const postUrl = `/resources/${post.slug}/`;
+const canonicalUrl = `${siteConfig.url}${postUrl}`;
+const ogImage = post.data.image
+  ? (post.data.image.startsWith('http') ? post.data.image : `${siteConfig.url}${post.data.image}`)
+  : undefined;
+
+const articleSchema = getArticleSchema({
+  title: post.data.title,
+  description: post.data.description,
+  url: postUrl,
+  datePublished: post.data.pubDate.toISOString(),
+  dateModified: post.data.updatedDate?.toISOString(),
+  image: ogImage,
+});
+const schema = [getBreadcrumbSchema(breadcrumbs), articleSchema, ...(faqSchema ? [faqSchema] : [])];
+
+const articleMeta = {
+  publishedTime: post.data.pubDate.toISOString(),
+  modifiedTime: post.data.updatedDate?.toISOString(),
+  author: post.data.author,
+  section: post.data.category,
+  tags: post.data.tags ?? [],
+};
+
+const relatedPosts = await getRelatedPosts(post.slug, post.data.tags ?? [], 3);
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  canonical={canonicalUrl}
+  ogImage={ogImage}
+  ogImageAlt={post.data.imageAlt ?? post.data.description}
+  schema={schema}
+  article={articleMeta}
+>
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">{post.data.title}</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          {post.data.description}
+        </p>
+        <div class="mt-6 flex flex-wrap items-center gap-4 text-gray-400 text-sm">
+          <time datetime={post.data.pubDate.toISOString()}>
+            {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+          {post.data.updatedDate && (
+            <span>Updated {post.data.updatedDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+          )}
+          <span>{post.data.author}</span>
+          {post.data.tags && post.data.tags.length > 0 && (
+            <ul class="flex flex-wrap gap-2" aria-label="Tags">
+              {post.data.tags.map((tag) => (
+                <li>
+                  <a href={`/resources/tag/${encodeURIComponent(tag)}/`} class="text-ochre hover:underline no-underline">
+                    {tag}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
+    </section>
+
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto">
+        <article class="blog-prose prose prose-lg max-w-none prose-headings:font-heading prose-headings:font-bold prose-headings:tracking-tight prose-p:text-gray-600 prose-p:leading-relaxed prose-p:first-line:tracking-wide prose-a:text-ochre prose-a:no-underline hover:prose-a:underline prose-ul:my-6 prose-ol:my-6 prose-li:my-1 prose-h2:mt-12 prose-h2:mb-4 prose-h2:pb-2 prose-h2:border-b prose-h2:border-gray-200 prose-h3:mt-8 prose-h3:mb-3 prose-strong:text-charcoal prose-blockquote:border-l-ochre prose-blockquote:bg-gray-50 prose-blockquote:py-1 prose-blockquote:not-italic prose-table:my-8 prose-th:border prose-th:border-gray-200 prose-th:bg-gray-100 prose-th:px-4 prose-th:py-3 prose-td:border prose-td:border-gray-200 prose-td:px-4 prose-td:py-3 prose-thead:border-b-2 prose-thead:border-gray-300">
+          <Content />
+        </article>
+      </div>
+    </section>
+
+    {relatedPosts.length > 0 && (
+      <section class="px-4 md:px-15 py-16 border-t border-gray-200">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-2xl font-heading font-bold mb-6">Related Articles</h2>
+          <ul class="space-y-4">
+            {relatedPosts.map((related) => (
+              <li>
+                <a href={`/resources/${related.slug}/`} class="text-charcoal font-semibold no-underline hover:text-ochre hover:underline">
+                  {related.data.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )}
+
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl font-heading font-bold mb-6">Ready to Get Started?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Contact us for a free site walk and detailed proposal for your commercial flooring project.
+        </p>
+        <CTA />
+        <p class="mt-6 text-gray-600">
+          <a href="/services/" class="text-charcoal font-semibold no-underline hover:underline">
+            View Our Services →
+          </a>
+        </p>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

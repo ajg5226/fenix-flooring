@@ -1,0 +1,34 @@
+---
+interface GalleryImage {
+  src: string;
+  alt: string;
+  title?: string;
+}
+
+interface Props {
+  images: GalleryImage[];
+  class?: string;
+}
+
+const { images, class: className = '' } = Astro.props;
+---
+
+<div class={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ${className}`}>
+  {images.map((image, index) => (
+    <div class="relative group overflow-hidden border border-gray-200 hover:border-ochre transition-colors">
+      <div class="aspect-[4/3] overflow-hidden">
+        <img
+          src={image.src}
+          alt={image.alt}
+          class="w-full h-full object-cover transition-transform group-hover:scale-105"
+          loading="lazy"
+        />
+      </div>
+      {image.title && (
+        <div class="absolute inset-0 bg-charcoal/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+          <p class="text-white font-heading font-semibold text-center px-4">{image.title}</p>
+        </div>
+      )}
+    </div>
+  ))}
+</div>

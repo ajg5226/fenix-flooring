@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import FAQ from '../../components/FAQ.astro';
+import { getBreadcrumbSchema, getFAQPageSchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Flooring Types', url: '/flooring/' },
+  { label: 'Carpet Tile', url: '/flooring/carpet-tile/' },
+];
+
+const faqs = [
+  {
+    question: 'What is carpet tile?',
+    answer: 'Carpet tile (modular carpet) is carpet in tile format, typically 18" x 18" or 24" x 24". It offers the acoustics and comfort of carpet with the flexibility to replace individual tiles and create patterns. It\'s a key commercial flooring product we install.',
+  },
+  {
+    question: 'Where is carpet tile best suited?',
+    answer: 'Carpet tile is ideal for offices, call centers, hospitality, healthcare, education, and multi-family common areas. It\'s durable, easy to maintain, and allows targeted replacement of worn or stained tiles.',
+  },
+  {
+    question: 'How long does carpet tile installation take?',
+    answer: 'Installation timelines vary by project size. Small projects (under 5,000 sq ft) typically take 2-4 days. Larger projects may take 1-2 weeks. We provide detailed timelines in our proposals.',
+  },
+  {
+    question: 'Can you replace individual carpet tiles?',
+    answer: 'Yes. One advantage of carpet tile is the ability to replace individual tiles without redoing the entire installation. We can provide replacement tiles and installation for damaged or worn areas.',
+  },
+  {
+    question: 'Do you work in occupied buildings?',
+    answer: 'Yes. We specialize in after-hours and phased carpet tile installations for occupied commercial buildings. We coordinate with tenants and property managers to minimize disruption.',
+  },
+];
+
+const schema = [
+  getBreadcrumbSchema(breadcrumbs),
+  getFAQPageSchema(faqs),
+];
+---
+
+<BaseLayout
+  title="Carpet Tile Commercial Flooring | Modular Carpet Installation"
+  description="Professional carpet tile (modular carpet) installation for commercial spaces. Offices, hospitality, healthcare, education. Turnkey service."
+  schema={schema}
+>
+  
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Carpet Tile for Commercial Spaces</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Modular carpet tile for offices, hospitality, healthcare, and education. Durable, flexible, and easy to maintain.
+        </p>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <div class="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img
+              src="/images/carpet-tile1.webp"
+              alt="Office space with modular carpet tile"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img
+              src="/images/carpet-tile2.webp"
+              alt="Carpet tile installation in a commercial hallway"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-3xl font-heading font-bold mb-6">Where Carpet Tile Fits</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Carpet tile is a key part of our commercial flooring business. We install modular carpet tile in offices, call centers, hospitality spaces, healthcare facilities, educational buildings, and multi-family common areas. Carpet tile provides acoustics and comfort like broadloom carpet, with the added benefit of targeted replacement—individual tiles can be swapped when worn or stained. We handle removal of existing flooring, subfloor preparation, and professional installation.
+          </p>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Pros & Cons</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Advantages</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Acoustical absorption</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Individual tile replacement reduces long-term cost</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Design flexibility with patterns and colors</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Durable and easy to maintain</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Considerations</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Requires regular vacuuming and periodic cleaning</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Not suitable for wet or high-moisture areas</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Installation Notes & Downtime</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Carpet tile installation requires a clean, level subfloor. We assess subfloor conditions during our site walk and include any necessary preparation in our proposal. We install carpet tile using adhesive or loose-lay methods per manufacturer specifications. Most installations can be completed with minimal downtime, and we offer after-hours and phased work for occupied buildings.
+          </p>
+          
+          <div class="mt-12">
+            <h2 class="text-3xl font-heading font-bold mb-6">Frequently Asked Questions</h2>
+            <FAQ items={faqs} />
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6">Interested in Carpet Tile?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Contact us for a free site walk and detailed proposal for your carpet tile installation.
+        </p>
+        <CTA />
+      </div>
+    </section>
+  </main>
+  
+</BaseLayout>

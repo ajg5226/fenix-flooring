@@ -1,0 +1,182 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import FAQ from '../../components/FAQ.astro';
+import { getBreadcrumbSchema, getFAQPageSchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Residential', url: '/residential/' },
+  { label: 'Tile', url: '/residential/tile/' },
+];
+
+const faqs = [
+  {
+    question: 'What is the difference between ceramic and porcelain tile?',
+    answer: 'Porcelain tile is denser and more water-resistant than ceramic, making it better for bathrooms, entryways, and outdoor use. Ceramic tile is lighter and easier to cut, making it a good choice for walls, backsplashes, and lower-traffic areas. Both are durable and low-maintenance.',
+  },
+  {
+    question: 'Is tile cold underfoot?',
+    answer: 'Tile can feel cool, especially in winter. Many homeowners pair tile with radiant floor heating for added comfort in bathrooms and kitchens. Area rugs are another simple option for adding warmth.',
+  },
+  {
+    question: 'Can tile be installed over existing tile?',
+    answer: 'In some cases, yes — if the existing tile is flat, well-bonded, and structurally sound. However, installing over existing tile raises the floor height, which can affect doors and transitions. We evaluate this during the consultation and recommend the best approach.',
+  },
+  {
+    question: 'How long does tile last?',
+    answer: 'Properly installed tile can last 50+ years in a residential setting. It is one of the most durable flooring options available. Grout may need periodic resealing depending on the type used.',
+  },
+  {
+    question: 'Is tile slippery?',
+    answer: 'It depends on the finish. Polished and glossy tiles can be slippery when wet. For bathrooms, kitchens, and entryways, we recommend textured or matte-finish tiles with a higher slip-resistance rating.',
+  },
+  {
+    question: 'How long does tile installation take?',
+    answer: 'Tile installation takes longer than most flooring types due to setting and grouting time. A typical bathroom takes 2-4 days. Larger areas like kitchens or full floors may take 5-10 days including prep, setting, grouting, and curing.',
+  },
+];
+
+const schema = [
+  getBreadcrumbSchema(breadcrumbs),
+  getFAQPageSchema(faqs),
+];
+---
+
+<BaseLayout
+  title="Tile for Homes | Ceramic & Porcelain Tile Residential Installation"
+  description="Professional ceramic and porcelain tile installation for homes. Waterproof, durable tile for kitchens, bathrooms, entryways, and more. Expert installation with subfloor prep included."
+  schema={schema}
+>
+
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Tile for Your Home</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Durable, waterproof ceramic and porcelain tile — the timeless choice for kitchens, bathrooms, entryways, and mudrooms.
+        </p>
+      </div>
+    </section>
+
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <div class="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img
+              src="/images/resi_tile1.jpeg"
+              alt="Bathroom with porcelain tile flooring"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="aspect-[4/3] overflow-hidden rounded">
+            <img
+              src="/images/resi_tile2.jpg"
+              alt="Kitchen with ceramic tile floor"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-3xl font-heading font-bold mb-6">Where Tile Fits in Your Home</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Tile is the go-to flooring choice for bathrooms, kitchens, entryways, mudrooms, and laundry rooms — anywhere moisture resistance and durability are priorities. Ceramic and porcelain tiles come in an enormous range of sizes, colors, patterns, and finishes, from classic subway tile to large-format porcelain that mimics natural stone. Tile also works beautifully in sunrooms, enclosed porches, and around fireplaces.
+          </p>
+
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Pros & Cons</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Advantages</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Waterproof and moisture-resistant</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Extremely durable — lasts decades</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Easy to clean and maintain</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Huge range of styles, sizes, and finishes</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Compatible with radiant floor heating</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Adds resale value to your home</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-4">Considerations</h3>
+              <ul class="list-none space-y-2">
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Hard underfoot — can be uncomfortable for long standing</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Can be cold without radiant heating</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Grout lines require periodic cleaning and sealing</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Longer installation time than most flooring types</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-charcoal font-bold mr-3">•</span>
+                  <span class="text-gray-600">Polished tiles can be slippery when wet</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Installation Notes</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Tile installation begins with removing existing flooring and preparing the subfloor. A flat, stable substrate is critical for tile — we handle leveling, waterproofing membranes (for wet areas), and backer board installation as needed. Tiles are set with thinset mortar, followed by grouting and sealing. The process takes longer than other flooring types due to curing times, but the result is a floor that will last for decades. We work room by room and keep the rest of your home clean and accessible.
+          </p>
+
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Maintenance Basics</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Tile is one of the lowest-maintenance flooring options. Sweep or vacuum regularly and mop with a mild cleaner. Grout lines may need periodic cleaning with a grout-specific cleaner and resealing every 1-2 years (for cement-based grout). Epoxy grout is an upgrade that requires virtually no maintenance. Avoid abrasive cleaners that can dull polished tile surfaces. We provide care recommendations specific to your tile and grout type.
+          </p>
+
+          <div class="mt-12">
+            <h2 class="text-3xl font-heading font-bold mb-6">Frequently Asked Questions</h2>
+            <FAQ items={faqs} />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6">Ready for New Tile Floors?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Contact us for a free consultation and detailed proposal for your home.
+        </p>
+        <CTA href="/residential/#quote-form" />
+        <p class="mt-6 text-gray-600">
+          <a href="/residential/" class="text-charcoal font-semibold no-underline hover:underline">
+            ← Back to Residential Flooring
+          </a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+</BaseLayout>

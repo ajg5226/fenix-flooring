@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="Ebene_1"
+   data-name="Ebene 1"
+   viewBox="0 0 160.69999 140.55"
+   version="1.1"
+   width="160.7"
+   height="140.55"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs4">
+    <style
+       id="style2">
+      .cls-1 {
+        fill: #857145;
+      }
+    </style>
+  </defs>
+  <rect
+     class="cls-1"
+     x="97.690002"
+     y="0"
+     width="63.009998"
+     height="11.57"
+     id="rect6" />
+  <rect
+     class="cls-1"
+     x="97.690002"
+     y="24.37001"
+     width="63.009998"
+     height="11.57"
+     id="rect8" />
+  <rect
+     class="cls-1"
+     x="97.690002"
+     y="50.680008"
+     width="63.009998"
+     height="11.57"
+     id="rect10" />
+  <path
+     class="cls-1"
+     d="M 0.04999268,72.530005 V 139.87001 H 66.179993 V 72.530005 Z m 53.88000032,61.990005 -0.51,-0.51 -48.2600003,-48.770005 7.1300003,-7.27 0.51,0.51 48.26,48.770005 z"
+     id="path12" />
+  <rect
+     class="cls-1"
+     x="0.089996338"
+     y="0"
+     width="66.059998"
+     height="11.33"
+     id="rect14" />
+  <rect
+     class="cls-1"
+     x="0.009979248"
+     y="24.400009"
+     width="66.129997"
+     height="11.57"
+     id="rect16" />
+  <rect
+     class="cls-1"
+     x="0"
+     y="26.400009"
+     width="11.57"
+     height="39.669998"
+     id="rect18" />
+  <rect
+     class="cls-1"
+     x="76.139984"
+     y="0"
+     width="11.57"
+     height="139.86"
+     id="rect20" />
+  <g
+     id="g26"
+     transform="translate(-341.07001,-230.50999)">
+    <polygon
+       class="cls-1"
+       points="501.47,308.82 492.95,301.7 439.05,363.72 447.57,370.84 "
+       id="polygon22" />
+    <polygon
+       class="cls-1"
+       points="501.47,363.94 492.95,371.06 439.05,309.04 447.57,301.92 "
+       id="polygon24" />
+  </g>
+</svg>

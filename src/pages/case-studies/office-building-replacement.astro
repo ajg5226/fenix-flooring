@@ -1,0 +1,210 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+import { getBreadcrumbSchema, getCaseStudySchema } from '../../utils/schema';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Case Studies', url: '/case-studies/' },
+  { label: 'Office Building Replacement', url: '/case-studies/office-building-replacement/' },
+];
+
+const projectDetails = {
+  client: 'Multi-Tenant Office Building',
+  industry: 'Office Buildings',
+  scope: 'Occupied multi-floor replacement',
+  schedule: 'After-hours, phased schedule',
+  products: ['Luxury Vinyl Tile (LVT)'],
+  services: ['Flooring Removal', 'Subfloor Preparation', 'LVT Installation'],
+};
+
+const schema = [
+  getBreadcrumbSchema(breadcrumbs),
+  getCaseStudySchema({
+    title: 'Office Building Flooring Replacement',
+    description: 'How Fenix Flooring handled a multi-floor office building replacement with an after-hours, phased plan.',
+    url: '/case-studies/office-building-replacement/',
+    industry: 'Office Buildings',
+    image: '/images/pc1.jpg',
+  }),
+];
+---
+
+<BaseLayout
+  title="Office Building Flooring Replacement | Case Study"
+  description="How Fenix Flooring handled a multi-floor office building replacement with an after-hours, phased plan."
+  schema={schema}
+>
+  <main id="main-content" class="pt-24">
+    <!-- Hero Section -->
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <div class="flex flex-wrap gap-3 mb-6">
+          <span class="bg-white text-charcoal text-sm font-semibold px-4 py-1 uppercase tracking-wide">Office Buildings</span>
+          <span class="border border-gray-200 text-gray-300 text-sm font-semibold px-4 py-1 uppercase tracking-wide">Occupied Building</span>
+        </div>
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Office Building Flooring Replacement</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Complete flooring replacement in an occupied multi-tenant office building using an after-hours, phased approach to minimize disruption.
+        </p>
+      </div>
+    </section>
+
+    <!-- Project Image -->
+    <section class="bg-gray-100">
+      <div class="max-w-7xl mx-auto">
+        <div class="aspect-[21/9] overflow-hidden">
+          <img 
+            src="/images/pc1.jpg" 
+            alt="Office building lobby flooring replacement project" 
+            class="w-full h-full object-cover"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Details -->
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-7xl mx-auto" data-reveal>
+        <div class="grid lg:grid-cols-3 gap-12">
+          <!-- Main Content -->
+          <div class="lg:col-span-2">
+            <h2 class="text-3xl font-heading font-bold mb-6">The Challenge</h2>
+            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+              This multi-tenant office building needed a complete flooring replacement. The existing carpet and VCT had reached the end of their service life, showing heavy wear in common areas and dated aesthetics that no longer met tenant expectations.
+            </p>
+            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+              The critical constraint: the building was fully occupied with multiple tenants and normal business hours. A full shutdown was not an option. The property manager needed a contractor who could work in phases, transforming the space while keeping operations running.
+            </p>
+            
+            <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Our Approach</h2>
+            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+              We developed a comprehensive after-hours installation plan with phased sequencing. Crews worked overnight, with all work areas cleared and ready for tenants by building opening each morning.
+            </p>
+            
+            <div class="bg-gray-100 p-8 mb-8">
+              <h3 class="text-xl font-heading font-bold mb-6">Key Strategies</h3>
+              <ul class="space-y-4">
+                <li class="flex items-start gap-4">
+                  <svg class="w-6 h-6 text-charcoal shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-gray-600"><strong>Floor-by-floor phasing:</strong> Coordinated with property management to complete one area at a time</span>
+                </li>
+                <li class="flex items-start gap-4">
+                  <svg class="w-6 h-6 text-charcoal shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-gray-600"><strong>Dust containment:</strong> Full barriers and HEPA filtration to prevent contamination of tenant spaces</span>
+                </li>
+                <li class="flex items-start gap-4">
+                  <svg class="w-6 h-6 text-charcoal shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-gray-600"><strong>Elevator coordination:</strong> Freight elevator reserved for material transport during after-hours</span>
+                </li>
+                <li class="flex items-start gap-4">
+                  <svg class="w-6 h-6 text-charcoal shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-gray-600"><strong>Fast-cure adhesives:</strong> Selected products that supported quick return-to-service each morning</span>
+                </li>
+              </ul>
+            </div>
+
+            <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Product Selection</h2>
+            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+              Working with the property manager, we specified a commercial-grade luxury vinyl tile that would provide the durability needed for high-traffic common areas while offering the wood-look aesthetic that modern tenants expect:
+            </p>
+            <ul class="space-y-2 text-lg text-gray-600 mb-8">
+              <li><strong>Common corridors:</strong> Heavy commercial LVT in warm oak tones</li>
+              <li><strong>Elevator lobbies:</strong> Matching LVT with enhanced slip resistance</li>
+              <li><strong>Restrooms:</strong> Water-resistant LVT with sealed transitions</li>
+              <li><strong>Break rooms:</strong> Same product line for seamless aesthetic throughout</li>
+            </ul>
+
+            <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Results</h2>
+            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+              The project was completed on schedule with minimal disruption to tenant operations. The new LVT refreshed the look of common areas and simplified ongoing maintenance.
+            </p>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="lg:col-span-1">
+            <div class="bg-gray-100 p-8 sticky top-24">
+              <h3 class="text-xl font-heading font-bold mb-6">Project Details</h3>
+              <dl class="space-y-4">
+                <div>
+                  <dt class="text-sm text-gray-600 uppercase tracking-wide">Industry</dt>
+                  <dd class="text-charcoal font-semibold mt-1">{projectDetails.industry}</dd>
+                </div>
+                <div>
+                  <dt class="text-sm text-gray-600 uppercase tracking-wide">Project Scope</dt>
+                  <dd class="text-charcoal font-semibold mt-1">{projectDetails.scope}</dd>
+                </div>
+                <div>
+                  <dt class="text-sm text-gray-600 uppercase tracking-wide">Schedule</dt>
+                  <dd class="text-charcoal font-semibold mt-1">{projectDetails.schedule}</dd>
+                </div>
+                <div>
+                  <dt class="text-sm text-gray-600 uppercase tracking-wide">Products Used</dt>
+                  <dd class="flex flex-wrap gap-2 mt-2">
+                    {projectDetails.products.map((product) => (
+                      <span class="bg-white text-charcoal text-sm px-3 py-1 border border-gray-200">{product}</span>
+                    ))}
+                  </dd>
+                </div>
+                <div>
+                  <dt class="text-sm text-gray-600 uppercase tracking-wide">Services</dt>
+                  <dd class="flex flex-wrap gap-2 mt-2">
+                    {projectDetails.services.map((service) => (
+                      <span class="bg-white text-charcoal text-sm px-3 py-1 border border-gray-200">{service}</span>
+                    ))}
+                  </dd>
+                </div>
+              </dl>
+              <hr class="my-8 border-gray-200" />
+              <a href="/contact/#quote-form" class="block w-full text-center bg-charcoal text-white font-semibold py-4 uppercase tracking-wide hover:bg-gray-dark transition-colors">
+                Discuss Your Project
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Case Studies -->
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-heading font-bold mb-8">More Case Studies</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <a href="/case-studies/healthcare-lvt-installation/" class="block p-8 bg-white border border-gray-200 hover:border-ochre transition-colors no-underline text-charcoal">
+            <div class="text-sm text-gray-600 mb-2 uppercase tracking-wide">Healthcare</div>
+            <h3 class="text-2xl font-heading font-bold mb-4">Healthcare Facility LVT Installation</h3>
+            <p class="text-gray-600">LVT installation in an active healthcare facility with phased scheduling.</p>
+          </a>
+          <a href="/case-studies/elementary-school-carpet-installation/" class="block p-8 bg-white border border-gray-200 hover:border-ochre transition-colors no-underline text-charcoal">
+            <div class="text-sm text-gray-600 mb-2 uppercase tracking-wide">Education</div>
+            <h3 class="text-2xl font-heading font-bold mb-4">Elementary School Full Carpet Installation</h3>
+            <p class="text-gray-600">Full carpet installation completed during summer break.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="px-4 md:px-15 py-20 bg-charcoal text-white">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6 text-center">Have a Similar Project?</h2>
+        <p class="text-xl text-gray-300 mb-12 text-center">
+          Let's discuss how we can help your commercial property achieve the same results.
+        </p>
+        <QuoteForm />
+      </div>
+    </section>
+  </main>
+</BaseLayout>
