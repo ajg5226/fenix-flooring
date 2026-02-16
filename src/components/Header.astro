@@ -12,23 +12,23 @@ const currentPath = Astro.url.pathname;
         <img
           src="/logos/logo-color.svg"
           alt="Fenix Flooring"
-          class="h-12 md:h-14 w-auto"
+          class="h-10 xl:h-14 w-auto"
           width="200"
           height="56"
         />
       </a>
 
-      <ul class="flex items-center gap-6 md:gap-10 list-none m-0 p-0">
-        <li><a href="/services/" class={`text-sm font-medium tracking-wide uppercase no-underline text-charcoal transition-colors hover:text-ochre py-2 ${currentPath.startsWith('/services') ? 'text-ochre' : ''}`}>Services</a></li>
-        <li><a href="/flooring/" class={`text-sm font-medium tracking-wide uppercase no-underline text-charcoal transition-colors hover:text-ochre py-2 ${currentPath.startsWith('/flooring') ? 'text-ochre' : ''}`}>Flooring Types</a></li>
-        <li><a href="/industries/" class={`text-sm font-medium tracking-wide uppercase no-underline text-charcoal transition-colors hover:text-ochre py-2 ${currentPath.startsWith('/industries') ? 'text-ochre' : ''}`}>Industries</a></li>
-        <li><a href="/residential/" class={`text-sm font-medium tracking-wide uppercase no-underline text-charcoal transition-colors hover:text-ochre py-2 ${currentPath.startsWith('/residential') ? 'text-ochre' : ''}`}>Residential</a></li>
-        <li><a href="/resources/" class={`text-sm font-medium tracking-wide uppercase no-underline text-charcoal transition-colors hover:text-ochre py-2 ${currentPath.startsWith('/resources') ? 'text-ochre' : ''}`}>Resources</a></li>
-        <li><a href="/case-studies/" class={`text-sm font-medium tracking-wide uppercase no-underline text-charcoal transition-colors hover:text-ochre py-2 ${currentPath.startsWith('/case-studies') ? 'text-ochre' : ''}`}>Case Studies</a></li>
-        <li><a href="/about/" class={`text-sm font-medium tracking-wide uppercase no-underline text-charcoal transition-colors hover:text-ochre py-2 ${currentPath.startsWith('/about') ? 'text-ochre' : ''}`}>About</a></li>
-        <li><a href="/contact/" class={`text-sm font-medium tracking-wide uppercase no-underline text-charcoal transition-colors hover:text-ochre py-2 ${currentPath.startsWith('/contact') ? 'text-ochre' : ''}`}>Contact</a></li>
+      <ul class="flex items-center gap-4 xl:gap-10 list-none m-0 p-0">
+        <li><a href="/services/" class={`text-xs xl:text-sm font-medium tracking-wide uppercase no-underline text-charcoal transition-colors hover:text-ochre py-2 ${currentPath.startsWith('/services') ? 'text-ochre' : ''}`}>Services</a></li>
+        <li><a href="/flooring/" class={`text-xs xl:text-sm font-medium tracking-wide uppercase no-underline text-charcoal transition-colors hover:text-ochre py-2 ${currentPath.startsWith('/flooring') ? 'text-ochre' : ''}`}>Flooring Types</a></li>
+        <li><a href="/industries/" class={`text-xs xl:text-sm font-medium tracking-wide uppercase no-underline text-charcoal transition-colors hover:text-ochre py-2 ${currentPath.startsWith('/industries') ? 'text-ochre' : ''}`}>Industries</a></li>
+        <li><a href="/residential/" class={`text-xs xl:text-sm font-medium tracking-wide uppercase no-underline text-charcoal transition-colors hover:text-ochre py-2 ${currentPath.startsWith('/residential') ? 'text-ochre' : ''}`}>Residential</a></li>
+        <li><a href="/resources/" class={`text-xs xl:text-sm font-medium tracking-wide uppercase no-underline text-charcoal transition-colors hover:text-ochre py-2 ${currentPath.startsWith('/resources') ? 'text-ochre' : ''}`}>Resources</a></li>
+        <li><a href="/case-studies/" class={`text-xs xl:text-sm font-medium tracking-wide uppercase no-underline text-charcoal transition-colors hover:text-ochre py-2 ${currentPath.startsWith('/case-studies') ? 'text-ochre' : ''}`}>Case Studies</a></li>
+        <li><a href="/about/" class={`text-xs xl:text-sm font-medium tracking-wide uppercase no-underline text-charcoal transition-colors hover:text-ochre py-2 ${currentPath.startsWith('/about') ? 'text-ochre' : ''}`}>About</a></li>
+        <li><a href="/contact/" class={`text-xs xl:text-sm font-medium tracking-wide uppercase no-underline text-charcoal transition-colors hover:text-ochre py-2 ${currentPath.startsWith('/contact') ? 'text-ochre' : ''}`}>Contact</a></li>
         <li>
-          <a href="/contact/#quote-form" class="inline-block px-6 py-3 bg-terracotta text-white no-underline font-heading font-semibold text-sm tracking-wide uppercase transition-all hover:bg-charcoal hover:scale-105 min-h-[44px] flex items-center">
+          <a href="/contact/#quote-form" class="inline-block px-4 xl:px-6 py-3 bg-terracotta text-white no-underline font-heading font-semibold text-xs xl:text-sm tracking-wide uppercase transition-all hover:bg-charcoal hover:scale-105 min-h-[44px] flex items-center">
             Request Quote
           </a>
         </li>
