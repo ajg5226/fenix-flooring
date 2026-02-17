@@ -1,0 +1,60 @@
+# ============================================================
+# CI Pipeline — Fenix Flooring
+# ============================================================
+# Runs the full preflight check suite (build + validation) on
+# every pull request targeting staging or master, and on every
+# direct push to staging.
+#
+# What it checks (via npm run preflight):
+#   1. Build output exists and compiles without errors
+#   2. Canonical tags are correct on every page
+#   3. Sitemap.xml is valid and complete
+#   4. Redirect pages work correctly
+#   5. Noindex compliance on utility pages
+#   6. Meta tags (title, description, OG) on all pages
+#   7. Internal link integrity (no broken links)
+#   8. Blog auto-links are being injected
+#   9. Image references all resolve to real files
+#
+# If any check fails, the workflow fails, blocking the merge.
+# ============================================================
+
+name: CI — Preflight Checks
+
+on:
+  # Run on pull requests targeting staging or master
+  pull_request:
+    branches:
+      - staging
+      - master
+      - main
+
+  # Also run on direct pushes to staging (branch deploys)
+  push:
+    branches:
+      - staging
+
+jobs:
+  preflight:
+    name: Build & Preflight Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out the repository code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Set up Node.js with npm dependency caching
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
+
+      # 3. Install dependencies (clean install for reproducibility)
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. Run the full preflight suite (build + all 9 checks)
+      - name: Run preflight checks
+        run: npm run preflight
