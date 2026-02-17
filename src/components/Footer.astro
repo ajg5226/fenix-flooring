@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from '../config/site';
+import { areas } from '../config/areas';
 
 const linkedInFooterUrl = 'https://www.fenixflooring.com/go/linkedin/?utm_source=website&utm_medium=owned&utm_campaign=social_profile_click&utm_content=footer';
 const hasSocialLinks = siteConfig.social.facebook || linkedInFooterUrl || siteConfig.social.instagram;
@@ -17,7 +18,7 @@ const hasSocialLinks = siteConfig.social.facebook || linkedInFooterUrl || siteCo
       />
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 text-left">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12 text-left">
       <div>
         <h3 class="text-lg font-heading font-semibold mb-4 uppercase tracking-wide">Quick Links</h3>
         <ul class="space-y-2 list-none p-0">
@@ -28,6 +29,16 @@ const hasSocialLinks = siteConfig.social.facebook || linkedInFooterUrl || siteCo
           <li><a href="/resources/" class="text-gray-300 no-underline hover:text-ochre transition-colors">Resources</a></li>
           <li><a href="/case-studies/" class="text-gray-300 no-underline hover:text-ochre transition-colors">Case Studies</a></li>
           <li><a href="/about/" class="text-gray-300 no-underline hover:text-ochre transition-colors">About</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-heading font-semibold mb-4 uppercase tracking-wide">Areas We Serve</h3>
+        <ul class="space-y-2 list-none p-0">
+          {areas.map((area) => (
+            <li><a href={`/areas/${area.slug}/`} class="text-gray-300 no-underline hover:text-ochre transition-colors">{area.city}, {area.stateAbbr}</a></li>
+          ))}
+          <li><a href="/areas/" class="text-ochre no-underline hover:text-white transition-colors font-semibold">All Areas →</a></li>
         </ul>
       </div>
 

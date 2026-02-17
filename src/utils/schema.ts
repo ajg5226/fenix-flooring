@@ -234,6 +234,21 @@ export function getCaseStudySchema(caseStudy: {
   };
 }
 
+// Location-specific LocalBusiness Schema with city-level areaServed
+export function getLocationSchema(city: string, state: string) {
+  return {
+    ...getLocalBusinessSchema(),
+    areaServed: {
+      '@type': 'City',
+      name: city,
+      containedInPlace: {
+        '@type': 'State',
+        name: state,
+      },
+    },
+  };
+}
+
 // Combine multiple schemas for a page
 export function combineSchemas(...schemas: object[]): string {
   return JSON.stringify(schemas);

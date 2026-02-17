@@ -9,6 +9,7 @@ import { flooringTypes } from './flooring';
 import { residentialFlooringTypes } from './residential';
 import { services } from './services';
 import { navigation } from './site';
+import { areas } from './areas';
 
 export type InternalLinkEntry = { phrases: string[]; url: string };
 
@@ -69,6 +70,20 @@ export function getInternalLinkMap(): InternalLinkEntry[] {
   // Industries (from navigation)
   for (const ind of navigation.industries) {
     entries.push({ phrases: [ind.name], url: ind.href });
+  }
+
+  // Location / area pages
+  for (const area of areas) {
+    const url = `/areas/${area.slug}/`;
+    const phrases: string[] = [
+      `commercial flooring ${area.city}`,
+      `flooring ${area.city}`,
+      `flooring in ${area.city}`,
+    ];
+    if (area.stateAbbr !== area.state) {
+      phrases.push(`flooring ${area.city} ${area.stateAbbr}`);
+    }
+    entries.push({ phrases, url });
   }
 
   return entries.sort(byPhraseLengthDesc);

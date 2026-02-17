@@ -1,0 +1,188 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import { getBreadcrumbSchema, getLocationSchema } from '../../utils/schema';
+import { areas } from '../../config/areas';
+import type { AreaLocation } from '../../config/areas';
+import { siteConfig } from '../../config/site';
+
+export function getStaticPaths() {
+  return areas.map((area) => ({
+    params: { slug: area.slug },
+    props: { area },
+  }));
+}
+
+interface Props {
+  area: AreaLocation;
+}
+
+const { area } = Astro.props;
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Areas We Serve', url: '/areas/' },
+  { label: area.city, url: `/areas/${area.slug}/` },
+];
+
+const schema = [
+  getBreadcrumbSchema(breadcrumbs),
+  getLocationSchema(area.city, area.state),
+];
+
+const otherAreas = areas.filter((a) => a.slug !== area.slug);
+---
+
+<BaseLayout
+  title={area.metaTitle}
+  description={area.metaDescription}
+  schema={schema}
+>
+  <main id="main-content" class="pt-24">
+    <!-- Hero -->
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Commercial Flooring Services in {area.city}, {area.stateAbbr}</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          {area.heroSubtitle}
+        </p>
+      </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <div class="prose prose-lg max-w-none">
+          <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+            {area.intro}
+          </p>
+
+          <!-- Our Services -->
+          <h2 class="text-3xl font-heading font-bold mb-6">Our {area.city} Flooring Services</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Fenix Flooring provides complete commercial flooring services to {area.city} businesses and institutions. From initial demolition to final installation, we handle every phase of your flooring project.
+          </p>
+          <ul class="list-none space-y-3 mb-8">
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">
+                <a href="/services/commercial-flooring-installation/" class="text-charcoal font-semibold no-underline hover:underline">Commercial Flooring Installation</a> — LVT, hardwood, tile, carpet tile, rubber, sheet vinyl, VCT, and polished concrete
+              </span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">
+                <a href="/services/flooring-removal-demolition/" class="text-charcoal font-semibold no-underline hover:underline">Flooring Removal & Demolition</a> — complete tear-out of existing flooring and adhesive
+              </span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">
+                <a href="/services/concrete-prep-leveling/" class="text-charcoal font-semibold no-underline hover:underline">Concrete Prep & Leveling</a> — grinding, leveling, and skim-coating for a perfect substrate
+              </span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">
+                <a href="/services/moisture-mitigation/" class="text-charcoal font-semibold no-underline hover:underline">Moisture Mitigation</a> — testing and treatment to prevent flooring failures
+              </span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-charcoal font-bold mr-3">•</span>
+              <span class="text-gray-600">
+                <a href="/services/after-hours-occupied-installation/" class="text-charcoal font-semibold no-underline hover:underline">After-Hours & Occupied Installation</a> — evening and weekend work to minimize business disruption
+              </span>
+            </li>
+          </ul>
+
+          <!-- Why Choose Fenix -->
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Why {area.city} Businesses Choose Fenix</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Fenix Flooring is licensed, insured, and staffed by OSHA-compliant crews who understand the demands of commercial environments. Here's why businesses in {area.city} trust us with their flooring:
+          </p>
+          <ul class="list-none space-y-4 mb-8">
+            {area.whyChoose.map((reason) => (
+              <li class="flex items-start">
+                <span class="text-charcoal font-bold mr-3">•</span>
+                <span class="text-gray-600">{reason}</span>
+              </li>
+            ))}
+          </ul>
+
+          <!-- Recent Projects -->
+          <h2 class="text-3xl font-heading font-bold mb-6 mt-12">Recent {area.city} Projects</h2>
+          {area.recentProjects.map((project) => (
+            <div class="mb-6">
+              <h3 class="text-xl font-heading font-bold mb-2">{project.title}</h3>
+              <p class="text-gray-600 leading-relaxed">{project.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <h2 class="text-3xl font-heading font-bold mb-8 text-center">What {area.city} Clients Say</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {area.testimonials.map((testimonial) => (
+            <div class="bg-white p-6 border border-gray-200">
+              <p class="text-gray-600 italic mb-4 leading-relaxed">"{testimonial.quote}"</p>
+              <p class="font-heading font-semibold text-charcoal">{testimonial.name}</p>
+              <p class="text-gray-500 text-sm">{testimonial.role}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Local Context -->
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-4xl mx-auto" data-reveal>
+        <div class="prose prose-lg max-w-none">
+          <h2 class="text-3xl font-heading font-bold mb-6">Serving the {area.city} Community</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            {area.localContext}
+          </p>
+
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            Key industries we serve in {area.city} include {area.industries.join(', ')}. No matter your sector, Fenix Flooring has the experience and materials to deliver flooring that performs.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Areas We Serve Cross-Links -->
+    <section class="px-4 md:px-15 py-16 bg-gray-100">
+      <div class="max-w-7xl mx-auto" data-reveal>
+        <h2 class="text-2xl font-heading font-bold mb-6 text-center">Other Areas We Serve</h2>
+        <div class="flex flex-wrap justify-center gap-3">
+          {otherAreas.map((other) => (
+            <a href={`/areas/${other.slug}/`} class="px-4 py-2 bg-white border border-gray-200 text-charcoal no-underline text-sm font-medium hover:border-ochre hover:text-ochre transition-colors">
+              {other.city}, {other.stateAbbr}
+            </a>
+          ))}
+        </div>
+        <p class="text-center mt-4">
+          <a href="/areas/" class="text-ochre font-semibold no-underline hover:underline">View all service areas →</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="px-4 md:px-15 py-20 bg-charcoal text-white">
+      <div class="max-w-4xl mx-auto text-center" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6">Ready to Start Your {area.city} Flooring Project?</h2>
+        <p class="text-xl text-gray-300 mb-4">
+          Call us at <a href={`tel:${siteConfig.phone.replace(/\D/g, '')}`} class="text-ochre no-underline hover:underline font-semibold">{siteConfig.phone}</a> for a free estimate, or request a site walk in {area.city}.
+        </p>
+        <div class="mt-8">
+          <CTA text={`Request a Quote in ${area.city}`} />
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

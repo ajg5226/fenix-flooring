@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import { getBreadcrumbSchema } from '../../utils/schema';
+import { areas } from '../../config/areas';
+import { siteConfig } from '../../config/site';
+
+const breadcrumbs = [
+  { label: 'Home', url: '/' },
+  { label: 'Areas We Serve', url: '/areas/' },
+];
+
+const schema = [getBreadcrumbSchema(breadcrumbs)];
+---
+
+<BaseLayout
+  title="Areas We Serve | Commercial Flooring in PA, DE, NJ & NY | Fenix Flooring"
+  description="Fenix Flooring serves businesses across Eastern PA, Delaware, New Jersey, and Westchester County, NY. Find commercial flooring services near you."
+  schema={schema}
+>
+  <main id="main-content" class="pt-24">
+    <section class="px-4 md:px-15 py-16 bg-charcoal text-white">
+      <div class="max-w-7xl mx-auto">
+        <Breadcrumbs items={breadcrumbs} />
+        <h1 class="text-5xl md:text-6xl font-heading font-extrabold mb-6">Areas We Serve</h1>
+        <p class="text-xl text-gray-300 max-w-3xl">
+          Professional commercial flooring services across Eastern Pennsylvania, Delaware, New Jersey, and the surrounding region. Find your local Fenix Flooring team.
+        </p>
+      </div>
+    </section>
+
+    <section class="px-4 md:px-15 py-20">
+      <div class="max-w-7xl mx-auto" data-reveal>
+        <p class="text-lg text-gray-600 mb-12 max-w-3xl mx-auto text-center leading-relaxed">
+          {siteConfig.serviceAreaDescription} Select your area below to learn more about our local commercial flooring services.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {areas.map((area) => (
+            <a href={`/areas/${area.slug}/`} class="group block p-6 border border-gray-200 no-underline hover:border-ochre transition-colors">
+              <h2 class="text-xl font-heading font-bold text-charcoal group-hover:text-ochre transition-colors mb-2">
+                {area.city}, {area.stateAbbr}
+              </h2>
+              <p class="text-gray-600 text-sm mb-3 leading-relaxed">{area.heroSubtitle}</p>
+              <div class="flex flex-wrap gap-2">
+                {area.industries.slice(0, 3).map((industry) => (
+                  <span class="text-xs px-2 py-1 bg-gray-100 text-gray-600">{industry}</span>
+                ))}
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="px-4 md:px-15 py-20 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center" data-reveal>
+        <h2 class="text-4xl font-heading font-bold mb-6">Don't See Your Area?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          We serve businesses within a 90-mile radius of Pottstown, PA. Contact us to discuss your project — we may be able to help.
+        </p>
+        <CTA />
+      </div>
+    </section>
+  </main>
+</BaseLayout>
