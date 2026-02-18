@@ -80,11 +80,32 @@ function walkAndInject(node, index, parent, state) {
   if (node.type === 'text' && !inLink && parent) {
     let value = node.value || '';
     for (const { phrase, url } of flatList) {
-      if (linkedUrls.has(url)) continue;
       if (currentSlug && url === `/resources/${currentSlug}/`) continue;
 
       const match = findBoundedMatch(value, phrase);
       if (!match) continue;
+
+      if (linkedUrls.has(url)) {
+        // Phrase matches but URL already linked. Split around it so shorter
+        // phrases can't partially match inside this compound term.
+        const before = value.slice(0, match.start);
+        const after = value.slice(match.end);
+
+        const newNodes = [];
+        if (before) newNodes.push({ type: 'text', value: before });
+        newNodes.push({ type: 'text', value: match.matched });
+        if (after) newNodes.push({ type: 'text', value: after });
+
+        const siblings = parent.children;
+        siblings.splice(index, 1, ...newNodes);
+
+        const protectedIdx = before ? 1 : 0;
+        for (let i = 0; i < newNodes.length; i++) {
+          if (i === protectedIdx) continue;
+          walkAndInject(newNodes[i], index + i, parent, state);
+        }
+        return;
+      }
 
       const before = value.slice(0, match.start);
       const matched = value.slice(match.start, match.end);
