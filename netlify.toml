@@ -77,6 +77,22 @@
   status = 302
   force = true
 
+# --- Outbound social profile links ---
+# Used by footer and contact page LinkedIn icons.
+# 302 preserves UTM query params for analytics before sending user offsite.
+
+[[redirects]]
+  from = "/go/to-linkedin"
+  to = "https://www.linkedin.com/company/fenix-flooring"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/go/to-linkedin/"
+  to = "https://www.linkedin.com/company/fenix-flooring"
+  status = 302
+  force = true
+
 # --- Content redirects ---
 [[redirects]]
   from = "/resources/commercial-flooring-cost-guide/"
