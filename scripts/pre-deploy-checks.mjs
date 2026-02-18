@@ -34,7 +34,7 @@ const SITE_URL = 'https://www.fenixflooring.com';
 const KNOWN_NOINDEX_PATHS = [
   '/thank-you/',
   '/404.html',
-  '/go/linkedin/',
+  '/go/to-linkedin/',
   '/flooring/epoxy-resinous/',
   '/flooring/polished-concrete/',
   '/case-studies/retail-polished-concrete/',
@@ -50,7 +50,7 @@ const KNOWN_REDIRECT_PAGES = [
 
 // Paths that are utility/redirect pages with minimal HTML (skip meta tag checks)
 const UTILITY_PAGES = [
-  '/go/linkedin/',
+  '/go/to-linkedin/',
 ];
 
 // Paths that are not real content pages (exclude from "missing from sitemap" check)

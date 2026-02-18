@@ -215,3 +215,10 @@ html.js .hero-cta {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
 }
+.blog-prose > p > img[alt] {
+  max-height: 400px;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
