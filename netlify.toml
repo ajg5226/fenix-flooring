@@ -23,6 +23,60 @@
   to = "/?utm_source=:splat"
   status = 301
 
+# --- Branded short links (LinkedIn first-comment links) ---
+# Inbound tracking links for LinkedIn comments/posts.
+# Using 302 while validating; switch to 301 once confirmed correct.
+# force = true ensures these fire before any static-file fallback.
+# Each path has a trailing-slash variant for resilience.
+
+[[redirects]]
+  from = "/go/linkedin"
+  to = "https://www.fenixflooring.com/?utm_source=linkedin&utm_medium=organic_social&utm_campaign=linkedin_company_page&utm_content=comment_link"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/go/linkedin/"
+  to = "https://www.fenixflooring.com/?utm_source=linkedin&utm_medium=organic_social&utm_campaign=linkedin_company_page&utm_content=comment_link"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/go/linkedin/website-launch"
+  to = "https://www.fenixflooring.com/?utm_source=linkedin&utm_medium=organic_social&utm_campaign=website_launch&utm_content=comment_link"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/go/linkedin/website-launch/"
+  to = "https://www.fenixflooring.com/?utm_source=linkedin&utm_medium=organic_social&utm_campaign=website_launch&utm_content=comment_link"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/go/linkedin/communication-fast"
+  to = "https://www.fenixflooring.com/?utm_source=linkedin&utm_medium=organic_social&utm_campaign=communication_fast_response&utm_content=comment_link"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/go/linkedin/communication-fast/"
+  to = "https://www.fenixflooring.com/?utm_source=linkedin&utm_medium=organic_social&utm_campaign=communication_fast_response&utm_content=comment_link"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/go/linkedin/high-end-residential"
+  to = "https://www.fenixflooring.com/?utm_source=linkedin&utm_medium=organic_social&utm_campaign=high_end_residential&utm_content=comment_link"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/go/linkedin/high-end-residential/"
+  to = "https://www.fenixflooring.com/?utm_source=linkedin&utm_medium=organic_social&utm_campaign=high_end_residential&utm_content=comment_link"
+  status = 302
+  force = true
+
 # --- Content redirects ---
 [[redirects]]
   from = "/resources/commercial-flooring-cost-guide/"
