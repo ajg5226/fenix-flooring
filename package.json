@@ -10,7 +10,10 @@
     "astro": "astro",
     "verify-internal-links": "node scripts/verify-internal-links.mjs",
     "preflight": "npm run build && node scripts/pre-deploy-checks.mjs",
-    "checks": "node scripts/pre-deploy-checks.mjs"
+    "checks": "node scripts/pre-deploy-checks.mjs",
+    "test": "npx playwright test",
+    "test:flyer": "npx playwright test tests/flyer-qr-urls.spec.ts",
+    "content:qa": "node scripts/content-qa.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.0.0",
@@ -20,6 +23,7 @@
     "tailwindcss": "^3.4.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.58.2",
     "@types/node": "^20.0.0",
     "typescript": "^5.0.0"
   }
