@@ -213,13 +213,23 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
         });
       },
       {
-        threshold: 0.15,
+        threshold: 0.05,
         rootMargin: '0px 0px -40px 0px',
       }
     );
 
+    const vh = window.innerHeight;
     document.querySelectorAll('[data-reveal], [data-reveal-children]').forEach(el => {
-      observer.observe(el);
+      if (el.getBoundingClientRect().height > vh * 2.5) {
+        el.classList.add('revealed');
+        setTimeout(() => {
+          el.removeAttribute('data-reveal');
+          el.removeAttribute('data-reveal-children');
+          el.classList.remove('revealed');
+        }, 600);
+      } else {
+        observer.observe(el);
+      }
     });
   });
 </script>
