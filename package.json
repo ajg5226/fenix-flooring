@@ -9,11 +9,13 @@
     "preview": "astro preview",
     "astro": "astro",
     "verify-internal-links": "node scripts/verify-internal-links.mjs",
-    "preflight": "npm run build && node scripts/pre-deploy-checks.mjs",
+    "preflight": "npm run build && node scripts/pre-deploy-checks.mjs && node scripts/content-qa.mjs --rendered",
     "checks": "node scripts/pre-deploy-checks.mjs",
     "test": "npx playwright test",
     "test:flyer": "npx playwright test tests/flyer-qr-urls.spec.ts",
-    "content:qa": "node scripts/content-qa.mjs"
+    "content:qa": "node scripts/content-qa.mjs",
+    "content:qa:rendered": "node scripts/content-qa.mjs --rendered",
+    "content:qa:all": "node scripts/content-qa.mjs --all"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.0.0",

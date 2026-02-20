@@ -63,17 +63,15 @@ function findBoundedMatch(value, phrase) {
 /**
  * Walk tree and replace first matching phrase in text nodes (not inside link/code).
  * Mutates the tree in place. Tracks linkedUrls per document.
+ *
+ * When a text node is split via splice, recursive calls may further splice
+ * the same parent.children array. We track an offset so subsequent iterations
+ * use the correct index into the (mutated) array.
  */
 function walkAndInject(node, index, parent, state) {
   const { flatList, linkedUrls, currentSlug, inLink } = state;
 
-  if (node.type === 'link') {
-    // Do not descend into link nodes (don't link text that's already a link)
-    return;
-  }
-
-  if (node.type === 'code' || node.type === 'inlineCode') {
-    // Don't link inside code
+  if (node.type === 'link' || node.type === 'code' || node.type === 'inlineCode') {
     return;
   }
 
@@ -86,8 +84,6 @@ function walkAndInject(node, index, parent, state) {
       if (!match) continue;
 
       if (linkedUrls.has(url)) {
-        // Phrase matches but URL already linked. Split around it so shorter
-        // phrases can't partially match inside this compound term.
         const before = value.slice(0, match.start);
         const after = value.slice(match.end);
 
@@ -100,9 +96,12 @@ function walkAndInject(node, index, parent, state) {
         siblings.splice(index, 1, ...newNodes);
 
         const protectedIdx = before ? 1 : 0;
+        let offset = 0;
         for (let i = 0; i < newNodes.length; i++) {
-          if (i === protectedIdx) continue;
-          walkAndInject(newNodes[i], index + i, parent, state);
+          if (i === protectedIdx) { continue; }
+          const lenBefore = siblings.length;
+          walkAndInject(newNodes[i], index + i + offset, parent, state);
+          offset += siblings.length - lenBefore;
         }
         return;
       }
@@ -124,9 +123,11 @@ function walkAndInject(node, index, parent, state) {
       siblings.splice(index, 1, ...newNodes);
       linkedUrls.add(url);
 
-      // Walk the new nodes (e.g. "after" might contain another phrase for a different URL)
+      let offset = 0;
       for (let i = 0; i < newNodes.length; i++) {
-        walkAndInject(newNodes[i], index + i, parent, state);
+        const lenBefore = siblings.length;
+        walkAndInject(newNodes[i], index + i + offset, parent, state);
+        offset += siblings.length - lenBefore;
       }
       return;
     }
@@ -136,10 +137,13 @@ function walkAndInject(node, index, parent, state) {
   if (node.children && Array.isArray(node.children)) {
     const isLink = node.type === 'link';
     for (let i = 0; i < node.children.length; i++) {
+      const countBefore = node.children.length;
       walkAndInject(node.children[i], i, node, {
         ...state,
         inLink: inLink || isLink,
       });
+      const added = node.children.length - countBefore;
+      if (added > 0) i += added;
     }
   }
 }

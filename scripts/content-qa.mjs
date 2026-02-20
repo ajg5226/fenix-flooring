@@ -170,31 +170,117 @@ function findIssues(filePath) {
   return issues;
 }
 
-// --- Main ---
-const files = getMarkdownFiles(BLOG_DIR);
-let totalIssues = 0;
-let hasError = false;
+// --- Rendered HTML checks (post-build) ---
 
-console.log(`\n🔍 Content QA: scanning ${files.length} files in src/content/blog/\n`);
+const DIST_RESOURCES = join(import.meta.dirname, '..', 'dist', 'resources');
 
-for (const filePath of files) {
-  const name = basename(filePath);
-  const issues = findIssues(filePath);
+const RENDERED_FALSE_POSITIVES = [
+  'e.g', 'i.e', 'vs.', 'etc.', 'a.m', 'p.m',
+  'Mr.', 'Dr.', 'St.', 'Jr.', 'Sr.', 'Inc.', 'Ltd.',
+];
 
-  if (issues.length > 0) {
-    console.log(`\n❌ ${name} — ${issues.length} issue(s):`);
-    for (const issue of issues) {
-      const loc = issue.line > 0 ? `L${issue.line}` : 'file';
-      console.log(`   [${issue.type}] ${loc}: ${issue.detail}`);
-    }
-    totalIssues += issues.length;
-    hasError = true;
-  } else {
-    console.log(`✅ ${name}`);
+function getRenderedHtmlFiles(dir) {
+  try {
+    return readdirSync(dir)
+      .filter(f => {
+        try { return readdirSync(join(dir, f)).includes('index.html'); } catch { return false; }
+      })
+      .map(f => ({ slug: f, path: join(dir, f, 'index.html') }));
+  } catch {
+    return [];
   }
 }
 
-console.log(`\n${hasError ? '⚠️' : '✅'} ${totalIssues} issue(s) found across ${files.length} files.\n`);
+function stripHtmlTags(html) {
+  return html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function findRenderedIssues(filePath) {
+  const html = readFileSync(filePath, 'utf-8');
+  const bodyStart = html.indexOf('blog-prose');
+  if (bodyStart < 0) return [];
+  const footerStart = html.indexOf('<footer');
+  const body = footerStart > 0 ? html.slice(bodyStart, footerStart) : html.slice(bodyStart);
+  const text = stripHtmlTags(body);
+  const issues = [];
+
+  // 1. word.word concatenation (missing space after sentence-ending period)
+  const wordDotWord = /[a-z]\.[a-z]/gi;
+  let m;
+  while ((m = wordDotWord.exec(text)) !== null) {
+    const ctx = text.slice(Math.max(0, m.index - 8), Math.min(text.length, m.index + 12));
+    if (RENDERED_FALSE_POSITIVES.some(fp => ctx.includes(fp))) continue;
+    if (/\d\.\d/.test(text.slice(m.index - 1, m.index + 4))) continue;
+    issues.push({ type: 'rendered-word-concat', detail: `"…${ctx}…"` });
+  }
+
+  // 2. Repeated adjacent tokens (e.g. "carpet tile carpet tile")
+  //    Start at 3 words to avoid false positives from heading + body echo
+  const words = text.split(/\s+/).filter(Boolean);
+  for (let winSize = 3; winSize <= 6; winSize++) {
+    for (let j = 0; j <= words.length - winSize * 2; j++) {
+      const a = words.slice(j, j + winSize).join(' ').toLowerCase();
+      const b = words.slice(j + winSize, j + winSize * 2).join(' ').toLowerCase();
+      if (a === b && a.length > 8) {
+        issues.push({ type: 'rendered-repeated-tokens', detail: `"${a}" repeated back-to-back` });
+        break;
+      }
+    }
+  }
+
+  return issues;
+}
+
+// --- Main ---
+const mode = process.argv[2];
+let totalIssues = 0;
+let hasError = false;
+
+if (mode !== '--rendered') {
+  const files = getMarkdownFiles(BLOG_DIR);
+  console.log(`\n🔍 Content QA (source): scanning ${files.length} files in src/content/blog/\n`);
+
+  for (const filePath of files) {
+    const name = basename(filePath);
+    const issues = findIssues(filePath);
+
+    if (issues.length > 0) {
+      console.log(`\n❌ ${name} — ${issues.length} issue(s):`);
+      for (const issue of issues) {
+        const loc = issue.line > 0 ? `L${issue.line}` : 'file';
+        console.log(`   [${issue.type}] ${loc}: ${issue.detail}`);
+      }
+      totalIssues += issues.length;
+      hasError = true;
+    } else {
+      console.log(`✅ ${name}`);
+    }
+  }
+}
+
+if (mode === '--rendered' || mode === '--all') {
+  const rendered = getRenderedHtmlFiles(DIST_RESOURCES);
+  if (rendered.length === 0) {
+    console.log('\n⚠️  No rendered HTML found in dist/resources/. Run `npm run build` first.\n');
+  } else {
+    console.log(`\n🔍 Content QA (rendered HTML): scanning ${rendered.length} pages in dist/resources/\n`);
+    for (const { slug, path: filePath } of rendered) {
+      const issues = findRenderedIssues(filePath);
+      if (issues.length > 0) {
+        console.log(`\n❌ ${slug} — ${issues.length} issue(s):`);
+        for (const issue of issues) {
+          console.log(`   [${issue.type}] ${issue.detail}`);
+        }
+        totalIssues += issues.length;
+        hasError = true;
+      } else {
+        console.log(`✅ ${slug}`);
+      }
+    }
+  }
+}
+
+console.log(`\n${hasError ? '⚠️' : '✅'} ${totalIssues} total issue(s) found.\n`);
 
 if (hasError) {
   process.exit(1);
