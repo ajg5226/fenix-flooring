@@ -23,6 +23,24 @@ function latestDate(dates: Array<Date | undefined>): Date | undefined {
   return new Date(Math.max(...valid.map((d) => d.getTime())));
 }
 
+/** Tiered sitemap priority: homepage highest, hubs next, then detail pages, then utility. */
+function getPriority(pathname: string): number {
+  const p = (pathname || '/').replace(/\/$/, '') || '/';
+  if (p === '/') return 1.0;
+  if (['/services', '/flooring', '/industries', '/areas', '/case-studies', '/resources'].includes(p))
+    return 0.9;
+  if (
+    /^\/services\/[^/]+$/.test(p) ||
+    /^\/flooring\/[^/]+$/.test(p) ||
+    /^\/industries\/[^/]+$/.test(p) ||
+    /^\/areas\/[^/]+$/.test(p) ||
+    /^\/case-studies\/[^/]+$/.test(p)
+  )
+    return 0.85;
+  if (p === '/privacy') return 0.5;
+  return 0.7;
+}
+
 async function readPostMeta(filePath: string): Promise<PostMeta | null> {
   try {
     const raw = await readFile(filePath, 'utf-8');
@@ -116,6 +134,8 @@ export function sitemapIntegration(): AstroIntegration {
             const withTrailing = normalizedPath.endsWith('/') ? normalizedPath : normalizedPath + '/';
             // Filter out 404
             if (pathname.includes('404')) return false;
+            // Filter out tag archives (thin pages; noindex, exclude from sitemap)
+            if (normalizedPath.startsWith('/resources/tag/')) return false;
             // Filter out noindex pages
             if (noindexPages.has(withTrailing)) return false;
             // Filter out redirect stubs
@@ -161,7 +181,7 @@ export function sitemapIntegration(): AstroIntegration {
               loc: fullUrl,
               lastmod,
               changefreq: 'weekly' as const,
-              priority: 0.7,
+              priority: getPriority(pathname),
             };
           });
 
