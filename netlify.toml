@@ -2,6 +2,21 @@
   command = "npm run build"
   publish = "dist"
 
+# --- Legacy spam URLs: 410 Gone (never 5xx) ---
+# /cached/* and *.php are not real pages; return 410 for all host/protocol variants.
+[[redirects]]
+  from = "/cached/*"
+  to = "/410.html"
+  status = 410
+  force = true
+
+# Unknown .php paths (static site has no PHP; prevents any runtime attempt that could 5xx)
+[[redirects]]
+  from = "/*.php"
+  to = "/410.html"
+  status = 410
+  force = true
+
 # --- Host canonicalization (non-www -> www) ---
 [[redirects]]
   from = "/*"
