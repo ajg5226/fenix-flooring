@@ -12,6 +12,10 @@ import { formOptions } from '../config/site';
   class="space-y-6"
 >
   <input type="hidden" name="form-name" value="quote-request" />
+  <input type="hidden" name="utm_source" value="" />
+  <input type="hidden" name="utm_medium" value="" />
+  <input type="hidden" name="utm_campaign" value="" />
+  <input type="hidden" name="utm_content" value="" />
   <p class="hidden">
     <label>
       Don't fill this out if you're human: <input name="bot-field" />
@@ -172,3 +176,17 @@ import { formOptions } from '../config/site';
     Submit Quote Request
   </button>
 </form>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const form = document.querySelector<HTMLFormElement>('form[name="quote-request"]');
+  if (form) {
+    for (const key of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content']) {
+      const val = params.get(key);
+      if (val) {
+        const input = form.querySelector<HTMLInputElement>(`input[name="${key}"]`);
+        if (input) input.value = val;
+      }
+    }
+  }
+</script>

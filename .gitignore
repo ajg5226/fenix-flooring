@@ -26,3 +26,8 @@ npm-debug.log*
 
 # Netlify
 .netlify/
+
+# Playwright
+test-results/
+playwright-report/
+playwright/.cache/
